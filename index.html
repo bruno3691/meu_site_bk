@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Burger King Brasil - Peça Já seu Delivery!</title>
+  <title>Burger King Brasil - Peça Já seu Delivery!</title> 
   
   <meta http-equiv="Content-Security-Policy" content="
     default-src 'self';
@@ -25,31 +25,31 @@
   
   <style>
     /* PALETA DE CORES: Burger King (Retorno) com Estilo Simplificado */
-    .bk-red-main { /* Vermelho Principal BK */
+    .bk-red-main { 
         background-color: #BD0000;
     }
-    .bk-red-dark { /* Vermelho mais escuro para gradientes/hover */
+    .bk-red-dark { 
         background-color: #990000;
     }
-    .bk-yellow-main { /* Amarelo Principal BK */
+    .bk-yellow-main { 
         background-color: #FFC000;
     }
-    .bk-orange-accent { /* Laranja para gradientes/detalhes */
+    .bk-orange-accent { 
         background-color: #E47911;
     }
-    .bk-dark-text { /* Texto principal escuro */
+    .bk-dark-text { 
         color: #333333;
     }
-    .bk-light-text { /* Texto claro */
+    .bk-light-text { 
         color: #E0E0E0;
     }
-    .bk-bg-neutral { /* Fundo geral do body */
-        background-color: #F8F8F8; /* Um cinza claro suave */
+    .bk-bg-neutral { 
+        background-color: #F8F8F8; 
     }
-    .bk-bg-section { /* Fundo de seção ligeiramente mais escuro */
-        background-color: #EEEEEE; /* Um cinza claro */
+    .bk-bg-section { 
+        background-color: #EEEEEE; 
     }
-    .shadow-bk { /* Sombra com a intensidade do BK */
+    .shadow-bk { 
         box-shadow: 0 10px 30px rgba(0,0,0,0.25);
         border-radius: 8px; 
     }
@@ -239,7 +239,7 @@
         </div>
       </div>
     </div>
-    <div class="absolute bottom-0 left-0 right-0 h-8 bg-bk-light-gray rounded-t-3xl"></div>
+    <div class="absolute bottom-0 left-0 right-0 h-8 bg-white rounded-t-3xl"></div>
   </section>
 
   <section id="cardapio" class="menu-section py-12 bg-bk-bg-section rounded-lg shadow-bk">
@@ -345,11 +345,10 @@
         </div>
       </div>
 
-      <div id="acompanhamentos" class="menu-category hidden">
-        <h3 class="text-2xl font-bold text-bk-dark-text mb-6 flex items-center">
+      <div id="acompanhamentos" class="menu-category"> <h3 class="text-2xl font-bold text-bk-dark-text mb-6 flex items-center">
           <i class="fas fa-fries mr-3 bk-yellow-text"></i> Acompanhamentos
         </h3>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           <div class="menu-item bg-white p-4 rounded-lg shadow-bk flex">
             <div class="w-24 h-24 flex-shrink-0 mr-4">
               <img src="img/batata_king.png" 
@@ -387,8 +386,7 @@
         </div>
       </div>
 
-      <div id="sobremesas" class="menu-category hidden">
-        <h3 class="text-2xl font-bold text-bk-dark-text mb-6 flex items-center">
+      <div id="sobremesas" class="menu-category"> <h3 class="text-2xl font-bold text-bk-dark-text mb-6 flex items-center">
           <i class="fas fa-ice-cream mr-3 bk-yellow-text"></i> Sobremesas
         </h3>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -429,8 +427,7 @@
         </div>
       </div>
 
-      <div id="bebidas" class="menu-category hidden">
-        <h3 class="text-2xl font-bold text-bk-dark-text mb-6 flex items-center">
+      <div id="bebidas" class="menu-category"> <h3 class="text-2xl font-bold text-bk-dark-text mb-6 flex items-center">
           <i class="fas fa-mug-hot mr-3 bk-yellow-text"></i> Bebidas
         </h3>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -471,8 +468,7 @@
         </div>
       </div>
 
-      <div id="cafe" class="menu-category hidden">
-        <h3 class="text-2xl font-bold text-bk-dark-text mb-6 flex items-center">
+      <div id="cafe" class="menu-category"> <h3 class="text-2xl font-bold text-bk-dark-text mb-6 flex items-center">
           <i class="fas fa-coffee mr-3 bk-yellow-text"></i> Café da Manhã
         </h3>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -581,7 +577,7 @@
           <span>Total:</span>
           <span id="cart-total">R$ 0,00</span>
         </div>
-        <a href="#" class="block btn-bk-primary hover:opacity-90 text-white text-center py-2 rounded-md font-medium transition duration-300">
+        <a href="#" class="block btn-bk-primary hover:opacity-90 text-white text-center py-2 rounded-lg font-medium transition duration-300">
           Finalizar Pedido
         </a>
       </div>
@@ -786,7 +782,6 @@
             alert('Pedido finalizado com sucesso! (Funcionalidade de Checkout ainda não implementada)');
         }
     });
-
 
     // Alterar botões "Adicionar" para abrir o modal
     const addToCartButtons = document.querySelectorAll('.add-to-cart');

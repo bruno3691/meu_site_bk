@@ -330,9 +330,8 @@
                    alt="Mega Stacker" class="w-full h-full object-cover rounded-lg">
             </div>
             <div class="flex-grow">
-              <div class="flex justify-between items-start">
-                <h4 class="font-bold text-bk-dark-text">Mega Stacker</h4>
-                <p class="text-gray-600 text-sm my-1">Até 4 hambúrgueres grelhados, muito queijo e bacon, molho Stacker.</p>
+              <h4 class="font-bold text-bk-dark-text">Mega Stacker</h4>
+              <p class="text-gray-600 text-sm my-1">Até 4 hambúrgueres grelhados, muito queijo e bacon, molho Stacker.</p>
               <div class="flex justify-between items-center mt-2">
                 <span class="bk-red-text font-bold">R$ 38,90</span>
                 <button class="add-to-cart btn-bk-accent hover:opacity-90 text-bk-dark-text w-8 h-8 rounded-full flex items-center justify-center transition duration-200"
@@ -688,9 +687,9 @@
     const categoryButtons = document.querySelectorAll('.category-btn');
     const menuCategories = document.querySelectorAll('.menu-category');
     // Adiciona checagens de nullidade para elementos antes de adicionar listeners
-    if (categoryButtons.length > 0 && menuCategories.length > 0) { // Verifica se há botões e categorias
+    if (categoryButtons.length > 0 && menuCategories.length > 0) { 
         categoryButtons.forEach(button => {
-            if (button) { // Checa se o botão individual não é null
+            if (button) { 
                 button.addEventListener('click', () => {
                     categoryButtons.forEach(btn => {
                       btn.classList.remove('btn-bk-primary', 'text-white'); 
@@ -705,7 +704,6 @@
                     const categoryId = button.getAttribute('data-category');
                     const targetCategory = document.getElementById(categoryId);
                     if (targetCategory) { 
-                        // APENAS ROLAR, NÃO ESCONDER/MOSTRAR VISIBILIDADE DE CATEGORIAS
                         document.getElementById('cardapio').scrollIntoView({ behavior: 'smooth' });
                     }
                 });
@@ -881,29 +879,26 @@
         cart.forEach((item, index) => {
           const itemElement = document.createElement('div');
           itemElement.className = 'flex justify-between items-center py-2 border-b border-gray-100 last:border-b-0';
-          // AQUI ESTÁ A CORREÇÃO PRINCIPAL: GARANTIR QUE A STRING TEM BACKTICKS PARA INTERPOLAÇÃO
+          // AQUI ESTÁ A LINHA CRÍTICA COM AS CRASES CORRETAS
           itemElement.innerHTML = `
             <div>
-              <p class="font-medium text-bk-dark-text"><span class="math-inline">\{item\.name\} <span class\="text\-gray\-500 text\-sm"\>x</span>{item.quantity}</span></p>
-              <p class="text-sm text-gray-500">R$ <span class="math-inline">\{\(item\.price \* item\.quantity\)\.toFixed\(2\)\.replace\('\.', ','\)\}</p\>
-</div\>
-<button class\="remove\-item text\-red\-500 p\-1 rounded\-full hover\:bg\-red\-100" data\-index\="</span>{index}" aria-label="Remover item">
+              <p class="font-medium text-bk-dark-text">${item.name} <span class="text-gray-500 text-sm">x${item.quantity}</span></p>
+              <p class="text-sm text-gray-500">R$ ${(item.price * item.quantity).toFixed(2).replace('.', ',')}</p>
+            </div>
+            <button class="remove-item text-red-500 p-1 rounded-full hover:bg-red-100" data-index="${index}" aria-label="Remover item">
               <i class="fas fa-times"></i>
             </button>
-          `;
+          `; // FIM DA LINHA CRÍTICA
           cartItemsContainer.appendChild(itemElement);
         });
 
         // Event delegation para botões de remover itens no carrinho (Substitui o loop antigo)
-        // Isso resolve o TypeError de 'undefined' e o problema de 'Tentativa de remover item'.
-        // O listener só é adicionado UMA VEZ ao container pai 'cartItemsContainer'.
         if (!cartItemsContainer.dataset.hasRemoveListener) { 
             cartItemsContainer.dataset.hasRemoveListener = true; 
             cartItemsContainer.addEventListener('click', (e) => {
                 const removeButton = e.target.closest('.remove-item'); 
                 if (removeButton) {
                     const index = parseInt(removeButton.getAttribute('data-index'));
-                    // Agora a verificação 'cart[index] !== undefined' ainda é importante, mas o 'index' deve ser mais confiável.
                     if (cart[index] !== undefined) { 
                         if (cart[index].quantity > 1) {
                             cart[index].quantity -= 1;
@@ -911,10 +906,9 @@
                             cart.splice(index, 1);
                         }
                     } else {
-                        // Isso só deve acontecer se o DOM e o array 'cart' estiverem MUITO dessincronizados.
                         console.warn('Tentativa de remover item com índice inválido via delegação. Re-renderizando carrinho.');
                     }
-                    updateCartUI(); // Re-renderiza para garantir a sincronia
+                    updateCartUI(); 
                     saveCart();
                     e.stopPropagation();
                 }

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sabor Essencial - O Verdadeiro Grelhado</title> <meta http-equiv="Content-Security-Policy" content="
+  <title>Aroma & Brasa - Sabores Autênticos</title> <meta http-equiv="Content-Security-Policy" content="
     default-src 'self';
     script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com;
     style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
@@ -22,61 +22,78 @@
   <link rel="stylesheet" href="assets/css/all.min.css">
   
   <style>
-    /* NOVA PALETA MINIMALISTA E COM CREDIBILIDADE VISUAL */
-    .brand-primary {
-      background-color: #8B0000; /* Vinho / Vermelho Escuro - Credibilidade */
+    /* NOVO CONCEITO VISUAL: MODERN & VIBRANT COM TOQUE LÚDICO */
+    .concept-primary-bg { /* Tom de pêssego/coral, mais amigável */
+        background: linear-gradient(135deg, #FF7F50 0%, #FF6347 100%); /* Coral/Tomato */
     }
-    .brand-accent {
-      background: linear-gradient(135deg, #B8860B 0%, #A07800 100%); /* Dourado Sutil / Bronze */
+    .concept-primary-text {
+        color: #FF6347; /* Cor do texto primário */
     }
-    .brand-text-primary {
-      color: #8B0000;
+    .concept-accent-bg { /* Dourado vibrante, mas suave */
+        background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%); /* Gold/Orange */
     }
-    .brand-text-accent {
-      color: #B8860B;
+    .concept-accent-text {
+        color: #FFD700; /* Cor do texto de destaque */
     }
-    .bg-light-gray {
-      background-color: #F8F8F8; /* Base de fundo suave */
+    .concept-neutral-bg { /* Fundo base suave */
+        background-color: #FDF5E6; /* OldLace - Tom de creme */
     }
-    .text-dark-gray {
-        color: #333333; /* Texto principal */
+    .concept-secondary-bg { /* Fundo de seção mais escura */
+        background-color: #FFF8DC; /* Cornsilk - Amarelo bem claro */
     }
-    .shadow-subtle {
-        box-shadow: 0 4px 12px rgba(0,0,0,0.05); /* Sombra mais leve */
+    .concept-dark-text { /* Texto principal, carvão */
+        color: #36454F; /* Charcoal */
+    }
+    .concept-button-hover {
+        background-color: #E05030; /* Vermelho mais escuro para hover */
+    }
+    .shadow-playful { /* Sombra com um toque divertido e leve */
+        box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+        border-radius: 12px; /* Mais arredondado */
     }
     .card-hover:hover {
-      transform: translateY(-3px); /* Movimento mais sutil */
-      box-shadow: 0 8px 16px rgba(0,0,0,0.1); /* Sombra refinada no hover */
+      transform: translateY(-5px) scale(1.02); /* Mais expressivo no hover */
+      box-shadow: 0 15px 30px rgba(0,0,0,0.18);
+    }
+    .menu-item {
+        border-radius: 10px; /* Arredondamento para itens do cardápio */
+        box-shadow: 0 4px 10px rgba(0,0,0,0.05);
     }
     .menu-item:not(:last-child) {
-      border-bottom: 1px solid rgba(0,0,0,0.03); /* Borda mais suave */
+      border-bottom: none; /* Remove borda inferior para visual mais limpo */
     }
-    .menu-section {
-      scroll-margin-top: 100px;
+    .category-btn {
+        border-radius: 20px; /* Botões de categoria bem arredondados */
+        padding: 8px 18px;
+        transition: all 0.3s ease;
     }
+    .category-btn.active {
+        background-color: #FF6347; /* Cor ativa */
+        color: white;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    .navbar-shadow {
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05); /* Sombra mais sutil na nav */
+    }
+
     /* Custom scrollbar for menu categories */
-    .scrollbar-hide::-webkit-scrollbar {
-      display: none;
-    }
-    .scrollbar-hide {
-      -ms-overflow-style: none;
-      scrollbar-width: none;
-    }
+    .scrollbar-hide::-webkit-scrollbar { display: none; }
+    .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
   </style>
 </head>
-<body class="font-['Montserrat'] bg-light-gray text-dark-gray"> <header class="brand-primary py-4 shadow-subtle"> <div class="container mx-auto px-4">
+<body class="font-['Montserrat'] bg-concept-neutral-bg text-concept-dark-text"> <header class="concept-primary-bg py-4 shadow-playful"> <div class="container mx-auto px-4">
       <div class="flex justify-between items-center">
         <a href="#" class="flex items-center space-x-2">
-          <img src="img/seu_logo_minimalista.svg" alt="Sabor Essencial Logo" class="h-8 md:h-10">
-          <h1 class="text-white text-2xl font-bold">Sabor Essencial</h1> </a>
+          <img src="img/seu_logo_minimalista.svg" alt="Aroma & Brasa Logo" class="h-8 md:h-10">
+          <h1 class="text-white text-2xl font-bold">Aroma & Brasa</h1> </a>
         <div class="hidden md:flex space-x-2">
-          <a href="#" class="text-white hover:text-yellow-300 px-3 py-1 rounded-full" aria-label="Pesquisar">
+          <a href="#" class="text-white hover:text-concept-accent-text px-3 py-1 rounded-full" aria-label="Pesquisar">
             <i class="fas fa-search"></i>
           </a>
-          <a href="#" class="text-white hover:text-yellow-300 px-3 py-1 rounded-full" aria-label="Minha Conta">
+          <a href="#" class="text-white hover:text-concept-accent-text px-3 py-1 rounded-full" aria-label="Minha Conta">
             <i class="fas fa-user"></i>
           </a>
-          <a href="#" class="text-white hover:text-yellow-300 px-3 py-1 rounded-full" aria-label="Carrinho">
+          <a href="#" class="text-white hover:text-concept-accent-text px-3 py-1 rounded-full" aria-label="Carrinho">
             <i class="fas fa-shopping-bag"></i>
           </a>
         </div>
@@ -84,39 +101,38 @@
     </div>
   </header>
 
-  <nav class="bg-white py-3 navbar-shadow sticky top-0 z-50 shadow-subtle"> <div class="container mx-auto px-4">
+  <nav class="bg-white py-3 navbar-shadow sticky top-0 z-50 shadow-playful"> <div class="container mx-auto px-4">
       <div class="flex justify-between items-center">
-        <button id="mobile-menu-button" class="md:hidden text-dark-gray focus:outline-none" aria-label="Abrir menu mobile">
+        <button id="mobile-menu-button" class="md:hidden text-concept-dark-text focus:outline-none" aria-label="Abrir menu mobile">
           <i class="fas fa-bars text-xl"></i>
         </button>
 
         <div class="hidden md:flex space-x-1">
-          <a href="#ofertas" class="px-4 py-2 rounded-lg hover:bg-gray-100 font-medium transition duration-200 text-dark-gray">Ofertas</a>
-          <a href="#cardapio" class="px-4 py-2 rounded-lg hover:bg-gray-100 font-medium transition duration-200 text-dark-gray">Cardápio</a>
-          <a href="#delivery" class="px-4 py-2 rounded-lg hover:bg-gray-100 font-medium transition duration-200 text-dark-gray">Delivery</a>
-          <a href="#sobre" class="px-4 py-2 rounded-lg hover:bg-gray-100 font-medium transition duration-200 text-dark-gray">Sobre nós</a>
+          <a href="#ofertas" class="px-4 py-2 rounded-lg hover:bg-concept-secondary-bg font-medium transition duration-200 text-concept-dark-text">Ofertas</a>
+          <a href="#cardapio" class="px-4 py-2 rounded-lg hover:bg-concept-secondary-bg font-medium transition duration-200 text-concept-dark-text">Cardápio</a>
+          <a href="#delivery" class="px-4 py-2 rounded-lg hover:bg-concept-secondary-bg font-medium transition duration-200 text-concept-dark-text">Delivery</a>
+          <a href="#sobre" class="px-4 py-2 rounded-lg hover:bg-concept-secondary-bg font-medium transition duration-200 text-concept-dark-text">Sobre nós</a>
         </div>
 
         <div class="hidden md:flex space-x-2">
-          <a href="#" class="brand-primary hover:bg-red-800 text-white px-4 py-2 rounded-lg font-medium transition duration-200">
+          <a href="#" class="btn-primary hover:concept-button-hover text-white px-4 py-2 rounded-lg font-medium transition duration-200">
             <i class="fas fa-mobile-alt mr-2"></i> Baixe o App
           </a>
-          <a href="#" class="bg-gray-800 hover:bg-gray-900 text-white px-4 py-2 rounded-lg font-medium transition duration-200">
+          <a href="#" class="bg-concept-dark-text hover:bg-gray-800 text-white px-4 py-2 rounded-lg font-medium transition duration-200">
             <i class="fas fa-map-marker-alt mr-2"></i> Encontre-nos
           </a>
         </div>
       </div>
 
-      <div id="mobile-menu" class="hidden md:hidden py-2 space-y-2 bg-white">
-        <a href="#ofertas" class="block px-4 py-2 rounded-lg hover:bg-gray-100 font-medium text-dark-gray">Ofertas</a>
-        <a href="#cardapio" class="block px-4 py-2 rounded-lg hover:bg-gray-100 font-medium text-dark-gray">Cardápio</a>
-        <a href="#delivery" class="block px-4 py-2 rounded-lg hover:bg-gray-100 font-medium text-dark-gray">Delivery</a>
-        <a href="#sobre" class="block px-4 py-2 rounded-lg hover:bg-gray-100 font-medium text-dark-gray">Sobre nós</a>
+      <div id="mobile-menu" class="hidden md:hidden py-2 space-y-2 bg-white rounded-lg shadow-playful"> <a href="#ofertas" class="block px-4 py-2 rounded-lg hover:bg-concept-secondary-bg font-medium text-concept-dark-text">Ofertas</a>
+        <a href="#cardapio" class="block px-4 py-2 rounded-lg hover:bg-concept-secondary-bg font-medium text-concept-dark-text">Cardápio</a>
+        <a href="#delivery" class="block px-4 py-2 rounded-lg hover:bg-concept-secondary-bg font-medium text-concept-dark-text">Delivery</a>
+        <a href="#sobre" class="block px-4 py-2 rounded-lg hover:bg-concept-secondary-bg font-medium text-concept-dark-text">Sobre nós</a>
         <div class="pt-2 space-y-2">
-          <a href="#" class="block brand-primary hover:bg-red-800 text-white px-4 py-2 rounded-lg font-medium">
+          <a href="#" class="block btn-primary hover:concept-button-hover text-white px-4 py-2 rounded-lg font-medium">
             Baixe o App
           </a>
-          <a href="#" class="block bg-gray-800 hover:bg-gray-900 text-white px-4 py-2 rounded-lg font-medium">
+          <a href="#" class="block bg-concept-dark-text hover:bg-gray-800 text-white px-4 py-2 rounded-lg font-medium">
             Encontre-nos
           </a>
         </div>
@@ -125,23 +141,23 @@
   </nav>
 
   <section class="relative">
-    <div class="brand-primary bg-opacity-90 pt-16 pb-24 px-4">
+    <div class="concept-primary-bg bg-opacity-90 pt-16 pb-24 px-4 shadow-playful">
       <div class="container mx-auto flex flex-col md:flex-row items-center">
         <div class="md:w-1/2 text-center md:text-left mb-8 md:mb-0">
-          <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">A Essência do Sabor Grelhado.</h2>
-          <p class="text-xl text-gray-200 mb-6">Cada mordida, uma experiência. Feito na brasa.</p>
+          <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">Sabores que Surpreendem, Grelhados à Perfeição.</h2>
+          <p class="text-xl text-gray-200 mb-6">Cada prato, uma obra de arte do sabor e da paixão.</p>
           <div class="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4 justify-center md:justify-start">
-            <a href="#cardapio" class="brand-accent hover:opacity-90 text-white font-bold py-3 px-6 rounded-full transition duration-300 shadow-lg">
-              Descubra o Cardápio
+            <a href="#cardapio" class="concept-accent-bg hover:opacity-90 text-concept-dark-text font-bold py-3 px-6 rounded-full transition duration-300 shadow-lg">
+              Nosso Menu Completo
             </a>
-            <a href="#ofertas" class="bg-white hover:bg-gray-100 brand-text-primary font-bold py-3 px-6 rounded-full transition duration-300 shadow-lg">
-              Ofertas Especiais
+            <a href="#ofertas" class="bg-white hover:bg-gray-100 concept-primary-text font-bold py-3 px-6 rounded-full transition duration-300 shadow-lg">
+              Ofertas Imperdíveis
             </a>
           </div>
         </div>
         <div class="md:w-1/2 flex justify-center">
           <img src="img/banner_grelhado.png" 
-               alt="Grelhado no Fogo" 
+               alt="Sabor Grelhado" 
                class="h-64 md:h-80 lg:h-96 object-contain hover:scale-105 transition duration-300">
         </div>
       </div>
@@ -149,90 +165,88 @@
     <div class="absolute bottom-0 left-0 right-0 h-8 bg-white rounded-t-3xl"></div>
   </section>
 
-  <section id="ofertas" class="menu-section py-12 bg-white">
-    <div class="container mx-auto px-4">
+  <section id="ofertas" class="menu-section py-12 bg-white rounded-t-lg shadow-playful"> <div class="container mx-auto px-4">
       <div class="flex justify-between items-end mb-8">
         <div>
-          <h2 class="text-3xl font-bold brand-text-primary mb-2">Ofertas Exclusivas</h2>
-          <div class="w-16 h-1 brand-accent rounded-full"></div>
+          <h2 class="text-3xl font-bold concept-primary-text mb-2">Descubra Nossas Ofertas</h2>
+          <div class="w-16 h-1 concept-accent-bg rounded-full"></div>
         </div>
-        <a href="#" class="text-gray-500 hover:brand-text-primary flex items-center">
+        <a href="#" class="text-gray-500 hover:concept-primary-text flex items-center">
           Ver todas <i class="fas fa-chevron-right ml-1 text-sm"></i>
         </a>
       </div>
 
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        <div class="bg-white rounded-xl overflow-hidden shadow-subtle card-hover transition duration-300">
-          <div class="relative">
+        <div class="bg-white rounded-xl overflow-hidden shadow-playful card-hover transition duration-300"> <div class="relative">
             <img src="img/king_em_dobro.png" 
-                 alt="King em Dobro" class="w-full h-48 object-cover">
-            <div class="absolute top-2 left-2 brand-primary text-white text-xs font-bold px-2 py-1 rounded">
+                 alt="Oferta Dupla" class="w-full h-48 object-cover">
+            <div class="absolute top-2 left-2 concept-primary-bg text-white text-xs font-bold px-2 py-1 rounded">
               NOVO
             </div>
           </div>
           <div class="p-4">
-            <h3 class="font-bold text-lg mb-2">King em Dobro</h3>
-            <p class="text-gray-600 text-sm mb-3">Escolha 2 sanduíches, batata e refri por R$ 25,00</p>
+            <h3 class="font-bold text-lg mb-2">Oferta Dupla Especial</h3>
+            <p class="text-gray-600 text-sm mb-3">Escolha 2 sanduíches, batata e refri por apenas R$ 25,00</p>
             <div class="flex justify-between items-center">
-              <span class="brand-text-primary font-bold">R$ 25,00</span>
-              <button class="brand-accent hover:opacity-90 text-white px-3 py-1 rounded-full text-sm font-medium transition duration-200">
+              <span class="concept-primary-text font-bold">R$ 25,00</span>
+              <button class="concept-accent-bg hover:concept-button-hover text-concept-dark-text px-3 py-1 rounded-full text-sm font-medium transition duration-200">
                 Adicionar
               </button>
             </div>
           </div>
         </div>
 
-        <div class="bg-white rounded-xl overflow-hidden shadow-subtle card-hover transition duration-300">
+        <div class="bg-white rounded-xl overflow-hidden shadow-playful card-hover transition duration-300">
           <div class="relative">
             <img src="img/combo_da_hora.png" 
-                 alt="Combo da Hora" class="w-full h-48 object-cover">
-            <div class="absolute top-2 left-2 brand-accent text-white text-xs font-bold px-2 py-1 rounded">
+                 alt="Combo do Dia" class="w-full h-48 object-cover">
+            <div class="absolute top-2 left-2 concept-accent-bg text-concept-dark-text text-xs font-bold px-2 py-1 rounded">
               EXCLUSIVO APP
             </div>
           </div>
           <div class="p-4">
-            <h3 class="font-bold text-lg mb-2">Combo da Hora</h3>
+            <h3 class="font-bold text-lg mb-2">Combo do Dia</h3>
             <p class="text-gray-600 text-sm mb-3">Sanduíche + Batata P + Refri P por R$ 19,90</p>
             <div class="flex justify-between items-center">
-              <span class="brand-text-primary font-bold">R$ 19,90</span>
-              <button class="brand-accent hover:opacity-90 text-white px-3 py-1 rounded-full text-sm font-medium transition duration-200">
+              <span class="concept-primary-text font-bold">R$ 19,90</span>
+              <button class="concept-accent-bg hover:concept-button-hover text-concept-dark-text px-3 py-1 rounded-full text-sm font-medium transition duration-200">
                 Adicionar
               </button>
             </div>
           </div>
         </div>
 
-        <div class="bg-white rounded-xl overflow-hidden shadow-subtle card-hover transition duration-300">
+        <div class="bg-white rounded-xl overflow-hidden shadow-playful card-hover transition duration-300">
           <div class="relative">
             <img src="img/casquinha_recheada.png" 
-                 alt="Casquinha Recheada" class="w-full h-48 object-cover">
+                 alt="Doce Recheado" class="w-full h-48 object-cover">
           </div>
           <div class="p-4">
-            <h3 class="font-bold text-lg mb-2">Casquinha Recheada</h3>
-            <p class="text-gray-600 text-sm mb-3">Nossa casquinha com calda de chocolate e recheio cremoso por R$ 6,00</p>
+            <h3 class="font-bold text-lg mb-2">Doce Recheado</h3>
+            <p class="text-gray-600 text-sm mb-3">Nossa casquinha com calda e recheio cremoso por R$ 6,00</p>
             <div class="flex justify-between items-center">
-              <span class="brand-text-primary font-bold">R$ 6,00</span>
-              <button class="brand-accent hover:opacity-90 text-white px-3 py-1 rounded-full text-sm font-medium transition duration-200">
+              <span class="concept-primary-text font-bold">R$ 6,00</span>
+              <button class="concept-accent-bg hover:concept-button-hover text-concept-dark-text px-3 py-1 rounded-full text-sm font-medium transition duration-200">
                 Adicionar
               </button>
             </div>
           </div>
         </div>
 
-        <div class="bg-white rounded-xl overflow-hidden shadow-subtle card-hover transition duration-300">
+        <div class="bg-white rounded-xl overflow-hidden shadow-playful card-hover transition duration-300">
           <div class="relative">
             <img src="img/whopper_furioso.png" 
-                 alt="Whopper Furioso" class="w-full h-48 object-cover">
-            <div class="absolute top-2 left-2 brand-primary text-white text-xs font-bold px-2 py-1 rounded">
+                 alt="Explosão de Sabor" class="w-full h-48 object-cover">
+            <div class="absolute top-2 left-2 concept-primary-bg text-white text-xs font-bold px-2 py-1 rounded">
               POPULAR
             </div>
           </div>
           <div class="p-4">
-            <h3 class="font-bold text-lg mb-2">Whopper Furioso</h3>
+            <h3 class="font-bold text-lg mb-2">Explosão de Sabor</h3>
             <p class="text-gray-600 text-sm mb-3">Sanduíche + Batata M + Refri M a partir de R$ 34,90</p>
             <div class="flex justify-between items-center">
-              <span class="brand-text-primary font-bold">a partir de R$ 34,90</span>
-              <button class="brand-accent hover:opacity-90 text-white px-3 py-1 rounded-full text-sm font-medium transition duration-200">
+              <span class="concept-primary-text font-bold">a partir de R$ 34,90</span>
+              <button class="concept-accent-bg hover:concept-button-hover text-concept-dark-text px-3 py-1 rounded-full text-sm font-medium transition duration-200">
                 Adicionar
               </button>
             </div>
@@ -242,42 +256,42 @@
     </div>
   </section>
 
-  <section id="cardapio" class="menu-section py-12 bg-light-gray"> <div class="container mx-auto px-4">
-      <h2 class="text-3xl font-bold brand-text-primary mb-2 text-center">Nosso Cardápio Essencial</h2>
-      <div class="w-16 h-1 brand-accent rounded-full mx-auto mb-8"></div>
+  <section id="cardapio" class="menu-section py-12 bg-concept-secondary-bg rounded-lg shadow-playful"> <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold concept-primary-text mb-2 text-center">Nosso Cardápio Completo</h2>
+      <div class="w-16 h-1 concept-accent-bg rounded-full mx-auto mb-8"></div>
 
       <div class="flex overflow-x-auto pb-4 mb-6 scrollbar-hide">
         <div class="flex space-x-2">
-          <button class="category-btn px-4 py-2 rounded-full brand-primary text-white font-medium whitespace-nowrap" data-category="lanches">
+          <button class="category-btn active brand-primary text-white font-medium whitespace-nowrap" data-category="lanches">
             Lanches
           </button>
-          <button class="category-btn px-4 py-2 rounded-full bg-gray-200 hover:bg-gray-300 font-medium whitespace-nowrap text-dark-gray">Acompanhamentos</button>
-          <button class="category-btn px-4 py-2 rounded-full bg-gray-200 hover:bg-gray-300 font-medium whitespace-nowrap text-dark-gray">Sobremesas</button>
-          <button class="category-btn px-4 py-2 rounded-full bg-gray-200 hover:bg-gray-300 font-medium whitespace-nowrap text-dark-gray">Bebidas</button>
-          <button class="category-btn px-4 py-2 rounded-full bg-gray-200 hover:bg-gray-300 font-medium whitespace-nowrap text-dark-gray">Café da manhã</button>
+          <button class="category-btn bg-gray-200 hover:bg-gray-300 font-medium whitespace-nowrap text-concept-dark-text">Acompanhamentos</button>
+          <button class="category-btn bg-gray-200 hover:bg-gray-300 font-medium whitespace-nowrap text-concept-dark-text">Sobremesas</button>
+          <button class="category-btn bg-gray-200 hover:bg-gray-300 font-medium whitespace-nowrap text-concept-dark-text">Bebidas</button>
+          <button class="category-btn bg-gray-200 hover:bg-gray-300 font-medium whitespace-nowrap text-concept-dark-text">Café da manhã</button>
         </div>
       </div>
 
       <div id="lanches" class="menu-category">
-        <h3 class="text-2xl font-bold text-dark-gray mb-6 flex items-center">
-          <i class="fas fa-burger mr-3 brand-text-accent"></i> Lanches
+        <h3 class="text-2xl font-bold text-concept-dark-text mb-6 flex items-center">
+          <i class="fas fa-burger mr-3 concept-accent-text"></i> Lanches
         </h3>
         
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <div class="menu-item bg-white p-4 rounded-lg shadow-subtle flex">
+          <div class="menu-item bg-white p-4 rounded-lg shadow-playful flex">
             <div class="w-24 h-24 flex-shrink-0 mr-4">
               <img src="img/whopper.png" 
                    alt="Whopper" class="w-full h-full object-cover rounded-lg">
             </div>
             <div class="flex-grow">
               <div class="flex justify-between items-start">
-                <h4 class="font-bold text-dark-gray">Whopper</h4>
+                <h4 class="font-bold text-concept-dark-text">Whopper</h4>
                 <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full">O Original</span>
               </div>
               <p class="text-gray-600 text-sm my-1">O sabor inconfundível do hambúrguer grelhado no fogo, alface, tomate, picles e maionese.</p>
               <div class="flex justify-between items-center mt-2">
-                <span class="brand-text-primary font-bold">R$ 22,90</span>
-                <button class="brand-accent hover:opacity-90 text-white w-8 h-8 rounded-full flex items-center justify-center transition duration-200"
+                <span class="concept-primary-text font-bold">R$ 22,90</span>
+                <button class="concept-accent-bg hover:opacity-90 text-concept-dark-text w-8 h-8 rounded-full flex items-center justify-center transition duration-200"
                         data-name="Whopper" data-price="22.90">
                   <i class="fas fa-plus"></i>
                 </button>
@@ -285,20 +299,20 @@
             </div>
           </div>
 
-          <div class="menu-item bg-white p-4 rounded-lg shadow-subtle flex">
+          <div class="menu-item bg-white p-4 rounded-lg shadow-playful flex">
             <div class="w-24 h-24 flex-shrink-0 mr-4">
               <img src="img/stacker_duplo.png" 
                    alt="Stacker Duplo" class="w-full h-full object-cover rounded-lg">
             </div>
             <div class="flex-grow">
               <div class="flex justify-between items-start">
-                <h4 class="font-bold text-dark-gray">Stacker Duplo</h4>
+                <h4 class="font-bold text-concept-dark-text">Stacker Duplo</h4>
                 <span class="bg-red-100 text-red-800 text-xs px-2 py-1 rounded-full">Favorito</span>
               </div>
               <p class="text-gray-600 text-sm my-1">Dois hambúrgueres grelhados, queijo derretido e fatias de bacon crocante.</p>
               <div class="flex justify-between items-center mt-2">
-                <span class="brand-text-primary font-bold">R$ 28,90</span>
-                <button class="brand-accent hover:opacity-90 text-white w-8 h-8 rounded-full flex items-center justify-center transition duration-200"
+                <span class="concept-primary-text font-bold">R$ 28,90</span>
+                <button class="concept-accent-bg hover:opacity-90 text-concept-dark-text w-8 h-8 rounded-full flex items-center justify-center transition duration-200"
                         data-name="Stacker Duplo" data-price="28.90">
                   <i class="fas fa-plus"></i>
                 </button>
@@ -306,17 +320,17 @@
             </div>
           </div>
 
-          <div class="menu-item bg-white p-4 rounded-lg shadow-subtle flex">
+          <div class="menu-item bg-white p-4 rounded-lg shadow-playful flex">
             <div class="w-24 h-24 flex-shrink-0 mr-4">
               <img src="img/chicken_crisp.png" 
                    alt="Chicken Crisp" class="w-full h-full object-cover rounded-lg">
             </div>
             <div class="flex-grow">
-              <h4 class="font-bold text-dark-gray">Chicken Crisp</h4>
+              <h4 class="font-bold text-concept-dark-text">Chicken Crisp</h4>
               <p class="text-gray-600 text-sm my-1">Filé de frango empanado e crocante, alface, tomate e maionese.</p>
               <div class="flex justify-between items-center mt-2">
-                <span class="brand-text-primary font-bold">R$ 19,90</span>
-                <button class="brand-accent hover:opacity-90 text-white w-8 h-8 rounded-full flex items-center justify-center transition duration-200"
+                <span class="concept-primary-text font-bold">R$ 19,90</span>
+                <button class="concept-accent-bg hover:opacity-90 text-concept-dark-text w-8 h-8 rounded-full flex items-center justify-center transition duration-200"
                         data-name="Chicken Crisp" data-price="19.90">
                   <i class="fas fa-plus"></i>
                 </button>
@@ -324,17 +338,17 @@
             </div>
           </div>
 
-          <div class="menu-item bg-white p-4 rounded-lg shadow-subtle flex">
+          <div class="menu-item bg-white p-4 rounded-lg shadow-playful flex">
             <div class="w-24 h-24 flex-shrink-0 mr-4">
               <img src="img/mega_stacker.png" 
                    alt="Mega Stacker" class="w-full h-full object-cover rounded-lg">
             </div>
             <div class="flex-grow">
-              <h4 class="font-bold text-dark-gray">Mega Stacker</h4>
+              <h4 class="font-bold text-concept-dark-text">Mega Stacker</h4>
               <p class="text-gray-600 text-sm my-1">Até 4 hambúrgueres grelhados, muito queijo e bacon, molho Stacker.</p>
               <div class="flex justify-between items-center mt-2">
-                <span class="brand-text-primary font-bold">R$ 38,90</span>
-                <button class="brand-accent hover:opacity-90 text-white w-8 h-8 rounded-full flex items-center justify-center transition duration-200"
+                <span class="concept-primary-text font-bold">R$ 38,90</span>
+                <button class="concept-accent-bg hover:opacity-90 text-concept-dark-text w-8 h-8 rounded-full flex items-center justify-center transition duration-200"
                         data-name="Mega Stacker" data-price="38.90">
                   <i class="fas fa-plus"></i>
                 </button>
@@ -345,38 +359,38 @@
       </div>
 
       <div id="acompanhamentos" class="menu-category hidden">
-        <h3 class="text-2xl font-bold text-dark-gray mb-6 flex items-center">
-          <i class="fas fa-fries mr-3 brand-text-accent"></i> Acompanhamentos
+        <h3 class="text-2xl font-bold text-concept-dark-text mb-6 flex items-center">
+          <i class="fas fa-fries mr-3 concept-accent-text"></i> Acompanhamentos
         </h3>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <div class="menu-item bg-white p-4 rounded-lg shadow-subtle flex">
+          <div class="menu-item bg-white p-4 rounded-lg shadow-playful flex">
             <div class="w-24 h-24 flex-shrink-0 mr-4">
               <img src="img/batata_king.png" 
                    alt="Batata King" class="w-full h-full object-cover rounded-lg">
             </div>
             <div class="flex-grow">
-              <h4 class="font-bold text-dark-gray">Batata King</h4>
+              <h4 class="font-bold text-concept-dark-text">Batata King</h4>
               <p class="text-gray-600 text-sm my-1">Nossas famosas batatas fritas crocantes e quentinhas.</p>
               <div class="flex justify-between items-center mt-2">
-                <span class="brand-text-primary font-bold">R$ 11,90</span>
-                <button class="brand-accent hover:opacity-90 text-white w-8 h-8 rounded-full flex items-center justify-center transition duration-200"
+                <span class="concept-primary-text font-bold">R$ 11,90</span>
+                <button class="concept-accent-bg hover:opacity-90 text-concept-dark-text w-8 h-8 rounded-full flex items-center justify-center transition duration-200"
                         data-name="Batata King" data-price="11.90">
                   <i class="fas fa-plus"></i>
                 </button>
               </div>
             </div>
           </div>
-          <div class="menu-item bg-white p-4 rounded-lg shadow-subtle flex">
+          <div class="menu-item bg-white p-4 rounded-lg shadow-playful flex">
             <div class="w-24 h-24 flex-shrink-0 mr-4">
               <img src="img/onion_rings.png" 
                    alt="Onion Rings" class="w-full h-full object-cover rounded-lg">
             </div>
             <div class="flex-grow">
-              <h4 class="font-bold text-dark-gray">Onion Rings</h4>
+              <h4 class="font-bold text-concept-dark-text">Onion Rings</h4>
               <p class="text-gray-600 text-sm my-1">Anéis de cebola crocantes por fora, macios por dentro.</p>
               <div class="flex justify-between items-center mt-2">
-                <span class="brand-text-primary font-bold">R$ 13,90</span>
-                <button class="brand-accent hover:opacity-90 text-white w-8 h-8 rounded-full flex items-center justify-center transition duration-200"
+                <span class="concept-primary-text font-bold">R$ 13,90</span>
+                <button class="concept-accent-bg hover:opacity-90 text-concept-dark-text w-8 h-8 rounded-full flex items-center justify-center transition duration-200"
                         data-name="Onion Rings" data-price="13.90">
                   <i class="fas fa-plus"></i>
                 </button>
@@ -387,38 +401,38 @@
       </div>
 
       <div id="sobremesas" class="menu-category hidden">
-        <h3 class="text-2xl font-bold text-dark-gray mb-6 flex items-center">
-          <i class="fas fa-ice-cream mr-3 brand-text-accent"></i> Sobremesas
+        <h3 class="text-2xl font-bold text-concept-dark-text mb-6 flex items-center">
+          <i class="fas fa-ice-cream mr-3 concept-accent-text"></i> Sobremesas
         </h3>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <div class="menu-item bg-white p-4 rounded-lg shadow-subtle flex">
+          <div class="menu-item bg-white p-4 rounded-lg shadow-playful flex">
             <div class="w-24 h-24 flex-shrink-0 mr-4">
               <img src="img/sundae.png" 
                    alt="Sundae" class="w-full h-full object-cover rounded-lg">
             </div>
             <div class="flex-grow">
-              <h4 class="font-bold text-dark-gray">Sundae</h4>
+              <h4 class="font-bold text-concept-dark-text">Sundae</h4>
               <p class="text-gray-600 text-sm my-1">Sorvete de baunilha com calda de chocolate, morango ou caramelo.</p>
               <div class="flex justify-between items-center mt-2">
-                <span class="brand-text-primary font-bold">R$ 9,90</span>
-                <button class="brand-accent hover:opacity-90 text-white w-8 h-8 rounded-full flex items-center justify-center transition duration-200"
+                <span class="concept-primary-text font-bold">R$ 9,90</span>
+                <button class="concept-accent-bg hover:opacity-90 text-concept-dark-text w-8 h-8 rounded-full flex items-center justify-center transition duration-200"
                         data-name="Sundae" data-price="9.90">
                   <i class="fas fa-plus"></i>
                 </button>
               </div>
             </div>
           </div>
-          <div class="menu-item bg-white p-4 rounded-lg shadow-subtle flex">
+          <div class="menu-item bg-white p-4 rounded-lg shadow-playful flex">
             <div class="w-24 h-24 flex-shrink-0 mr-4">
               <img src="img/casquinha.png" 
                    alt="Casquinha" class="w-full h-full object-cover rounded-lg">
             </div>
             <div class="flex-grow">
-              <h4 class="font-bold text-dark-gray">Casquinha</h4>
+              <h4 class="font-bold text-concept-dark-text">Casquinha</h4>
               <p class="text-gray-600 text-sm my-1">Nosso delicioso sorvete de baunilha na casquinha crocante.</p>
               <div class="flex justify-between items-center mt-2">
-                <span class="brand-text-primary font-bold">R$ 5,00</span>
-                <button class="brand-accent hover:opacity-90 text-white w-8 h-8 rounded-full flex items-center justify-center transition duration-200"
+                <span class="concept-primary-text font-bold">R$ 5,00</span>
+                <button class="concept-accent-bg hover:opacity-90 text-concept-dark-text w-8 h-8 rounded-full flex items-center justify-center transition duration-200"
                         data-name="Casquinha" data-price="5.00">
                   <i class="fas fa-plus"></i>
                 </button>
@@ -429,38 +443,38 @@
       </div>
 
       <div id="bebidas" class="menu-category hidden">
-        <h3 class="text-2xl font-bold text-dark-gray mb-6 flex items-center">
-          <i class="fas fa-mug-hot mr-3 brand-text-accent"></i> Bebidas
+        <h3 class="text-2xl font-bold text-concept-dark-text mb-6 flex items-center">
+          <i class="fas fa-mug-hot mr-3 concept-accent-text"></i> Bebidas
         </h3>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <div class="menu-item bg-white p-4 rounded-lg shadow-subtle flex">
+          <div class="menu-item bg-white p-4 rounded-lg shadow-playful flex">
             <div class="w-24 h-24 flex-shrink-0 mr-4">
               <img src="img/refrigerante.png" 
                    alt="Refrigerante" class="w-full h-full object-cover rounded-lg">
             </div>
             <div class="flex-grow">
-              <h4 class="font-bold text-dark-gray">Refrigerante</h4>
+              <h4 class="font-bold text-concept-dark-text">Refrigerante</h4>
               <p class="text-gray-600 text-sm my-1">Diversos sabores de refrigerante para acompanhar seu pedido.</p>
               <div class="flex justify-between items-center mt-2">
-                <span class="brand-text-primary font-bold">R$ 9,00</span>
-                <button class="brand-accent hover:opacity-90 text-white w-8 h-8 rounded-full flex items-center justify-center transition duration-200"
+                <span class="concept-primary-text font-bold">R$ 9,00</span>
+                <button class="concept-accent-bg hover:opacity-90 text-concept-dark-text w-8 h-8 rounded-full flex items-center justify-center transition duration-200"
                         data-name="Refrigerante" data-price="9.00">
                   <i class="fas fa-plus"></i>
                 </button>
               </div>
             </div>
           </div>
-          <div class="menu-item bg-white p-4 rounded-lg shadow-subtle flex">
+          <div class="menu-item bg-white p-4 rounded-lg shadow-playful flex">
             <div class="w-24 h-24 flex-shrink-0 mr-4">
               <img src="img/suco.png" 
                    alt="Suco" class="w-full h-full object-cover rounded-lg">
             </div>
             <div class="flex-grow">
-              <h4 class="font-bold text-dark-gray">Suco</h4>
+              <h4 class="font-bold text-concept-dark-text">Suco</h4>
               <p class="text-gray-600 text-sm my-1">Sucos naturais e refrescantes de diversos sabores.</p>
               <div class="flex justify-between items-center mt-2">
-                <span class="brand-text-primary font-bold">R$ 10,00</span>
-                <button class="brand-accent hover:opacity-90 text-white w-8 h-8 rounded-full flex items-center justify-center transition duration-200"
+                <span class="concept-primary-text font-bold">R$ 10,00</span>
+                <button class="concept-accent-bg hover:opacity-90 text-concept-dark-text w-8 h-8 rounded-full flex items-center justify-center transition duration-200"
                         data-name="Suco" data-price="10.00">
                   <i class="fas fa-plus"></i>
                 </button>
@@ -471,38 +485,38 @@
       </div>
 
       <div id="cafe" class="menu-category hidden">
-        <h3 class="text-2xl font-bold text-dark-gray mb-6 flex items-center">
-          <i class="fas fa-coffee mr-3 brand-text-accent"></i> Café da Manhã
+        <h3 class="text-2xl font-bold text-concept-dark-text mb-6 flex items-center">
+          <i class="fas fa-coffee mr-3 concept-accent-text"></i> Café da Manhã
         </h3>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <div class="menu-item bg-white p-4 rounded-lg shadow-subtle flex">
+          <div class="menu-item bg-white p-4 rounded-lg shadow-playful flex">
             <div class="w-24 h-24 flex-shrink-0 mr-4">
               <img src="img/cafe.png" 
                    alt="Café" class="w-full h-full object-cover rounded-lg">
             </div>
             <div class="flex-grow">
-              <h4 class="font-bold text-dark-gray">Café</h4>
+              <h4 class="font-bold text-concept-dark-text">Café</h4>
               <p class="text-gray-600 text-sm my-1">Nosso café fresquinho e aromático para começar o dia.</p>
               <div class="flex justify-between items-center mt-2">
-                <span class="brand-text-primary font-bold">R$ 7,00</span>
-                <button class="brand-accent hover:opacity-90 text-white w-8 h-8 rounded-full flex items-center justify-center transition duration-200"
+                <span class="concept-primary-text font-bold">R$ 7,00</span>
+                <button class="concept-accent-bg hover:opacity-90 text-concept-dark-text w-8 h-8 rounded-full flex items-center justify-center transition duration-200"
                         data-name="Café" data-price="7.00">
                   <i class="fas fa-plus"></i>
                 </button>
               </div>
             </div>
           </div>
-          <div class="menu-item bg-white p-4 rounded-lg shadow-subtle flex">
+          <div class="menu-item bg-white p-4 rounded-lg shadow-playful flex">
             <div class="w-24 h-24 flex-shrink-0 mr-4">
               <img src="img/pao_de_queijo.png" 
                    alt="Pão de Queijo" class="w-full h-full object-cover rounded-lg">
             </div>
             <div class="flex-grow">
-              <h4 class="font-bold text-dark-gray">Pão de Queijo</h4>
+              <h4 class="font-bold text-concept-dark-text">Pão de Queijo</h4>
               <p class="text-gray-600 text-sm my-1">O tradicional pão de queijo quentinho e delicioso.</p>
               <div class="flex justify-between items-center mt-2">
-                <span class="brand-text-primary font-bold">R$ 6,00</span>
-                <button class="brand-accent hover:opacity-90 text-white w-8 h-8 rounded-full flex items-center justify-center transition duration-200"
+                <span class="concept-primary-text font-bold">R$ 6,00</span>
+                <button class="concept-accent-bg hover:opacity-90 text-concept-dark-text w-8 h-8 rounded-full flex items-center justify-center transition duration-200"
                         data-name="Pão de Queijo" data-price="6.00">
                   <i class="fas fa-plus"></i>
                 </button>
@@ -514,55 +528,54 @@
     </div>
   </section>
 
-  <section id="delivery" class="menu-section py-16 brand-primary text-white"> <div class="container mx-auto px-4">
+  <section id="delivery" class="menu-section py-16 concept-primary-bg text-white shadow-playful"> <div class="container mx-auto px-4">
       <div class="flex flex-col md:flex-row items-center">
         <div class="md:w-1/2 mb-8 md:mb-0 md:pr-8">
-          <h2 class="text-3xl font-bold mb-4">Entrega Essencial</h2>
-          <p class="text-lg mb-6">Peça seus favoritos do Sabor Essencial sem sair de casa. Entregamos através dos nossos parceiros.</p>
+          <h2 class="text-3xl font-bold mb-4">Entrega Expressa</h2>
+          <p class="text-lg mb-6">Peça seus favoritos do Aroma & Brasa sem sair de casa. Entregamos através dos nossos parceiros.</p>
           <div class="grid grid-cols-2 gap-4">
-            <a href="#" class="bg-white hover:bg-gray-100 brand-text-primary font-bold py-3 px-4 rounded-lg text-center transition duration-300 flex items-center justify-center">
+            <a href="#" class="bg-white hover:bg-gray-100 concept-primary-text font-bold py-3 px-4 rounded-lg text-center transition duration-300 flex items-center justify-center shadow-subtle">
               <img src="img/ifood_logo.png" alt="Logo iFood" class="h-6 mr-2"> iFood
             </a>
-            <a href="#" class="bg-white hover:bg-gray-100 brand-text-primary font-bold py-3 px-4 rounded-lg text-center transition duration-300 flex items-center justify-center">
+            <a href="#" class="bg-white hover:bg-gray-100 concept-primary-text font-bold py-3 px-4 rounded-lg text-center transition duration-300 flex items-center justify-center shadow-subtle">
               <img src="img/rappi_logo.png" alt="Logo Rappi" class="h-6 mr-2"> Rappi
             </a>
           </div>
         </div>
         <div class="md:w-1/2 flex justify-center">
           <img src="img/bk_delivery_banner.png" 
-               alt="Delivery Essencial" 
+               alt="Entrega Essencial" 
                class="w-full max-w-md hover:scale-105 transition duration-300">
         </div>
       </div>
     </div>
   </section>
 
-  <section id="sobre" class="menu-section py-16 bg-white">
-    <div class="container mx-auto px-4">
+  <section id="sobre" class="menu-section py-16 bg-white rounded-lg shadow-playful"> <div class="container mx-auto px-4">
       <div class="text-center mb-12">
-        <h2 class="text-3xl font-bold brand-text-primary mb-2">Sobre o Sabor Essencial</h2>
-        <div class="w-16 h-1 brand-accent rounded-full mx-auto"></div>
+        <h2 class="text-3xl font-bold concept-primary-text mb-2">Sobre Aroma & Brasa</h2>
+        <div class="w-16 h-1 concept-accent-bg rounded-full mx-auto"></div>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div class="bg-gray-50 rounded-xl p-6 shadow-subtle hover:shadow-md transition duration-300">
-          <div class="brand-text-accent text-3xl mb-4">
+        <div class="bg-concept-secondary-bg rounded-xl p-6 shadow-subtle hover:shadow-md transition duration-300">
+          <div class="concept-accent-text text-3xl mb-4">
             <i class="fas fa-fire"></i> 
           </div>
           <h3 class="font-bold text-xl mb-2">Pela Chama</h3>
           <p class="text-gray-600">Nossos pratos são preparados com o calor da brasa, garantindo um sabor inconfundível.</p>
         </div>
 
-        <div class="bg-gray-50 rounded-xl p-6 shadow-subtle hover:shadow-md transition duration-300">
-          <div class="brand-text-accent text-3xl mb-4">
+        <div class="bg-concept-secondary-bg rounded-xl p-6 shadow-subtle hover:shadow-md transition duration-300">
+          <div class="concept-accent-text text-3xl mb-4">
             <i class="fas fa-leaf"></i> 
           </div>
           <h3 class="font-bold text-xl mb-2">Qualidade</h3>
           <p class="text-gray-600">Comprometidos com a seleção dos melhores ingredientes para sua experiência.</p>
         </div>
 
-        <div class="bg-gray-50 rounded-xl p-6 shadow-subtle hover:shadow-md transition duration-300">
-          <div class="brand-text-accent text-3xl mb-4">
+        <div class="bg-concept-secondary-bg rounded-xl p-6 shadow-subtle hover:shadow-md transition duration-300">
+          <div class="concept-accent-text text-3xl mb-4">
             <i class="fas fa-heart"></i> 
           </div>
           <h3 class="font-bold text-xl mb-2">Para a Comunidade</h3>
@@ -572,20 +585,19 @@
     </div>
   </section>
 
-  <section class="py-16 bg-gray-100">
-    <div class="container mx-auto px-4">
+  <section class="py-16 bg-concept-secondary-bg rounded-lg shadow-playful"> <div class="container mx-auto px-4">
       <div class="flex flex-col md:flex-row items-center">
         <div class="md:w-1/2 mb-8 md:mb-0">
           <img src="img/bk_app_banner.png" 
-               alt="Sabor Essencial App" 
+               alt="Aroma & Brasa App" 
                class="w-full max-w-xs mx-auto hover:scale-105 transition duration-300">
         </div>
         <div class="md:w-1/2 md:pl-12">
-          <h2 class="text-3xl font-bold brand-text-primary mb-4">Baixe nosso App</h2>
-          <p class="text-lg text-gray-700 mb-6">Tenha o Sabor Essencial na palma da sua mão. Peça delivery, retire no restaurante e aproveite ofertas exclusivas.</p>
+          <h2 class="text-3xl font-bold concept-primary-text mb-4">Baixe nosso App</h2>
+          <p class="text-lg text-gray-700 mb-6">Tenha o Aroma & Brasa na palma da sua mão. Peça delivery, retire no restaurante e aproveite ofertas exclusivas.</p>
           
           <div class="flex flex-wrap gap-4">
-            <a href="#" class="bg-gray-800 hover:bg-gray-900 text-white px-6 py-3 rounded-lg font-medium flex items-center transition duration-300">
+            <a href="#" class="bg-concept-dark-text hover:bg-gray-800 text-white px-6 py-3 rounded-lg font-medium flex items-center transition duration-300 shadow-subtle">
               <i class="fab fa-apple text-2xl mr-2"></i>
               <div class="text-left">
                 <div class="text-xs">Disponível na</div>
@@ -593,7 +605,7 @@
               </div>
             </a>
             
-            <a href="#" class="bg-gray-800 hover:bg-gray-900 text-white px-6 py-3 rounded-lg font-medium flex items-center transition duration-300">
+            <a href="#" class="bg-concept-dark-text hover:bg-gray-800 text-white px-6 py-3 rounded-lg font-medium flex items-center transition duration-300 shadow-subtle">
               <i class="fab fa-google-play text-2xl mr-2"></i>
               <div class="text-left">
                 <div class="text-xs">Disponível no</div>
@@ -606,42 +618,41 @@
     </div>
   </section>
 
-  <section class="py-12 brand-accent"> <div class="container mx-auto px-4 text-center">
-      <h2 class="text-2xl font-bold text-white mb-4">Receba nossas novidades!</h2>
-      <p class="text-gray-100 mb-6">Cadastre-se e seja o primeiro a saber sobre promoções e lançamentos.</p>
+  <section class="py-12 concept-accent-bg rounded-lg shadow-playful"> <div class="container mx-auto px-4 text-center">
+      <h2 class="text-2xl font-bold text-concept-dark-text mb-4">Receba nossas novidades!</h2>
+      <p class="text-gray-700 mb-6">Cadastre-se e seja o primeiro a saber sobre promoções e lançamentos.</p>
       
       <form class="max-w-md mx-auto flex">
         <input type="email" placeholder="Seu melhor e-mail" class="flex-grow px-4 py-3 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-red-500" aria-label="Seu melhor e-mail">
-        <button type="submit" class="brand-primary hover:opacity-90 text-white px-6 py-3 rounded-r-lg font-medium transition duration-300">
+        <button type="submit" class="concept-primary-bg hover:concept-button-hover text-white px-6 py-3 rounded-r-lg font-medium transition duration-300">
           Cadastrar
         </button>
       </form>
     </div>
   </section>
 
-  <footer class="bg-gray-900 text-white pt-12 pb-6">
-    <div class="container mx-auto px-4">
+  <footer class="bg-concept-dark-text text-white pt-12 pb-6"> <div class="container mx-auto px-4">
       <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
         <div>
-          <h3 class="font-bold text-lg mb-4">Sabor Essencial</h3>
+          <h3 class="font-bold text-lg mb-4">Aroma & Brasa</h3>
           <ul class="space-y-2">
-            <li><a href="#" class="text-gray-300 hover:text-yellow-400 transition duration-200">Sobre nós</a></li>
-            <li><a href="#" class="text-gray-300 hover:text-yellow-400 transition duration-200">Trabalhe conosco</a></li>
-            <li><a href="#" class="text-gray-300 hover:text-yellow-400 transition duration-200">Franquias</a></li>
-            <li><a href="#" class="text-gray-300 hover:text-yellow-400 transition duration-200">Relação com investidores</a></li>
+            <li><a href="#" class="text-gray-300 hover:text-concept-accent-text transition duration-200">Sobre nós</a></li>
+            <li><a href="#" class="text-gray-300 hover:text-concept-accent-text transition duration-200">Trabalhe conosco</a></li>
+            <li><a href="#" class="text-gray-300 hover:text-concept-accent-text transition duration-200">Parcerias</a></li>
+            <li><a href="#" class="text-gray-300 hover:text-concept-accent-text transition duration-200">Investidores</a></li>
           </ul>
         </div>
         
         <div>
           <h3 class="font-bold text-lg mb-4">Contato</h3>
           <ul class="space-y-2">
-            <li><a href="#" class="text-gray-300 hover:text-yellow-400 transition duration-200 flex items-center">
+            <li><a href="#" class="text-gray-300 hover:text-concept-accent-text transition duration-200 flex items-center">
               <i class="fas fa-headset mr-2"></i> Fale Conosco
             </a></li>
-            <li><a href="#" class="text-gray-300 hover:text-yellow-400 transition duration-200 flex items-center">
-              <i class="fas fa-store mr-2"></i> Encontre um restaurante
+            <li><a href="#" class="text-gray-300 hover:text-concept-accent-text transition duration-200 flex items-center">
+              <i class="fas fa-store mr-2"></i> Encontre um local
             </a></li>
-            <li><a href="#" class="text-gray-300 hover:text-yellow-400 transition duration-200 flex items-center">
+            <li><a href="#" class="text-gray-300 hover:text-concept-accent-text transition duration-200 flex items-center">
               <i class="fas fa-question-circle mr-2"></i> Perguntas frequentes
             </a></li>
           </ul>
@@ -650,25 +661,25 @@
         <div>
           <h3 class="font-bold text-lg mb-4">Termos</h3>
           <ul class="space-y-2">
-            <li><a href="#" class="text-gray-300 hover:text-yellow-400 transition duration-200">Termos e condições</a></li>
-            <li><a href="#" class="text-gray-300 hover:text-yellow-400 transition duration-200">Política de privacidade</a></li>
-            <li><a href="#" class="text-gray-300 hover:text-yellow-400 transition duration-200">Política de cookies</a></li>
+            <li><a href="#" class="text-gray-300 hover:text-concept-accent-text transition duration-200">Termos e condições</a></li>
+            <li><a href="#" class="text-gray-300 hover:text-concept-accent-text transition duration-200">Política de privacidade</a></li>
+            <li><a href="#" class="text-gray-300 hover:text-concept-accent-text transition duration-200">Política de cookies</a></li>
           </ul>
         </div>
 
         <div>
-          <h3 class="font-bold text-lg mb-4">Redes sociais</h3>
+          <h3 class="font-bold text-lg mb-4">Conecte-se</h3>
           <div class="flex space-x-4">
-            <a href="#" class="bg-gray-700 hover:bg-red-600 w-10 h-10 rounded-full flex items-center justify-center transition duration-300" aria-label="Facebook">
+            <a href="#" class="bg-gray-700 hover:brand-primary w-10 h-10 rounded-full flex items-center justify-center transition duration-300" aria-label="Facebook">
               <i class="fab fa-facebook-f"></i>
             </a>
-            <a href="#" class="bg-gray-700 hover:bg-red-600 w-10 h-10 rounded-full flex items-center justify-center transition duration-300" aria-label="Instagram">
+            <a href="#" class="bg-gray-700 hover:brand-primary w-10 h-10 rounded-full flex items-center justify-center transition duration-300" aria-label="Instagram">
               <i class="fab fa-instagram"></i>
             </a>
-            <a href="#" class="bg-gray-700 hover:bg-red-600 w-10 h-10 rounded-full flex items-center justify-center transition duration-300" aria-label="Twitter">
+            <a href="#" class="bg-gray-700 hover:brand-primary w-10 h-10 rounded-full flex items-center justify-center transition duration-300" aria-label="Twitter">
               <i class="fab fa-twitter"></i>
             </a>
-            <a href="#" class="bg-gray-700 hover:bg-red-600 w-10 h-10 rounded-full flex items-center justify-center transition duration-300" aria-label="YouTube">
+            <a href="#" class="bg-gray-700 hover:brand-primary w-10 h-10 rounded-full flex items-center justify-center transition duration-300" aria-label="YouTube">
               <i class="fab fa-youtube"></i>
             </a>
           </div>
@@ -677,22 +688,20 @@
 
       <div class="pt-6 border-t border-gray-700 text-center">
         <p class="text-gray-400 text-sm">
-          © <span id="current-year"></span> Sabor Essencial. Todos os direitos reservados.
+          © <span id="current-year"></span> Aroma & Brasa. Todos os direitos reservados.
           <br class="md:hidden">
-          Feito com paixão pela culinária.
+          Sabor e Credibilidade em Cada Detalhe.
         </p>
       </div>
     </div>
   </footer>
 
   <div class="fixed bottom-6 right-6 z-50">
-    <button id="cart-button" class="brand-accent w-16 h-16 rounded-full shadow-xl flex items-center justify-center text-white relative hover:scale-110 transition duration-300" aria-label="Abrir carrinho">
-      <i class="fas fa-shopping-bag text-2xl"></i>
-      <span id="cart-count" class="absolute -top-1 -right-1 brand-primary text-white text-xs font-bold w-5 h-5 flex items-center justify-center rounded-full">0</span>
+    <button id="cart-button" class="concept-accent-bg w-16 h-16 rounded-full shadow-lg flex items-center justify-center text-white relative hover:scale-110 transition duration-300"> <i class="fas fa-shopping-bag text-2xl"></i>
+      <span id="cart-count" class="absolute -top-1 -right-1 concept-primary-bg text-white text-xs font-bold w-5 h-5 flex items-center justify-center rounded-full">0</span>
     </button>
     
-    <div id="cart-dropdown" class="hidden absolute bottom-16 right-0 w-72 bg-white rounded-lg shadow-xl border border-gray-200 p-4">
-      <h3 class="font-bold mb-3">Seu Carrinho</h3>
+    <div id="cart-dropdown" class="hidden absolute bottom-16 right-0 w-72 bg-white rounded-lg shadow-playful border border-gray-200 p-4"> <h3 class="font-bold mb-3">Seu Pedido</h3>
       <div id="cart-items" class="mb-4 max-h-60 overflow-y-auto">
         <p class="text-gray-500 text-sm py-4 text-center">Seu carrinho está vazio</p>
       </div>
@@ -701,8 +710,8 @@
           <span>Total:</span>
           <span id="cart-total">R$ 0,00</span>
         </div>
-        <a href="#" class="block brand-primary hover:opacity-90 text-white text-center py-2 rounded-lg font-medium transition duration-300">
-          Finalizar compra
+        <a href="#" class="block concept-primary-bg hover:opacity-90 text-white text-center py-2 rounded-lg font-medium transition duration-300">
+          Finalizar Pedido
         </a>
       </div>
     </div>
@@ -731,12 +740,12 @@
         // Remove active class from all buttons
         categoryButtons.forEach(btn => {
           btn.classList.remove('brand-primary', 'text-white'); // Ajustado para nova classe
-          btn.classList.add('bg-gray-200', 'hover:bg-gray-300', 'text-dark-gray'); // Ajustado
+          btn.classList.add('bg-gray-200', 'hover:bg-gray-300', 'text-concept-dark-text'); // Ajustado
         });
         
         // Add active class to clicked button
-        button.classList.remove('bg-gray-200', 'hover:bg-gray-300', 'text-dark-gray'); // Ajustado
-        button.classList.add('brand-primary', 'text-white'); // Ajustado
+        button.classList.remove('bg-gray-200', 'hover:bg-gray-300', 'text-concept-dark-text'); // Ajustado
+        button.classList.add('concept-primary-bg', 'text-white'); // Ajustado
         
         // Hide all menu categories
         menuCategories.forEach(category => {
@@ -761,12 +770,12 @@
     let cart = [];
     // Function to save cart to localStorage
     function saveCart() {
-        localStorage.setItem('saborEssencialCart', JSON.stringify(cart)); // Nome do carrinho atualizado
+        localStorage.setItem('aromaBrasaCart', JSON.stringify(cart)); // Nome do carrinho atualizado
     }
 
     // Function to load cart from localStorage
     function loadCart() {
-        const storedCart = localStorage.getItem('saborEssencialCart'); // Nome do carrinho atualizado
+        const storedCart = localStorage.getItem('aromaBrasaCart'); // Nome do carrinho atualizado
         if (storedCart) {
             cart = JSON.parse(storedCart);
             updateCartUI();

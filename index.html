@@ -99,7 +99,7 @@
         opacity: 0.9;
     }
 
-    /* Estilos dos Popups */
+    /* Estilos do Popup */
     .modal-overlay {
         position: fixed;
         top: 0;
@@ -702,6 +702,7 @@
                     const categoryId = button.getAttribute('data-category');
                     const targetCategory = document.getElementById(categoryId);
                     if (targetCategory) { 
+                        // APENAS ROLAR, NÃO ESCONDER/MOSTRAR VISIBILIDADE DE CATEGORIAS
                         document.getElementById('cardapio').scrollIntoView({ behavior: 'smooth' });
                     }
                 });
@@ -888,14 +889,21 @@
           `;
           cartItemsContainer.appendChild(itemElement);
         });
-        document.querySelectorAll('.remove-item').forEach(button => {
+        document.querySelectorAll('.remove-item').forEach(button => { // Este é o loop que pega os botões de remover
           button.addEventListener('click', (e) => {
             const index = parseInt(button.getAttribute('data-index'));
             
-            if (cart[index].quantity > 1) {
-              cart[index].quantity -= 1;
+            // Adicionado checagem para garantir que o item exista antes de manipular
+            if (cart[index] !== undefined) { // <-- CHECAGEM ADICIONADA AQUI
+                if (cart[index].quantity > 1) {
+                  cart[index].quantity -= 1;
+                } else {
+                  cart.splice(index, 1);
+                }
             } else {
-              cart.splice(index, 1);
+                // Se o item não for encontrado, significa que o índice está inválido,
+                // então podemos apenas re-renderizar o UI para corrigir a inconsistência.
+                console.warn('Tentativa de remover item com índice inválido. Re-renderizando carrinho.');
             }
             updateCartUI();
             saveCart();
@@ -932,12 +940,11 @@
     if (checkoutModalOverlay && checkoutCloseBtn && checkoutForm && submitOrderBtn) {
         function openCheckoutModal() {
             checkoutModalOverlay.classList.add('active');
-            // Opcional: pré-preencher campos se o usuário já preencheu antes
         }
 
         function closeCheckoutModal() {
             checkoutModalOverlay.classList.remove('active');
-            checkoutForm.reset(); // Limpa o formulário
+            checkoutForm.reset(); 
         }
 
         checkoutCloseBtn.addEventListener('click', closeCheckoutModal);
@@ -948,15 +955,13 @@
         });
 
         checkoutForm.addEventListener('submit', (event) => {
-            event.preventDefault(); // Impede o envio padrão do formulário
+            event.preventDefault(); 
 
-            // Validação básica (campos obrigatórios)
             if (!checkoutName.value || !checkoutEmail.value || !checkoutPhone.value || !checkoutStreet.value || !checkoutNumber.value || !checkoutNeighborhood.value || !checkoutCity.value || !checkoutState.value || !checkoutCep.value) {
                 alert('Por favor, preencha todos os campos obrigatórios para finalizar o pedido.');
                 return;
             }
 
-            // Coleta dos dados do pedido
             const orderDetails = {
                 customer: {
                     name: checkoutName.value,
@@ -972,7 +977,7 @@
                     state: checkoutState.value,
                     cep: checkoutCep.value
                 },
-                items: cart, // Itens do carrinho
+                items: cart, 
                 total: cart.reduce((sum, item) => sum + (item.price * item.quantity), 0)
             };
 
@@ -980,7 +985,6 @@
             console.log(JSON.stringify(orderDetails, null, 2));
             alert('Seu pedido foi enviado com sucesso! Acompanhe o status por e-mail ou telefone. Obrigado!');
 
-            // Limpar carrinho e fechar modal após envio
             cart = [];
             saveCart();
             updateCartUI();
@@ -996,8 +1000,8 @@
                 alert('Seu carrinho está vazio. Adicione produtos antes de finalizar!');
                 return;
             }
-            openCheckoutModal(); // Abre o modal de checkout
-            cartDropdown.classList.add('hidden'); // Fecha o dropdown do carrinho
+            openCheckoutModal(); 
+            cartDropdown.classList.add('hidden'); 
         });
     }
 

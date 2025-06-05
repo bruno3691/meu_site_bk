@@ -24,7 +24,7 @@
   <link rel="stylesheet" href="assets/css/all.min.css">
   
   <style>
-    /* PALETA DE CORES: Burger King (Retorno) com Estilo Simplificado */
+    /* PALETA DE CORES: Burger King com Estilo Simplificado */
     .bk-red-main { 
         background-color: #BD0000;
     }
@@ -259,7 +259,7 @@
         </div>
       </div>
 
-      <div id="lanches" class="menu-category">
+      <div id="lanches" class="menu-category"> 
         <h3 class="text-2xl font-bold text-bk-dark-text mb-6 flex items-center">
           <i class="fas fa-burger mr-3 bk-yellow-text"></i> Lanches
         </h3>
@@ -345,7 +345,8 @@
         </div>
       </div>
 
-      <div id="acompanhamentos" class="menu-category"> <h3 class="text-2xl font-bold text-bk-dark-text mb-6 flex items-center">
+      <div id="acompanhamentos" class="menu-category"> 
+        <h3 class="text-2xl font-bold text-bk-dark-text mb-6 flex items-center">
           <i class="fas fa-fries mr-3 bk-yellow-text"></i> Acompanhamentos
         </h3>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -386,7 +387,8 @@
         </div>
       </div>
 
-      <div id="sobremesas" class="menu-category"> <h3 class="text-2xl font-bold text-bk-dark-text mb-6 flex items-center">
+      <div id="sobremesas" class="menu-category"> 
+        <h3 class="text-2xl font-bold text-bk-dark-text mb-6 flex items-center">
           <i class="fas fa-ice-cream mr-3 bk-yellow-text"></i> Sobremesas
         </h3>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -427,7 +429,8 @@
         </div>
       </div>
 
-      <div id="bebidas" class="menu-category"> <h3 class="text-2xl font-bold text-bk-dark-text mb-6 flex items-center">
+      <div id="bebidas" class="menu-category"> 
+        <h3 class="text-2xl font-bold text-bk-dark-text mb-6 flex items-center">
           <i class="fas fa-mug-hot mr-3 bk-yellow-text"></i> Bebidas
         </h3>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -468,7 +471,8 @@
         </div>
       </div>
 
-      <div id="cafe" class="menu-category"> <h3 class="text-2xl font-bold text-bk-dark-text mb-6 flex items-center">
+      <div id="cafe" class="menu-category"> 
+        <h3 class="text-2xl font-bold text-bk-dark-text mb-6 flex items-center">
           <i class="fas fa-coffee mr-3 bk-yellow-text"></i> Café da Manhã
         </h3>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -562,18 +566,18 @@
   </footer>
 
   <div class="fixed bottom-6 right-6 z-50">
-    <button id="cart-button" class="bk-yellow-gradient w-16 h-16 rounded-full shadow-lg flex items-center justify-center text-bk-dark-text relative hover:scale-110 transition duration-300">
+    <button id="cart-button" class="bg-white w-16 h-16 rounded-full shadow-lg flex items-center justify-center text-bk-dark-text relative hover:scale-110 transition duration-300">
       <i class="fas fa-shopping-bag text-2xl"></i>
       <span id="cart-count" class="absolute -top-1 -right-1 bk-red-main text-white text-xs font-bold w-5 h-5 flex items-center justify-center rounded-full">0</span>
     </button>
     
-    <div id="cart-dropdown" class="hidden absolute bottom-16 right-0 w-72 bg-gray-900 rounded-lg shadow-bk border border-gray-700 p-4">
-      <h3 class="font-bold mb-3 text-bk-light-text">Seu Pedido</h3>
+    <div id="cart-dropdown" class="hidden absolute bottom-16 right-0 w-72 bg-white rounded-lg shadow-bk border border-gray-700 p-4">
+      <h3 class="font-bold mb-3 text-bk-dark-text">Seu Pedido</h3>
       <div id="cart-items" class="mb-4 max-h-60 overflow-y-auto">
         <p class="text-gray-500 text-sm py-4 text-center">Seu carrinho está vazio</p>
       </div>
       <div class="border-t border-gray-700 pt-3">
-        <div class="flex justify-between font-bold mb-3 text-bk-light-text">
+        <div class="flex justify-between font-bold mb-3 text-bk-dark-text">
           <span>Total:</span>
           <span id="cart-total">R$ 0,00</span>
         </div>
@@ -616,37 +620,49 @@
     // Mobile menu toggle
     const mobileMenuButton = document.getElementById('mobile-menu-button');
     const mobileMenu = document.getElementById('mobile-menu');
-    mobileMenuButton.addEventListener('click', () => {
-      mobileMenu.classList.toggle('hidden');
-    });
-    document.querySelectorAll('#mobile-menu a').forEach(link => {
-      link.addEventListener('click', () => {
-        mobileMenu.classList.add('hidden');
-      });
-    });
+    // Adiciona checagens de nullidade para elementos antes de adicionar listeners
+    if (mobileMenuButton && mobileMenu) {
+        mobileMenuButton.addEventListener('click', () => {
+          mobileMenu.classList.toggle('hidden');
+        });
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+          link.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+          });
+        });
+    }
 
     // Category buttons
     const categoryButtons = document.querySelectorAll('.category-btn');
     const menuCategories = document.querySelectorAll('.menu-category');
-    categoryButtons.forEach(button => {
-      button.addEventListener('click', () => {
-        categoryButtons.forEach(btn => {
-          btn.classList.remove('btn-bk-primary', 'text-white'); 
-          btn.classList.add('bg-gray-200', 'hover:bg-gray-300', 'text-bk-dark-text'); 
+    // Adiciona checagens de nullidade para elementos antes de adicionar listeners
+    if (categoryButtons.length > 0 && menuCategories.length > 0) { // Verifica se há botões e categorias
+        categoryButtons.forEach(button => {
+            if (button) { // Checa se o botão individual não é null
+                button.addEventListener('click', () => {
+                    categoryButtons.forEach(btn => {
+                      btn.classList.remove('btn-bk-primary', 'text-white'); 
+                      btn.classList.add('bg-gray-200', 'hover:bg-gray-300', 'text-bk-dark-text'); 
+                    });
+                    
+                    button.classList.remove('bg-gray-200', 'hover:bg-gray-300', 'text-bk-dark-text'); 
+                    button.classList.add('btn-bk-primary', 'text-white'); 
+                    
+                    menuCategories.forEach(category => {
+                      category.classList.add('hidden'); // Esconde todas as categorias
+                    });
+                    
+                    const categoryId = button.getAttribute('data-category');
+                    const targetCategory = document.getElementById(categoryId);
+                    if (targetCategory) { // Checa se a categoria alvo existe
+                        targetCategory.classList.remove('hidden'); // Mostra a categoria clicada
+                    }
+                    document.getElementById('cardapio').scrollIntoView({ behavior: 'smooth' });
+                });
+            }
         });
-        
-        button.classList.remove('bg-gray-200', 'hover:bg-gray-300', 'text-bk-dark-text'); 
-        button.classList.add('btn-bk-primary', 'text-white'); 
-        
-        menuCategories.forEach(category => {
-          category.classList.add('hidden');
-        });
-        
-        const categoryId = button.getAttribute('data-category');
-        document.getElementById(categoryId).classList.remove('hidden');
-        document.getElementById('cardapio').scrollIntoView({ behavior: 'smooth' });
-      });
-    });
+    }
+
 
     // Cart functionality
     const cartButton = document.getElementById('cart-button');
@@ -668,15 +684,17 @@
     }
 
     // Toggle cart dropdown
-    cartButton.addEventListener('click', (event) => {
-      event.stopPropagation(); 
-      cartDropdown.classList.toggle('hidden');
-    });
-    document.addEventListener('click', (event) => {
-      if (!cartButton.contains(event.target) && !cartDropdown.contains(event.target)) {
-        cartDropdown.classList.add('hidden');
-      }
-    });
+    if (cartButton && cartDropdown) { // Checa se os elementos do carrinho existem
+        cartButton.addEventListener('click', (event) => {
+          event.stopPropagation(); 
+          cartDropdown.classList.toggle('hidden');
+        });
+        document.addEventListener('click', (event) => {
+          if (!cartButton.contains(event.target) && !cartDropdown.contains(event.target)) {
+            cartDropdown.classList.add('hidden');
+          }
+        });
+    }
 
     // --- POPUP / MODAL DE PRODUTO ---
     const productModalOverlay = document.getElementById('product-modal-overlay');
@@ -693,110 +711,115 @@
 
     let currentProduct = null;
 
-    function openProductModal(name, price, description, image_src) {
-        currentProduct = { name, price, description, image_src };
-        modalImage.src = image_src;
-        modalName.textContent = name;
-        modalDescription.textContent = description;
-        quantityInput.value = 1; // Reseta a quantidade para 1
-        updateModalPrice();
-        productModalOverlay.classList.add('active');
-    }
-
-    function closeProductModal() {
-        productModalOverlay.classList.remove('active');
-        currentProduct = null;
-    }
-
-    function updateModalPrice() {
-        if (currentProduct) {
-            const quantity = parseInt(quantityInput.value);
-            const total = currentProduct.price * quantity;
-            modalPriceDisplay.textContent = `R$ ${total.toFixed(2).replace('.', ',')}`;
-        }
-    }
-
-    decreaseQuantityBtn.addEventListener('click', () => {
-        let quantity = parseInt(quantityInput.value);
-        if (quantity > 1) {
-            quantityInput.value = quantity - 1;
+    if (productModalOverlay && modalCloseBtn && modalImage && modalName && modalDescription && modalPriceDisplay && quantityInput && decreaseQuantityBtn && increaseQuantityBtn && modalAddToCartBtn && modalFinalizeOrderBtn) {
+        function openProductModal(name, price, description, image_src) {
+            currentProduct = { name, price, description, image_src };
+            modalImage.src = image_src;
+            modalName.textContent = name;
+            modalDescription.textContent = description;
+            quantityInput.value = 1; 
             updateModalPrice();
+            productModalOverlay.classList.add('active');
         }
-    });
 
-    increaseQuantityBtn.addEventListener('click', () => {
-        let quantity = parseInt(quantityInput.value);
-        quantityInput.value = quantity + 1;
-        updateModalPrice();
-    });
-
-    modalCloseBtn.addEventListener('click', closeProductModal);
-    productModalOverlay.addEventListener('click', (event) => {
-        if (event.target === productModalOverlay) {
-            closeProductModal();
+        function closeProductModal() {
+            productModalOverlay.classList.remove('active');
+            currentProduct = null;
         }
-    });
 
-    modalAddToCartBtn.addEventListener('click', () => {
-        if (currentProduct) {
-            const quantityToAdd = parseInt(quantityInput.value);
-            const existingItemIndex = cart.findIndex(item => item.name === currentProduct.name);
-
-            if (existingItemIndex > -1) {
-              cart[existingItemIndex].quantity += quantityToAdd;
-            } else {
-              cart.push({
-                name: currentProduct.name,
-                price: currentProduct.price,
-                quantity: quantityToAdd,
-                image: currentProduct.image
-              });
+        function updateModalPrice() {
+            if (currentProduct) {
+                const quantity = parseInt(quantityInput.value);
+                const total = currentProduct.price * quantity;
+                modalPriceDisplay.textContent = `R$ ${total.toFixed(2).replace('.', ',')}`;
             }
-            updateCartUI();
-            saveCart();
-            closeProductModal();
-            // Opcional: Mostrar uma notificação de "Adicionado ao carrinho"
         }
-    });
 
-    modalFinalizeOrderBtn.addEventListener('click', () => {
-        if (currentProduct) {
-            // Adiciona o item atual ao carrinho antes de finalizar
-            const quantityToAdd = parseInt(quantityInput.value);
-            const existingItemIndex = cart.findIndex(item => item.name === currentProduct.name);
-
-            if (existingItemIndex > -1) {
-              cart[existingItemIndex].quantity += quantityToAdd;
-            } else {
-              cart.push({
-                name: currentProduct.name,
-                price: currentProduct.price,
-                quantity: quantityToAdd,
-                image: currentProduct.image
-              });
+        decreaseQuantityBtn.addEventListener('click', () => {
+            let quantity = parseInt(quantityInput.value);
+            if (quantity > 1) {
+                quantityInput.value = quantity - 1;
+                updateModalPrice();
             }
-            updateCartUI();
-            saveCart();
-            closeProductModal();
-            // TODO: Redirecionar para uma página de checkout ou abrir modal de checkout
-            alert('Pedido finalizado com sucesso! (Funcionalidade de Checkout ainda não implementada)');
+        });
+
+        increaseQuantityBtn.addEventListener('click', () => {
+            let quantity = parseInt(quantityInput.value);
+            quantityInput.value = quantity + 1;
+            updateModalPrice();
+        });
+
+        modalCloseBtn.addEventListener('click', closeProductModal);
+        productModalOverlay.addEventListener('click', (event) => {
+            if (event.target === productModalOverlay) {
+                closeProductModal();
+            }
+        });
+
+        modalAddToCartBtn.addEventListener('click', () => {
+            if (currentProduct) {
+                const quantityToAdd = parseInt(quantityInput.value);
+                const existingItemIndex = cart.findIndex(item => item.name === currentProduct.name);
+
+                if (existingItemIndex > -1) {
+                  cart[existingItemIndex].quantity += quantityToAdd;
+                } else {
+                  cart.push({
+                    name: currentProduct.name,
+                    price: currentProduct.price,
+                    quantity: quantityToAdd,
+                    image: currentProduct.image
+                  });
+                }
+                updateCartUI();
+                saveCart();
+                closeProductModal();
+            }
+        });
+
+        modalFinalizeOrderBtn.addEventListener('click', () => {
+            if (currentProduct) {
+                const quantityToAdd = parseInt(quantityInput.value);
+                const existingItemIndex = cart.findIndex(item => item.name === currentProduct.name);
+
+                if (existingItemIndex > -1) {
+                  cart[existingItemIndex].quantity += quantityToAdd;
+                } else {
+                  cart.push({
+                    name: currentProduct.name,
+                    price: currentProduct.price,
+                    quantity: quantityToAdd,
+                    image: currentProduct.image
+                  });
+                }
+                updateCartUI();
+                saveCart();
+                closeProductModal();
+                alert('Pedido finalizado com sucesso! (Funcionalidade de Checkout ainda não implementada)');
+            }
+        });
+
+        const addToCartButtons = document.querySelectorAll('.add-to-cart');
+        if (addToCartButtons.length > 0) {
+            addToCartButtons.forEach(button => {
+              // Remove listeners antigos para evitar duplicação se o script for executado várias vezes
+              const oldHandler = button.onclick; 
+              if (oldHandler) {
+                  button.removeEventListener('click', oldHandler);
+              }
+              button.addEventListener('click', () => {
+                const itemName = button.dataset.name;
+                const itemPrice = parseFloat(button.dataset.price);
+                const itemDescription = button.dataset.description;
+                const itemImage = button.dataset.image;
+                openProductModal(itemName, itemPrice, itemDescription, itemImage);
+              });
+            });
         }
-    });
+    }
 
-    // Alterar botões "Adicionar" para abrir o modal
-    const addToCartButtons = document.querySelectorAll('.add-to-cart');
-    addToCartButtons.forEach(button => {
-      button.removeEventListener('click', () => {}); // Remove listeners antigos
-      button.addEventListener('click', () => {
-        const itemName = button.dataset.name;
-        const itemPrice = parseFloat(button.dataset.price);
-        const itemDescription = button.dataset.description;
-        const itemImage = button.dataset.image;
-        openProductModal(itemName, itemPrice, itemDescription, itemImage);
-      });
-    });
 
-    // Update cart UI (this function now assumes items are added via modal)
+    // Update cart UI 
     function updateCartUI() {
       const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
       cartCount.textContent = totalItems;

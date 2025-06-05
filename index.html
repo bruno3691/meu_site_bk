@@ -175,8 +175,12 @@
 <body class="font-['Montserrat'] bg-bk-neutral-bg text-bk-dark-text">
   <header class="bk-red-main py-4 navbar-shadow">
     <div class="container mx-auto px-4">
-      <div class="flex justify-center items-center"> <a href="#" class="flex items-center"> <img src="img/burger_king_logo.svg" alt="Burger King Logo Oficial" class="h-10 md:h-12 mx-auto"> </a>
-        <div class="absolute right-4 hidden md:flex space-x-2"> <a href="#" class="text-white hover:text-bk-yellow-main px-3 py-1 rounded-full" aria-label="Carrinho">
+      <div class="flex justify-center items-center">
+        <a href="#" class="flex items-center">
+          <img src="img/burger_king_logo.svg" alt="Burger King Logo Oficial" class="h-10 md:h-12 mx-auto">
+        </a>
+        <div class="absolute right-4 hidden md:flex space-x-2">
+          <a href="#" class="text-white hover:text-bk-yellow-main px-3 py-1 rounded-full" aria-label="Carrinho">
             <i class="fas fa-shopping-bag"></i>
           </a>
         </div>
@@ -641,14 +645,15 @@
                     button.classList.remove('bg-gray-200', 'hover:bg-gray-300', 'text-bk-dark-text'); 
                     button.classList.add('btn-bk-primary', 'text-white'); 
                     
-                    menuCategories.forEach(category => {
-                      category.classList.add('hidden'); // Esconde todas as categorias
-                    });
+                    // LÓGICA DE ESCONDER/MOSTRAR CATEGORIAS REMOVIDA PARA MOSTRAR TODAS POR PADRÃO
+                    // menuCategories.forEach(category => {
+                    //   category.classList.add('hidden'); 
+                    // });
                     
                     const categoryId = button.getAttribute('data-category');
                     const targetCategory = document.getElementById(categoryId);
-                    if (targetCategory) { // Checa se a categoria alvo existe
-                        targetCategory.classList.remove('hidden'); // Mostra a categoria clicada
+                    if (targetCategory) { 
+                        // targetCategory.classList.remove('hidden'); // APENAS ROLAR, NÃO ESCONDER/MOSTRAR
                     }
                     document.getElementById('cardapio').scrollIntoView({ behavior: 'smooth' });
                 });
@@ -677,7 +682,7 @@
     }
 
     // Toggle cart dropdown
-    if (cartButton && cartDropdown) { // Checa se os elementos do carrinho existem
+    if (cartButton && cartDropdown) { 
         cartButton.addEventListener('click', (event) => {
           event.stopPropagation(); 
           cartDropdown.classList.toggle('hidden');
@@ -795,7 +800,6 @@
         const addToCartButtons = document.querySelectorAll('.add-to-cart');
         if (addToCartButtons.length > 0) {
             addToCartButtons.forEach(button => {
-              // Remove listeners antigos para evitar duplicação se o script for executado várias vezes
               const oldHandler = button.onclick; 
               if (oldHandler) {
                   button.removeEventListener('click', oldHandler);
@@ -826,10 +830,10 @@
           itemElement.className = 'flex justify-between items-center py-2 border-b border-gray-100 last:border-b-0';
           itemElement.innerHTML = `
             <div>
-              <p class="font-medium text-bk-dark-text">${item.name} <span class="text-gray-500 text-sm">x${item.quantity}</span></p>
-              <p class="text-sm text-gray-500">R$ ${(item.price * item.quantity).toFixed(2).replace('.', ',')}</p>
-            </div>
-            <button class="remove-item text-red-500 p-1 rounded-full hover:bg-red-100" data-index="${index}" aria-label="Remover item">
+              <p class="font-medium text-bk-dark-text"><span class="math-inline">\{item\.name\} <span class\="text\-gray\-500 text\-sm"\>x</span>{item.quantity}</span></p>
+              <p class="text-sm text-gray-500">R$ <span class="math-inline">\{\(item\.price \* item\.quantity\)\.toFixed\(2\)\.replace\('\.', ','\)\}</p\>
+</div\>
+<button class\="remove\-item text\-red\-500 p\-1 rounded\-full hover\:bg\-red\-100" data\-index\="</span>{index}" aria-label="Remover item">
               <i class="fas fa-times"></i>
             </button>
           `;

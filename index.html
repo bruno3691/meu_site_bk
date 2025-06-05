@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Burger King Brasil - A chama que incendeia seu apetite</title>
+  
+  <meta http-equiv="Content-Security-Policy" content="
+    default-src 'self';
+    script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com https://cdnjs.cloudflare.com;
+    style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com;
+    img-src 'self' data:; /* Apenas 'self' e data: para imagens locais */
+    font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com;
+    connect-src 'self';
+    object-src 'none';
+    frame-src 'none';
+    base-uri 'self';
+    form-action 'self';
+    upgrade-insecure-requests;
+  ">
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <style>
+    /* Cores do Burger King */
+    .bk-red-gradient {
+      background: linear-gradient(135deg, #BD0000 0%, #990000 100%); /* Vermelho BK */
+    }
+    .bk-yellow-gradient {
+      background: linear-gradient(135deg, #FFC000 0%, #E47911 100%); /* Amarelo/Laranja BK */
+    }
+    .bk-red-text {
+      color: #BD0000;
+    }
+    .bk-yellow-text {
+      color: #FFC000;
+    }
+    .bk-dark-gray {
+      background-color: #333333;
+    }
+    .bk-light-gray {
+      background-color: #F8F8F8;
+    }
+    .navbar-shadow {
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    .card-hover:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    }
+    .menu-item:not(:last-child) {
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+    }
+    .menu-section {
+      scroll-margin-top: 100px; /* Adjust for fixed header */
+    }
+
+    /* Custom scrollbar for menu categories */
+    .scrollbar-hide::-webkit-scrollbar {
+      display: none;
+    }
+    .scrollbar-hide {
+      -ms-overflow-style: none; /* IE and Edge */
+      scrollbar-width: none; /* Firefox */
+    }
+  </style>
+</head>
+<body class="font-['Montserrat'] bg-gray-50 text-gray-800">
+  <header class="bk-red-gradient py-4">
+    <div class="container mx-auto px-4">
+      <div class="flex justify-between items-center">
+        <a href="#" class="flex items-center space-x-2">
+          <img src="img/burger_king_logo.svg" alt="Burger King Logo Oficial" class="h-8 md:h-10">
+        </a>
+        <div class="hidden md:flex space-x-2">
+          <a href="#" class="text-white hover:text-yellow-300 px-3 py-1 rounded-full" aria-label="Pesquisar">
+            <i class="fas fa-search"></i>
+          </a>
+          <a href="#" class="text-white hover:text-yellow-300 px-3 py-1 rounded-full" aria-label="Minha Conta">
+            <i class="fas fa-user"></i>
+          </a>
+          <a href="#" class="text-white hover:text-yellow-300 px-3 py-1 rounded-full" aria-label="Carrinho">
+            <i class="fas fa-shopping-bag"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <nav class="bk-yellow-gradient py-3 navbar-shadow sticky top-0 z-50">
+    <div class="container mx-auto px-4">
+      <div class="flex justify-between items-center">
+        <button id="mobile-menu-button" class="md:hidden text-gray-800 focus:outline-none" aria-label="Abrir menu mobile">
+          <i class="fas fa-bars text-xl"></i>
+        </button>
+
+        <div class="hidden md:flex space-x-1">
+          <a href="#ofertas" class="px-4 py-2 rounded-lg hover:bg-yellow-500 font-medium transition duration-200">Ofertas</a>
+          <a href="#cardapio" class="px-4 py-2 rounded-lg hover:bg-yellow-500 font-medium transition duration-200">Cardápio</a>
+          <a href="#bkdelivery" class="px-4 py-2 rounded-lg hover:bg-yellow-500 font-medium transition duration-200">BK Delivery</a>
+          <a href="#sobre" class="px-4 py-2 rounded-lg hover:bg-yellow-500 font-medium transition duration-200">Sobre nós</a>
+        </div>
+
+        <div class="hidden md:flex space-x-2">
+          <a href="#" class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg font-medium transition duration-200">
+            <i class="fas fa-mobile-alt mr-2"></i> Baixe o App
+          </a>
+          <a href="#" class="bg-gray-800 hover:bg-gray-900 text-white px-4 py-2 rounded-lg font-medium transition duration-200">
+            <i class="fas fa-map-marker-alt mr-2"></i> Encontre um restaurante
+          </a>
+        </div>
+      </div>
+
+      <div id="mobile-menu" class="hidden md:hidden py-2 space-y-2">
+        <a href="#ofertas" class="block px-4 py-2 rounded-lg hover:bg-yellow-500 font-medium">Ofertas</a>
+        <a href="#cardapio" class="block px-4 py-2 rounded-lg hover:bg-yellow-500 font-medium">Cardápio</a>
+        <a href="#bkdelivery" class="block px-4 py-2 rounded-lg hover:bg-yellow-500 font-medium">BK Delivery</a>
+        <a href="#sobre" class="block px-4 py-2 rounded-lg hover:bg-yellow-500 font-medium">Sobre nós</a>
+        <div class="pt-2 space-y-2">
+          <a href="#" class="block bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg font-medium">
+            Baixe o App
+          </a>
+          <a href="#" class="block bg-gray-800 hover:bg-gray-900 text-white px-4 py-2 rounded-lg font-medium">
+            Encontre um restaurante
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <section class="relative">
+    <div class="bk-red-gradient bg-opacity-90 pt-16 pb-24 px-4">
+      <div class="container mx-auto flex flex-col md:flex-row items-center">
+        <div class="md:w-1/2 text-center md:text-left mb-8 md:mb-0">
+          <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">O Grelhado no Fogo Chegou!</h2>
+          <p class="text-xl text-yellow-200 mb-6">Experimente o sabor defumado que só o BK tem!</p>
+          <div class="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4 justify-center md:justify-start">
+            <a href="#cardapio" class="bk-yellow-gradient hover:bg-yellow-500 text-gray-900 font-bold py-3 px-6 rounded-full transition duration-300 shadow-lg">
+              Peça agora
+            </a>
+            <a href="#ofertas" class="bg-white hover:bg-gray-100 text-red-600 font-bold py-3 px-6 rounded-full transition duration-300 shadow-lg">
+              Veja as ofertas
+            </a>
+          </div>
+        </div>
+        <div class="md:w-1/2 flex justify-center">
+          <img src="img/banner_grelhado.png" 
+               alt="Grelhado no Fogo" 
+               class="h-64 md:h-80 lg:h-96 object-contain hover:scale-105 transition duration-300">
+        </div>
+      </div>
+    </div>
+    <div class="absolute bottom-0 left-0 right-0 h-8 bg-white rounded-t-3xl"></div>
+  </section>
+
+  <section id="ofertas" class="menu-section py-12 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="flex justify-between items-end mb-8">
+        <div>
+          <h2 class="text-3xl font-bold bk-red-text mb-2">Nossas Ofertas</h2>
+          <div class="w-16 h-1 bk-yellow-gradient rounded-full"></div>
+        </div>
+        <a href="#" class="text-gray-500 hover:bk-red-text flex items-center">
+          Ver todas <i class="fas fa-chevron-right ml-1 text-sm"></i>
+        </a>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="bg-white rounded-xl overflow-hidden shadow-md card-hover transition duration-300">
+          <div class="relative">
+            <img src="img/king_em_dobro.png" 
+                 alt="King em Dobro" class="w-full h-48 object-cover">
+            <div class="absolute top-2 left-2 bg-red-600 text-white text-xs font-bold px-2 py-1 rounded">
+              NOVO
+            </div>
+          </div>
+          <div class="p-4">
+            <h3 class="font-bold text-lg mb-2">King em Dobro</h3>
+            <p class="text-gray-600 text-sm mb-3">Escolha 2 sanduíches, batata e refri por R$ 25,00</p>
+            <div class="flex justify-between items-center">
+              <span class="bk-red-text font-bold">R$ 25,00</span>
+              <button class="bg-yellow-400 hover:bg-yellow-500 text-gray-800 px-3 py-1 rounded-full text-sm font-medium transition duration-200">
+                Adicionar
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-xl overflow-hidden shadow-md card-hover transition duration-300">
+          <div class="relative">
+            <img src="img/combo_da_hora.png" 
+                 alt="Combo da Hora" class="w-full h-48 object-cover">
+            <div class="absolute top-2 left-2 bk-yellow-gradient text-gray-800 text-xs font-bold px-2 py-1 rounded">
+              EXCLUSIVO APP
+            </div>
+          </div>
+          <div class="p-4">
+            <h3 class="font-bold text-lg mb-2">Combo da Hora</h3>
+            <p class="text-gray-600 text-sm mb-3">Sanduíche + Batata P + Refri P por R$ 19,90</p>
+            <div class="flex justify-between items-center">
+              <span class="bk-red-text font-bold">R$ 19,90</span>
+              <button class="bg-yellow-400 hover:bg-yellow-500 text-gray-800 px-3 py-1 rounded-full text-sm font-medium transition duration-200">
+                Adicionar
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-xl overflow-hidden shadow-md card-hover transition duration-300">
+          <div class="relative">
+            <img src="img/casquinha_recheada.png" 
+                 alt="Casquinha Recheada" class="w-full h-48 object-cover">
+          </div>
+          <div class="p-4">
+            <h3 class="font-bold text-lg mb-2">Casquinha Recheada</h3>
+            <p class="text-gray-600 text-sm mb-3">Nossa casquinha com calda de chocolate e recheio cremoso por R$ 6,00</p>
+            <div class="flex justify-between items-center">
+              <span class="bk-red-text font-bold">R$ 6,00</span>
+              <button class="bg-yellow-400 hover:bg-yellow-500 text-gray-800 px-3 py-1 rounded-full text-sm font-medium transition duration-200">
+                Adicionar
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-xl overflow-hidden shadow-md card-hover transition duration-300">
+          <div class="relative">
+            <img src="img/whopper_furioso.png" 
+                 alt="Whopper Furioso" class="w-full h-48 object-cover">
+            <div class="absolute top-2 left-2 bg-red-600 text-white text-xs font-bold px-2 py-1 rounded">
+              POPULAR
+            </div>
+          </div>
+          <div class="p-4">
+            <h3 class="font-bold text-lg mb-2">Whopper Furioso</h3>
+            <p class="text-gray-600 text-sm mb-3">Sanduíche + Batata M + Refri M a partir de R$ 34,90</p>
+            <div class="flex justify-between items-center">
+              <span class="bk-red-text font-bold">a partir de R$ 34,90</span>
+              <button class="bg-yellow-400 hover:bg-yellow-500 text-gray-800 px-3 py-1 rounded-full text-sm font-medium transition duration-200">
+                Adicionar
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="cardapio" class="menu-section py-12 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold bk-red-text mb-2 text-center">Nosso Cardápio</h2>
+      <div class="w-16 h-1 bk-yellow-gradient rounded-full mx-auto mb-8"></div>
+
+      <div class="flex overflow-x-auto pb-4 mb-6 scrollbar-hide">
+        <div class="flex space-x-2">
+          <button class="category-btn px-4 py-2 rounded-full bg-red-600 text-white font-medium whitespace-nowrap" data-category="lanches">
+            Lanches
+          </button>
+          <button class="category-btn px-4 py-2 rounded-full bg-gray-200 hover:bg-gray-300 font-medium whitespace-nowrap" data-category="acompanhamentos">
+            Acompanhamentos
+          </button>
+          <button class="category-btn px-4 py-2 rounded-full bg-gray-200 hover:bg-gray-300 font-medium whitespace-nowrap" data-category="sobremesas">
+            Sobremesas
+          </button>
+          <button class="category-btn px-4 py-2 rounded-full bg-gray-200 hover:bg-gray-300 font-medium whitespace-nowrap" data-category="bebidas">
+            Bebidas
+          </button>
+          <button class="category-btn px-4 py-2 rounded-full bg-gray-200 hover:bg-gray-300 font-medium whitespace-nowrap" data-category="cafe">
+            Café da manhã
+          </button>
+        </div>
+      </div>
+
+      <div id="lanches" class="menu-category">
+        <h3 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+          <i class="fas fa-burger mr-3 bk-yellow-text"></i> Lanches
+        </h3>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div class="menu-item bg-white p-4 rounded-lg shadow-sm flex">
+            <div class="w-24 h-24 flex-shrink-0 mr-4">
+              <img src="img/whopper.png" 
+                   alt="Whopper" class="w-full h-full object-cover rounded-lg">
+            </div>
+            <div class="flex-grow">
+              <div class="flex justify-between items-start">
+                <h4 class="font-bold text-gray-800">Whopper</h4>
+                <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full">O Original</span>
+              </div>
+              <p class="text-gray-600 text-sm my-1">O sabor inconfundível do hambúrguer grelhado no fogo, alface, tomate, picles e maionese.</p>
+              <div class="flex justify-between items-center mt-2">
+                <span class="bk-red-text font-bold">R$ 22,90</span>
+                <button class="add-to-cart bg-yellow-400 hover:bg-yellow-500 text-gray-800 w-8 h-8 rounded-full flex items-center justify-center transition duration-200"
+                        data-name="Whopper" data-price="22.90">
+                  <i class="fas fa-plus"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="menu-item bg-white p-4 rounded-lg shadow-sm flex">
+            <div class="w-24 h-24 flex-shrink-0 mr-4">
+              <img src="img/stacker_duplo.png" 
+                   alt="Stacker Duplo" class="w-full h-full object-cover rounded-lg">
+            </div>
+            <div class="flex-grow">
+              <div class="flex justify-between items-start">
+                <h4 class="font-bold text-gray-800">Stacker Duplo</h4>
+                <span class="bg-red-100 text-red-800 text-xs px-2 py-1 rounded-full">Favorito</span>
+              </div>
+              <p class="text-gray-600 text-sm my-1">Dois hambúrgueres grelhados, queijo derretido e fatias de bacon crocante.</p>
+              <div class="flex justify-between items-center mt-2">
+                <span class="bk-red-text font-bold">R$ 28,90</span>
+                <button class="add-to-cart bg-yellow-400 hover:bg-yellow-500 text-gray-800 w-8 h-8 rounded-full flex items-center justify-center transition duration-200"
+                        data-name="Stacker Duplo" data-price="28.90">
+                  <i class="fas fa-plus"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="menu-item bg-white p-4 rounded-lg shadow-sm flex">
+            <div class="w-24 h-24 flex-shrink-0 mr-4">
+              <img src="img/chicken_crisp.png" 
+                   alt="Chicken Crisp" class="w-full h-full object-cover rounded-lg">
+            </div>
+            <div class="flex-grow">
+              <h4 class="font-bold text-gray-800">Chicken Crisp</h4>
+              <p class="text-gray-600 text-sm my-1">Filé de frango empanado e crocante, alface, tomate e maionese.</p>
+              <div class="flex justify-between items-center mt-2">
+                <span class="bk-red-text font-bold">R$ 19,90</span>
+                <button class="add-to-cart bg-yellow-400 hover:bg-yellow-500 text-gray-800 w-8 h-8 rounded-full flex items-center justify-center transition duration-200"
+                        data-name="Chicken Crisp" data-price="19.90">
+                  <i class="fas fa-plus"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="menu-item bg-white p-4 rounded-lg shadow-sm flex">
+            <div class="w-24 h-24 flex-shrink-0 mr-4">
+              <img src="img/mega_stacker.png" 
+                   alt="Mega Stacker" class="w-full h-full object-cover rounded-lg">
+            </div>
+            <div class="flex-grow">
+              <h4 class="font-bold text-gray-800">Mega Stacker</h4>
+              <p class="text-gray-600 text-sm my-1">Até 4 hambúrgueres grelhados, muito queijo e bacon, molho Stacker.</p>
+              <div class="flex justify-between items-center mt-2">
+                <span class="bk-red-text font-bold">R$ 38,90</span>
+                <button class="add-to-cart bg-yellow-400 hover:bg-yellow-500 text-gray-800 w-8 h-8 rounded-full flex items-center justify-center transition duration-200"
+                        data-name="Mega Stacker" data-price="38.90">
+                  <i class="fas fa-plus"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="acompanhamentos" class="menu-category hidden">
+        <h3 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+          <i class="fas fa-fries mr-3 bk-yellow-text"></i> Acompanhamentos
+        </h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div class="menu-item bg-white p-4 rounded-lg shadow-sm flex">
+            <div class="w-24 h-24 flex-shrink-0 mr-4">
+              <img src="img/batata_king.png" 
+                   alt="Batata King" class="w-full h-full object-cover rounded-lg">
+            </div>
+            <div class="flex-grow">
+              <h4 class="font-bold text-gray-800">Batata King</h4>
+              <p class="text-gray-600 text-sm my-1">Nossas famosas batatas fritas crocantes e quentinhas.</p>
+              <div class="flex justify-between items-center mt-2">
+                <span class="bk-red-text font-bold">R$ 11,90</span>
+                <button class="add-to-cart bg-yellow-400 hover:bg-yellow-500 text-gray-800 w-8 h-8 rounded-full flex items-center justify-center transition duration-200"
+                        data-name="Batata King" data-price="11.90">
+                  <i class="fas fa-plus"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="menu-item bg-white p-4 rounded-lg shadow-sm flex">
+            <div class="w-24 h-24 flex-shrink-0 mr-4">
+              <img src="img/onion_rings.png" 
+                   alt="Onion Rings" class="w-full h-full object-cover rounded-lg">
+            </div>
+            <div class="flex-grow">
+              <h4 class="font-bold text-gray-800">Onion Rings</h4>
+              <p class="text-gray-600 text-sm my-1">Anéis de cebola crocantes por fora, macios por dentro.</p>
+              <div class="flex justify-between items-center mt-2">
+                <span class="bk-red-text font-bold">R$ 13,90</span>
+                <button class="add-to-cart bg-yellow-400 hover:bg-yellow-500 text-gray-800 w-8 h-8 rounded-full flex items-center justify-center transition duration-200"
+                        data-name="Onion Rings" data-price="13.90">
+                  <i class="fas fa-plus"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="sobremesas" class="menu-category hidden">
+        <h3 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+          <i class="fas fa-ice-cream mr-3 bk-yellow-text"></i> Sobremesas
+        </h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div class="menu-item bg-white p-4 rounded-lg shadow-sm flex">
+            <div class="w-24 h-24 flex-shrink-0 mr-4">
+              <img src="img/sundae.png" 
+                   alt="Sundae" class="w-full h-full object-cover rounded-lg">
+            </div>
+            <div class="flex-grow">
+              <h4 class="font-bold text-gray-800">Sundae</h4>
+              <p class="text-gray-600 text-sm my-1">Sorvete de baunilha com calda de chocolate, morango ou caramelo.</p>
+              <div class="flex justify-between items-center mt-2">
+                <span class="bk-red-text font-bold">R$ 9,90</span>
+                <button class="add-to-cart bg-yellow-400 hover:bg-yellow-500 text-gray-800 w-8 h-8 rounded-full flex items-center justify-center transition duration-200"
+                        data-name="Sundae" data-price="9.90">
+                  <i class="fas fa-plus"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="menu-item bg-white p-4 rounded-lg shadow-sm flex">
+            <div class="w-24 h-24 flex-shrink-0 mr-4">
+              <img src="img/casquinha.png" 
+                   alt="Casquinha" class="w-full h-full object-cover rounded-lg">
+            </div>
+            <div class="flex-grow">
+              <h4 class="font-bold text-gray-800">Casquinha</h4>
+              <p class="text-gray-600 text-sm my-1">Nosso delicioso sorvete de baunilha na casquinha crocante.</p>
+              <div class="flex justify-between items-center mt-2">
+                <span class="bk-red-text font-bold">R$ 5,00</span>
+                <button class="add-to-cart bg-yellow-400 hover:bg-yellow-500 text-gray-800 w-8 h-8 rounded-full flex items-center justify-center transition duration-200"
+                        data-name="Casquinha" data-price="5.00">
+                  <i class="fas fa-plus"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="bebidas" class="menu-category hidden">
+        <h3 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+          <i class="fas fa-mug-hot mr-3 bk-yellow-text"></i> Bebidas
+        </h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div class="menu-item bg-white p-4 rounded-lg shadow-sm flex">
+            <div class="w-24 h-24 flex-shrink-0 mr-4">
+              <img src="img/refrigerante.png" 
+                   alt="Refrigerante" class="w-full h-full object-cover rounded-lg">
+            </div>
+            <div class="flex-grow">
+              <h4 class="font-bold text-gray-800">Refrigerante</h4>
+              <p class="text-gray-600 text-sm my-1">Diversos sabores de refrigerante para acompanhar seu pedido.</p>
+              <div class="flex justify-between items-center mt-2">
+                <span class="bk-red-text font-bold">R$ 9,00</span>
+                <button class="add-to-cart bg-yellow-400 hover:bg-yellow-500 text-gray-800 w-8 h-8 rounded-full flex items-center justify-center transition duration-200"
+                        data-name="Refrigerante" data-price="9.00">
+                  <i class="fas fa-plus"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="menu-item bg-white p-4 rounded-lg shadow-sm flex">
+            <div class="w-24 h-24 flex-shrink-0 mr-4">
+              <img src="img/suco.png" 
+                   alt="Suco" class="w-full h-full object-cover rounded-lg">
+            </div>
+            <div class="flex-grow">
+              <h4 class="font-bold text-gray-800">Suco</h4>
+              <p class="text-gray-600 text-sm my-1">Sucos naturais e refrescantes de diversos sabores.</p>
+              <div class="flex justify-between items-center mt-2">
+                <span class="bk-red-text font-bold">R$ 10,00</span>
+                <button class="add-to-cart bg-yellow-400 hover:bg-yellow-500 text-gray-800 w-8 h-8 rounded-full flex items-center justify-center transition duration-200"
+                        data-name="Suco" data-price="10.00">
+                  <i class="fas fa-plus"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="cafe" class="menu-category hidden">
+        <h3 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+          <i class="fas fa-coffee mr-3 bk-yellow-text"></i> Café da Manhã
+        </h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div class="menu-item bg-white p-4 rounded-lg shadow-sm flex">
+            <div class="w-24 h-24 flex-shrink-0 mr-4">
+              <img src="img/cafe.png" 
+                   alt="Café" class="w-full h-full object-cover rounded-lg">
+            </div>
+            <div class="flex-grow">
+              <h4 class="font-bold text-gray-800">Café</h4>
+              <p class="text-gray-600 text-sm my-1">Nosso café fresquinho e aromático para começar o dia.</p>
+              <div class="flex justify-between items-center mt-2">
+                <span class="bk-red-text font-bold">R$ 7,00</span>
+                <button class="add-to-cart bg-yellow-400 hover:bg-yellow-500 text-gray-800 w-8 h-8 rounded-full flex items-center justify-center transition duration-200"
+                        data-name="Café" data-price="7.00">
+                  <i class="fas fa-plus"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="menu-item bg-white p-4 rounded-lg shadow-sm flex">
+            <div class="w-24 h-24 flex-shrink-0 mr-4">
+              <img src="img/pao_de_queijo.png" 
+                   alt="Pão de Queijo" class="w-full h-full object-cover rounded-lg">
+            </div>
+            <div class="flex-grow">
+              <h4 class="font-bold text-gray-800">Pão de Queijo</h4>
+              <p class="text-gray-600 text-sm my-1">O tradicional pão de queijo quentinho e delicioso.</p>
+              <div class="flex justify-between items-center mt-2">
+                <span class="bk-red-text font-bold">R$ 6,00</span>
+                <button class="add-to-cart bg-yellow-400 hover:bg-yellow-500 text-gray-800 w-8 h-8 rounded-full flex items-center justify-center transition duration-200"
+                        data-name="Pão de Queijo" data-price="6.00">
+                  <i class="fas fa-plus"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="bkdelivery" class="menu-section py-16 bk-red-gradient text-white">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-col md:flex-row items-center">
+        <div class="md:w-1/2 mb-8 md:mb-0 md:pr-8">
+          <h2 class="text-3xl font-bold mb-4">BK Delivery</h2>
+          <p class="text-lg mb-6">Peça seus favoritos do Burger King sem sair de casa. Entregamos através dos nossos parceiros.</p>
+          <div class="grid grid-cols-2 gap-4">
+            <a href="#" class="bg-white hover:bg-gray-100 text-red-600 font-bold py-3 px-4 rounded-lg text-center transition duration-300 flex items-center justify-center">
+              <i class="fas fa-motorcycle mr-2"></i> iFood
+            </a>
+            <a href="#" class="bg-white hover:bg-gray-100 text-red-600 font-bold py-3 px-4 rounded-lg text-center transition duration-300 flex items-center justify-center">
+              <i class="fas fa-shopping-bag mr-2"></i> Rappi
+            </a>
+          </div>
+        </div>
+        <div class="md:w-1/2 flex justify-center">
+          <img src="img/bk_delivery_banner.png" 
+               alt="BK Delivery" 
+               class="w-full max-w-md hover:scale-105 transition duration-300">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="sobre" class="menu-section py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold bk-red-text mb-2">Sobre o Burger King</h2>
+        <div class="w-16 h-1 bk-yellow-gradient rounded-full mx-auto"></div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="bg-gray-50 rounded-xl p-6 shadow-sm hover:shadow-md transition duration-300">
+          <div class="bk-yellow-text text-3xl mb-4">
+            <i class="fas fa-fire"></i>
+          </div>
+          <h3 class="font-bold text-xl mb-2">Grelhado no Fogo</h3>
+          <p class="text-gray-600">Nossos hambúrgueres são feitos na chama, para um sabor defumado e inconfundível.</p>
+        </div>
+
+        <div class="bg-gray-50 rounded-xl p-6 shadow-sm hover:shadow-md transition duration-300">
+          <div class="bk-yellow-text text-3xl mb-4">
+            <i class="fas fa-leaf"></i>
+          </div>
+          <h3 class="font-bold text-xl mb-2">Compromisso</h3>
+          <p class="text-gray-600">Comprometidos com a qualidade dos ingredientes e a satisfação dos nossos clientes.</p>
+        </div>
+
+        <div class="bg-gray-50 rounded-xl p-6 shadow-sm hover:shadow-md transition duration-300">
+          <div class="bk-yellow-text text-3xl mb-4">
+            <i class="fas fa-heart"></i>
+          </div>
+          <h3 class="font-bold text-xl mb-2">Comunidade</h3>
+          <p class="text-gray-600">Apoiamos iniciativas sociais e projetos que beneficiam as comunidades onde atuamos.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-gray-100">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-col md:flex-row items-center">
+        <div class="md:w-1/2 mb-8 md:mb-0">
+          <img src="img/bk_app_banner.png" 
+               alt="Burger King App" 
+               class="w-full max-w-xs mx-auto hover:scale-105 transition duration-300">
+        </div>
+        <div class="md:w-1/2 md:pl-12">
+          <h2 class="text-3xl font-bold bk-red-text mb-4">Baixe o App BK</h2>
+          <p class="text-lg text-gray-700 mb-6">Tenha o Burger King na palma da sua mão. Peça delivery, retire no restaurante e aproveite ofertas exclusivas.</p>
+          
+          <div class="flex flex-wrap gap-4">
+            <a href="#" class="bg-gray-800 hover:bg-gray-900 text-white px-6 py-3 rounded-lg font-medium flex items-center transition duration-300">
+              <i class="fab fa-apple text-2xl mr-2"></i>
+              <div class="text-left">
+                <div class="text-xs">Disponível na</div>
+                <div class="font-bold">App Store</div>
+              </div>
+            </a>
+            
+            <a href="#" class="bg-gray-800 hover:bg-gray-900 text-white px-6 py-3 rounded-lg font-medium flex items-center transition duration-300">
+              <i class="fab fa-google-play text-2xl mr-2"></i>
+              <div class="text-left">
+                <div class="text-xs">Disponível no</div>
+                <div class="font-bold">Google Play</div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-12 bk-yellow-gradient">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-2xl font-bold text-gray-800 mb-4">Receba nossas novidades!</h2>
+      <p class="text-gray-700 mb-6">Cadastre-se e seja o primeiro a saber sobre nossas promoções e lançamentos.</p>
+      
+      <form class="max-w-md mx-auto flex">
+        <input type="email" placeholder="Seu melhor e-mail" class="flex-grow px-4 py-3 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-red-500" aria-label="Seu melhor e-mail">
+        <button type="submit" class="bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-r-lg font-medium transition duration-300">
+          Cadastrar
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <footer class="bg-gray-900 text-white pt-12 pb-6">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+        <div>
+          <h3 class="font-bold text-lg mb-4">Burger King</h3>
+          <ul class="space-y-2">
+            <li><a href="#" class="text-gray-300 hover:text-yellow-400 transition duration-200">Sobre nós</a></li>
+            <li><a href="#" class="text-gray-300 hover:text-yellow-400 transition duration-200">Trabalhe conosco</a></li>
+            <li><a href="#" class="text-gray-300 hover:text-yellow-400 transition duration-200">Franquias</a></li>
+            <li><a href="#" class="text-gray-300 hover:text-yellow-400 transition duration-200">Relação com investidores</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h3 class="font-bold text-lg mb-4">Contato</h3>
+          <ul class="space-y-2">
+            <li><a href="#" class="text-gray-300 hover:text-yellow-400 transition duration-200 flex items-center">
+              <i class="fas fa-headset mr-2"></i> Fale Conosco
+            </a></li>
+            <li><a href="#" class="text-gray-300 hover:text-yellow-400 transition duration-200 flex items-center">
+              <i class="fas fa-store mr-2"></i> Encontre um restaurante
+            </a></li>
+            <li><a href="#" class="text-gray-300 hover:text-yellow-400 transition duration-200 flex items-center">
+              <i class="fas fa-question-circle mr-2"></i> Perguntas frequentes
+            </a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="font-bold text-lg mb-4">Termos</h3>
+          <ul class="space-y-2">
+            <li><a href="#" class="text-gray-300 hover:text-yellow-400 transition duration-200">Termos e condições</a></li>
+            <li><a href="#" class="text-gray-300 hover:text-yellow-400 transition duration-200">Política de privacidade</a></li>
+            <li><a href="#" class="text-gray-300 hover:text-yellow-400 transition duration-200">Política de cookies</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="font-bold text-lg mb-4">Redes sociais</h3>
+          <div class="flex space-x-4">
+            <a href="#" class="bg-gray-700 hover:bg-red-600 w-10 h-10 rounded-full flex items-center justify-center transition duration-300" aria-label="Facebook">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="#" class="bg-gray-700 hover:bg-red-600 w-10 h-10 rounded-full flex items-center justify-center transition duration-300" aria-label="Instagram">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="#" class="bg-gray-700 hover:bg-red-600 w-10 h-10 rounded-full flex items-center justify-center transition duration-300" aria-label="Twitter">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#" class="bg-gray-700 hover:bg-red-600 w-10 h-10 rounded-full flex items-center justify-center transition duration-300" aria-label="YouTube">
+              <i class="fab fa-youtube"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="pt-6 border-t border-gray-700 text-center">
+        <p class="text-gray-400 text-sm">
+          © <span id="current-year"></span> Burger King Brasil. Todos os direitos reservados.
+          <br class="md:hidden">
+          TM & © 2025 Burger King Corporation. Todos os direitos reservados.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <div class="fixed bottom-6 right-6 z-50">
+    <button id="cart-button" class="bk-yellow-gradient w-16 h-16 rounded-full shadow-xl flex items-center justify-center text-gray-800 relative hover:scale-110 transition duration-300" aria-label="Abrir carrinho">
+      <i class="fas fa-shopping-bag text-2xl"></i>
+      <span id="cart-count" class="absolute -top-1 -right-1 bg-red-600 text-white text-xs font-bold w-5 h-5 flex items-center justify-center rounded-full">0</span>
+    </button>
+    
+    <div id="cart-dropdown" class="hidden absolute bottom-16 right-0 w-72 bg-white rounded-lg shadow-xl border border-gray-200 p-4">
+      <h3 class="font-bold mb-3">Seu Carrinho</h3>
+      <div id="cart-items" class="mb-4 max-h-60 overflow-y-auto">
+        <p class="text-gray-500 text-sm py-4 text-center">Seu carrinho está vazio</p>
+      </div>
+      <div class="border-t border-gray-200 pt-3">
+        <div class="flex justify-between font-bold mb-3">
+          <span>Total:</span>
+          <span id="cart-total">R$ 0,00</span>
+        </div>
+        <a href="#" class="block bg-red-600 hover:bg-red-700 text-white text-center py-2 rounded-lg font-medium transition duration-300">
+          Finalizar compra
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Get current year for footer
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+    // Mobile menu toggle
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    mobileMenuButton.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+    // Close mobile menu when a link is clicked (for smoother navigation)
+    document.querySelectorAll('#mobile-menu a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+      });
+    });
+    // Category buttons
+    const categoryButtons = document.querySelectorAll('.category-btn');
+    const menuCategories = document.querySelectorAll('.menu-category');
+    categoryButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        // Remove active class from all buttons
+        categoryButtons.forEach(btn => {
+          btn.classList.remove('bg-red-600', 'text-white');
+          btn.classList.add('bg-gray-200', 'hover:bg-gray-300');
+        });
+        
+        // Add active class to clicked button
+        button.classList.remove('bg-gray-200', 'hover:bg-gray-300');
+        button.classList.add('bg-red-600', 'text-white');
+        
+        // Hide all menu categories
+        menuCategories.forEach(category => {
+          category.classList.add('hidden');
+        });
+        
+        // Show selected category
+        const categoryId = button.getAttribute('data-category');
+        document.getElementById(categoryId).classList.remove('hidden');
+
+        // Scroll to the menu section
+        document.getElementById('cardapio').scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+    // Cart functionality
+    const cartButton = document.getElementById('cart-button');
+    const cartDropdown = document.getElementById('cart-dropdown');
+    const cartCount = document.getElementById('cart-count');
+    const cartItemsContainer = document.getElementById('cart-items');
+    const cartTotal = document.getElementById('cart-total');
+    
+    let cart = [];
+    // Function to save cart to localStorage
+    function saveCart() {
+        localStorage.setItem('bkCart', JSON.stringify(cart));
+    }
+
+    // Function to load cart from localStorage
+    function loadCart() {
+        const storedCart = localStorage.getItem('bkCart');
+        if (storedCart) {
+            cart = JSON.parse(storedCart);
+            updateCartUI();
+        }
+    }
+
+    // Toggle cart dropdown
+    cartButton.addEventListener('click', (event) => {
+      event.stopPropagation(); // Prevent click from bubbling to document and closing immediately
+      cartDropdown.classList.toggle('hidden');
+    });
+    // Close cart when clicking outside
+    document.addEventListener('click', (event) => {
+      if (!cartButton.contains(event.target) && !cartDropdown.contains(event.target)) {
+        cartDropdown.classList.add('hidden');
+      }
+    });
+    // Add to cart buttons
+    const addToCartButtons = document.querySelectorAll('.add-to-cart');
+    addToCartButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const itemName = button.dataset.name;
+        const itemPrice = parseFloat(button.dataset.price);
+        
+        // Check if item already exists in cart, then increment quantity
+        const existingItemIndex = cart.findIndex(item => item.name === itemName);
+
+        if (existingItemIndex > -1) {
+          cart[existingItemIndex].quantity += 1;
+        } else {
+          cart.push({
+            name: itemName,
+            price: itemPrice,
+            quantity: 1
+          });
+        }
+        
+        updateCartUI();
+        saveCart(); // Save updated cart
+        
+        // Show cart dropdown
+        cartDropdown.classList.remove('hidden');
+        
+        // Show confirmation
+        const originalIcon = button.innerHTML;
+        button.innerHTML = '<i class="fas fa-check"></i>';
+        button.classList.add('bg-green-500', 'hover:bg-green-600');
+        
+        setTimeout(() => {
+          button.innerHTML = originalIcon;
+          button.classList.remove('bg-green-500', 'hover:bg-green-600');
+        }, 1000);
+      });
+    });
+    function updateCartUI() {
+      // Update cart count
+      const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+      cartCount.textContent = totalItems;
+      
+      // Update cart items list
+      cartItemsContainer.innerHTML = '';
+      if (cart.length === 0) {
+        cartItemsContainer.innerHTML = '<p class="text-gray-500 text-sm py-4 text-center">Seu carrinho está vazio</p>';
+      } else {
+        cart.forEach((item, index) => {
+          const itemElement = document.createElement('div');
+          itemElement.className = 'flex justify-between items-center py-2 border-b border-gray-100 last:border-b-0';
+          itemElement.innerHTML = `
+            <div>
+              <p class="font-medium">${item.name} <span class="text-gray-500 text-sm">x${item.quantity}</span></p>
+              <p class="text-sm text-gray-500">R$ ${(item.price * item.quantity).toFixed(2).replace('.', ',')}</p>
+            </div>
+            <button class="remove-item text-red-500 p-1 rounded-full hover:bg-red-100" data-index="${index}" aria-label="Remover item">
+              <i class="fas fa-times"></i>
+            </button>
+          `;
+          cartItemsContainer.appendChild(itemElement);
+        });
+        // Add remove item event listeners
+        document.querySelectorAll('.remove-item').forEach(button => {
+          button.addEventListener('click', (e) => {
+            const index = parseInt(button.getAttribute('data-index'));
+            
+            if (cart[index].quantity > 1) {
+              cart[index].quantity -= 1;
+            } else {
+              cart.splice(index, 1);
+            }
+            updateCartUI();
+            saveCart(); // Save updated cart
+            e.stopPropagation();
+          });
+        });
+      }
+      
+      // Update total
+      const currentTotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+      cartTotal.textContent = `R$ ${currentTotal.toFixed(2).replace('.', ',')}`;
+    }
+
+    // Load cart on page load
+    document.addEventListener('DOMContentLoaded', loadCart);
+  </script>
+</body>
+</html>

@@ -99,7 +99,7 @@
         opacity: 0.9;
     }
 
-    /* Estilos do Popup */
+    /* Estilos dos Popups */
     .modal-overlay {
         position: fixed;
         top: 0;
@@ -166,6 +166,32 @@
         border-radius: 4px;
         font-size: 1.2rem;
     }
+    /* Estilos para campos do checkout */
+    .checkout-form label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-weight: 500;
+    }
+    .checkout-form input[type="text"],
+    .checkout-form input[type="email"],
+    .checkout-form input[type="tel"] {
+        width: 100%;
+        padding: 0.75rem;
+        margin-bottom: 1rem;
+        border: 1px solid #CCC;
+        border-radius: 8px;
+        box-sizing: border-box; /* Garante padding incluso na largura total */
+    }
+    .checkout-form .grid {
+        display: grid;
+        gap: 1rem;
+    }
+    @media (min-width: 640px) { /* Tailwing 'sm' breakpoint */
+        .checkout-form .grid-cols-2 {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+    }
+
 
     /* Custom scrollbar for menu categories */
     .scrollbar-hide::-webkit-scrollbar { display: none; }
@@ -637,25 +663,24 @@
         categoryButtons.forEach(button => {
             if (button) { // Checa se o botão individual não é null
                 button.addEventListener('click', () => {
+                    // Remove destaque de todos os botões
                     categoryButtons.forEach(btn => {
                       btn.classList.remove('btn-bk-primary', 'text-white'); 
                       btn.classList.add('bg-gray-200', 'hover:bg-gray-300', 'text-bk-dark-text'); 
                     });
                     
+                    // Adiciona destaque ao botão clicado
                     button.classList.remove('bg-gray-200', 'hover:bg-gray-300', 'text-bk-dark-text'); 
                     button.classList.add('btn-bk-primary', 'text-white'); 
                     
-                    // LÓGICA DE ESCONDER/MOSTRAR CATEGORIAS REMOVIDA PARA MOSTRAR TODAS POR PADRÃO
-                    // menuCategories.forEach(category => {
-                    //   category.classList.add('hidden'); 
-                    // });
-                    
+                    // Lógica de esconder/mostrar categorias removida para MOSTRAR TODAS POR PADRÃO.
+                    // A rolagem para a categoria clicada permanece.
                     const categoryId = button.getAttribute('data-category');
                     const targetCategory = document.getElementById(categoryId);
                     if (targetCategory) { 
-                        // targetCategory.classList.remove('hidden'); // APENAS ROLAR, NÃO ESCONDER/MOSTRAR
+                        // APENAS ROLAR, NÃO ESCONDER/MOSTRAR VISIBILIDADE DE CATEGORIAS
+                        document.getElementById('cardapio').scrollIntoView({ behavior: 'smooth' });
                     }
-                    document.getElementById('cardapio').scrollIntoView({ behavior: 'smooth' });
                 });
             }
         });

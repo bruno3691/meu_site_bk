@@ -67,9 +67,9 @@
     .category-btn {
         border-radius: 20px; 
         padding: 10px 20px;
-        transition: all 0.2s ease;
         font-weight: 700;
         letter-spacing: 0.05em;
+        transition: all 0.2s ease; /* Transição adicionada para hover de categoria */
     }
     .category-btn.active {
         background-color: #BD0000; 
@@ -175,13 +175,8 @@
 <body class="font-['Montserrat'] bg-bk-neutral-bg text-bk-dark-text">
   <header class="bk-red-main py-4 navbar-shadow">
     <div class="container mx-auto px-4">
-      <div class="flex justify-between items-center">
-        <a href="#" class="flex items-center space-x-2">
-          <img src="img/burger_king_logo.svg" alt="Burger King Logo Oficial" class="h-8 md:h-10">
-          <h1 class="text-white text-2xl font-extrabold tracking-wide">BURGER KING</h1>
-        </a>
-        <div class="hidden md:flex space-x-2">
-          <a href="#" class="text-white hover:text-bk-yellow-main px-3 py-1 rounded-full" aria-label="Carrinho">
+      <div class="flex justify-center items-center"> <a href="#" class="flex items-center"> <img src="img/burger_king_logo.svg" alt="Burger King Logo Oficial" class="h-10 md:h-12 mx-auto"> </a>
+        <div class="absolute right-4 hidden md:flex space-x-2"> <a href="#" class="text-white hover:text-bk-yellow-main px-3 py-1 rounded-full" aria-label="Carrinho">
             <i class="fas fa-shopping-bag"></i>
           </a>
         </div>
@@ -391,7 +386,7 @@
         <h3 class="text-2xl font-bold text-bk-dark-text mb-6 flex items-center">
           <i class="fas fa-ice-cream mr-3 bk-yellow-text"></i> Sobremesas
         </h3>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           <div class="menu-item bg-white p-4 rounded-lg shadow-bk flex">
             <div class="w-24 h-24 flex-shrink-0 mr-4">
               <img src="img/sundae.png" 
@@ -433,7 +428,7 @@
         <h3 class="text-2xl font-bold text-bk-dark-text mb-6 flex items-center">
           <i class="fas fa-mug-hot mr-3 bk-yellow-text"></i> Bebidas
         </h3>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           <div class="menu-item bg-white p-4 rounded-lg shadow-bk flex">
             <div class="w-24 h-24 flex-shrink-0 mr-4">
               <img src="img/refrigerante.png" 

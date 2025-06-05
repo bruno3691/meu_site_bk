@@ -330,8 +330,9 @@
                    alt="Mega Stacker" class="w-full h-full object-cover rounded-lg">
             </div>
             <div class="flex-grow">
-              <h4 class="font-bold text-bk-dark-text">Mega Stacker</h4>
-              <p class="text-gray-600 text-sm my-1">Até 4 hambúrgueres grelhados, muito queijo e bacon, molho Stacker.</p>
+              <div class="flex justify-between items-start">
+                <h4 class="font-bold text-bk-dark-text">Mega Stacker</h4>
+                <p class="text-gray-600 text-sm my-1">Até 4 hambúrgueres grelhados, muito queijo e bacon, molho Stacker.</p>
               <div class="flex justify-between items-center mt-2">
                 <span class="bk-red-text font-bold">R$ 38,90</span>
                 <button class="add-to-cart btn-bk-accent hover:opacity-90 text-bk-dark-text w-8 h-8 rounded-full flex items-center justify-center transition duration-200"
@@ -521,9 +522,11 @@
           <h2 class="text-3xl font-bold mb-4 uppercase tracking-wide">BK DELIVERY - PEÇA ONLINE!</h2>
           <p class="text-lg text-gray-200 mb-6 font-light">Peça seus favoritos do Burger King e receba-os quentinhos, direto na sua porta!</p>
           <div class="grid grid-cols-2 gap-4">
-            <a href="#" class="bg-gray-800 hover:bg-gray-900 text-white font-bold py-3 px-4 rounded-md text-center transition duration-300 shadow-bk flex justify-center items-center"> <img src="img/ifood_logo.png" alt="Logo iFood" class="h-6 mr-2"> iFood
+            <a href="#" class="bg-gray-800 hover:bg-gray-900 text-white font-bold py-3 px-4 rounded-md text-center transition duration-300 shadow-bk flex justify-center items-center">
+              <img src="img/ifood_logo.png" alt="Logo iFood" class="h-6 mr-2"> iFood
             </a>
-            <a href="#" class="bg-gray-800 hover:bg-gray-900 text-white font-bold py-3 px-4 rounded-md text-center transition duration-300 shadow-bk flex justify-center items-center"> <img src="img/rappi_logo.png" alt="Logo Rappi" class="h-6 mr-2"> Rappi
+            <a href="#" class="bg-gray-800 hover:bg-gray-900 text-white font-bold py-3 px-4 rounded-md text-center transition duration-300 shadow-bk flex justify-center items-center">
+              <img src="img/rappi_logo.png" alt="Logo Rappi" class="h-6 mr-2"> Rappi
             </a>
           </div>
         </div>
@@ -685,9 +688,9 @@
     const categoryButtons = document.querySelectorAll('.category-btn');
     const menuCategories = document.querySelectorAll('.menu-category');
     // Adiciona checagens de nullidade para elementos antes de adicionar listeners
-    if (categoryButtons.length > 0 && menuCategories.length > 0) { 
+    if (categoryButtons.length > 0 && menuCategories.length > 0) { // Verifica se há botões e categorias
         categoryButtons.forEach(button => {
-            if (button) { 
+            if (button) { // Checa se o botão individual não é null
                 button.addEventListener('click', () => {
                     categoryButtons.forEach(btn => {
                       btn.classList.remove('btn-bk-primary', 'text-white'); 
@@ -702,12 +705,14 @@
                     const categoryId = button.getAttribute('data-category');
                     const targetCategory = document.getElementById(categoryId);
                     if (targetCategory) { 
+                        // APENAS ROLAR, NÃO ESCONDER/MOSTRAR VISIBILIDADE DE CATEGORIAS
                         document.getElementById('cardapio').scrollIntoView({ behavior: 'smooth' });
                     }
                 });
             }
         });
     }
+
 
     // Cart functionality
     const cartButton = document.getElementById('cart-button');
@@ -756,4 +761,260 @@
 
     let currentProduct = null;
 
-    if (productModalOverlay && modalCloseBtn && modalImage && modalName && modalDescription && modalPriceDisplay && quantityInput && decrease
+    if (productModalOverlay && modalCloseBtn && modalImage && modalName && modalDescription && modalPriceDisplay && quantityInput && decreaseQuantityBtn && increaseQuantityBtn && modalAddToCartBtn && modalFinalizeOrderBtn) {
+        function openProductModal(name, price, description, image_src) {
+            currentProduct = { name, price, description, image_src };
+            modalImage.src = image_src;
+            modalName.textContent = name;
+            modalDescription.textContent = description;
+            quantityInput.value = 1; 
+            updateModalPrice();
+            productModalOverlay.classList.add('active');
+        }
+
+        function closeProductModal() {
+            productModalOverlay.classList.remove('active');
+            currentProduct = null;
+        }
+
+        function updateModalPrice() {
+            if (currentProduct) {
+                const quantity = parseInt(quantityInput.value);
+                const total = currentProduct.price * quantity;
+                modalPriceDisplay.textContent = `R$ ${total.toFixed(2).replace('.', ',')}`;
+            }
+        }
+
+        decreaseQuantityBtn.addEventListener('click', () => {
+            let quantity = parseInt(quantityInput.value);
+            if (quantity > 1) {
+                quantityInput.value = quantity - 1;
+                updateModalPrice();
+            }
+        });
+
+        increaseQuantityBtn.addEventListener('click', () => {
+            let quantity = parseInt(quantityInput.value);
+            quantityInput.value = quantity + 1;
+            updateModalPrice();
+        });
+
+        modalCloseBtn.addEventListener('click', closeProductModal);
+        productModalOverlay.addEventListener('click', (event) => {
+            if (event.target === productModalOverlay) {
+                closeProductModal();
+            }
+        });
+
+        modalAddToCartBtn.addEventListener('click', () => {
+            if (currentProduct) {
+                const quantityToAdd = parseInt(quantityInput.value);
+                const existingItemIndex = cart.findIndex(item => item.name === currentProduct.name);
+
+                if (existingItemIndex > -1) {
+                  cart[existingItemIndex].quantity += quantityToAdd;
+                } else {
+                  cart.push({
+                    name: currentProduct.name,
+                    price: currentProduct.price,
+                    quantity: quantityToAdd,
+                    image: currentProduct.image
+                  });
+                }
+                updateCartUI();
+                saveCart();
+                closeProductModal();
+            }
+        });
+
+        // Modifica o botão de Finalizar Pedido do modal do produto para abrir o checkout
+        modalFinalizeOrderBtn.addEventListener('click', () => {
+            if (currentProduct) {
+                const quantityToAdd = parseInt(quantityInput.value);
+                const existingItemIndex = cart.findIndex(item => item.name === currentProduct.name);
+
+                if (existingItemIndex > -1) {
+                  cart[existingItemIndex].quantity += quantityToAdd;
+                } else {
+                  cart.push({
+                    name: currentProduct.name,
+                    price: currentProduct.price,
+                    quantity: quantityToAdd,
+                    image: currentProduct.image
+                  });
+                }
+                updateCartUI();
+                saveCart();
+                closeProductModal(); 
+                openCheckoutModal(); 
+            }
+        });
+
+        const addToCartButtons = document.querySelectorAll('.add-to-cart');
+        if (addToCartButtons.length > 0) {
+            addToCartButtons.forEach(button => {
+              const oldHandler = button.onclick; 
+              if (oldHandler) {
+                  button.removeEventListener('click', oldHandler);
+              }
+              button.addEventListener('click', () => {
+                const itemName = button.dataset.name;
+                const itemPrice = parseFloat(button.dataset.price);
+                const itemDescription = button.dataset.description;
+                const itemImage = button.dataset.image;
+                openProductModal(itemName, itemPrice, itemDescription, itemImage);
+              });
+            });
+        }
+    }
+
+
+    // Update cart UI 
+    function updateCartUI() {
+      const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+      cartCount.textContent = totalItems;
+      
+      cartItemsContainer.innerHTML = '';
+      if (cart.length === 0) {
+        cartItemsContainer.innerHTML = '<p class="text-gray-500 text-sm py-4 text-center">Seu carrinho está vazio</p>';
+      } else {
+        cart.forEach((item, index) => {
+          const itemElement = document.createElement('div');
+          itemElement.className = 'flex justify-between items-center py-2 border-b border-gray-100 last:border-b-0';
+          // AQUI ESTÁ A CORREÇÃO PRINCIPAL: GARANTIR QUE A STRING TEM BACKTICKS PARA INTERPOLAÇÃO
+          itemElement.innerHTML = `
+            <div>
+              <p class="font-medium text-bk-dark-text"><span class="math-inline">\{item\.name\} <span class\="text\-gray\-500 text\-sm"\>x</span>{item.quantity}</span></p>
+              <p class="text-sm text-gray-500">R$ <span class="math-inline">\{\(item\.price \* item\.quantity\)\.toFixed\(2\)\.replace\('\.', ','\)\}</p\>
+</div\>
+<button class\="remove\-item text\-red\-500 p\-1 rounded\-full hover\:bg\-red\-100" data\-index\="</span>{index}" aria-label="Remover item">
+              <i class="fas fa-times"></i>
+            </button>
+          `;
+          cartItemsContainer.appendChild(itemElement);
+        });
+
+        // Event delegation para botões de remover itens no carrinho (Substitui o loop antigo)
+        // Isso resolve o TypeError de 'undefined' e o problema de 'Tentativa de remover item'.
+        // O listener só é adicionado UMA VEZ ao container pai 'cartItemsContainer'.
+        if (!cartItemsContainer.dataset.hasRemoveListener) { 
+            cartItemsContainer.dataset.hasRemoveListener = true; 
+            cartItemsContainer.addEventListener('click', (e) => {
+                const removeButton = e.target.closest('.remove-item'); 
+                if (removeButton) {
+                    const index = parseInt(removeButton.getAttribute('data-index'));
+                    // Agora a verificação 'cart[index] !== undefined' ainda é importante, mas o 'index' deve ser mais confiável.
+                    if (cart[index] !== undefined) { 
+                        if (cart[index].quantity > 1) {
+                            cart[index].quantity -= 1;
+                        } else {
+                            cart.splice(index, 1);
+                        }
+                    } else {
+                        // Isso só deve acontecer se o DOM e o array 'cart' estiverem MUITO dessincronizados.
+                        console.warn('Tentativa de remover item com índice inválido via delegação. Re-renderizando carrinho.');
+                    }
+                    updateCartUI(); // Re-renderiza para garantir a sincronia
+                    saveCart();
+                    e.stopPropagation();
+                }
+            });
+        }
+      }
+      
+      const currentTotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+      cartTotal.textContent = `R$ ${currentTotal.toFixed(2).replace('.', ',')}`;
+    }
+
+    // Load cart on page load
+    document.addEventListener('DOMContentLoaded', loadCart);
+
+    // --- LÓGICA DO MODAL DE CHECKOUT ---
+    const checkoutModalOverlay = document.getElementById('checkout-modal-overlay');
+    const checkoutCloseBtn = document.getElementById('checkout-close-btn');
+    const checkoutForm = document.getElementById('checkout-form');
+    const submitOrderBtn = document.getElementById('submit-order-btn');
+
+    // Campos do formulário de checkout
+    const checkoutName = document.getElementById('checkout-name');
+    const checkoutEmail = document.getElementById('checkout-email');
+    const checkoutPhone = document.getElementById('checkout-phone');
+    const checkoutStreet = document.getElementById('checkout-street');
+    const checkoutNumber = document.getElementById('checkout-number');
+    const checkoutComplement = document.getElementById('checkout-complement');
+    const checkoutNeighborhood = document.getElementById('checkout-neighborhood');
+    const checkoutCity = document.getElementById('checkout-city');
+    const checkoutState = document.getElementById('checkout-state');
+    const checkoutCep = document.getElementById('checkout-cep');
+
+    if (checkoutModalOverlay && checkoutCloseBtn && checkoutForm && submitOrderBtn) {
+        function openCheckoutModal() {
+            checkoutModalOverlay.classList.add('active');
+        }
+
+        function closeCheckoutModal() {
+            checkoutModalOverlay.classList.remove('active');
+            checkoutForm.reset(); 
+        }
+
+        checkoutCloseBtn.addEventListener('click', closeCheckoutModal);
+        checkoutModalOverlay.addEventListener('click', (event) => {
+            if (event.target === checkoutModalOverlay) {
+                closeCheckoutModal();
+            }
+        });
+
+        checkoutForm.addEventListener('submit', (event) => {
+            event.preventDefault(); 
+
+            if (!checkoutName.value || !checkoutEmail.value || !checkoutPhone.value || !checkoutStreet.value || !checkoutNumber.value || !checkoutNeighborhood.value || !checkoutCity.value || !checkoutState.value || !checkoutCep.value) {
+                alert('Por favor, preencha todos os campos obrigatórios para finalizar o pedido.');
+                return;
+            }
+
+            const orderDetails = {
+                customer: {
+                    name: checkoutName.value,
+                    email: checkoutEmail.value,
+                    phone: checkoutPhone.value
+                },
+                address: {
+                    street: checkoutStreet.value,
+                    number: checkoutNumber.value,
+                    complement: checkoutComplement.value,
+                    neighborhood: checkoutNeighborhood.value,
+                    city: checkoutCity.value,
+                    state: checkoutState.value,
+                    cep: checkoutCep.value
+                },
+                items: cart, 
+                total: cart.reduce((sum, item) => sum + (item.price * item.quantity), 0)
+            };
+
+            console.log('--- PEDIDO ENVIADO ---');
+            console.log(JSON.stringify(orderDetails, null, 2));
+            alert('Seu pedido foi enviado com sucesso! Acompanhe o status por e-mail ou telefone. Obrigado!');
+
+            cart = [];
+            saveCart();
+            updateCartUI();
+            closeCheckoutModal();
+        });
+    }
+
+    // Adiciona listener para o botão "Finalizar Pedido" no DROPDOWN do carrinho
+    const finalizeOrderDropdownBtn = document.querySelector('#cart-dropdown .btn-bk-primary');
+    if (finalizeOrderDropdownBtn) {
+        finalizeOrderDropdownBtn.addEventListener('click', () => {
+            if (cart.length === 0) {
+                alert('Seu carrinho está vazio. Adicione produtos antes de finalizar!');
+                return;
+            }
+            openCheckoutModal(); 
+            cartDropdown.classList.add('hidden'); 
+        });
+    }
+
+  </script>
+</body>
+</html>

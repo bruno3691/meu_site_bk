@@ -3,9 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Burger King Brasil - Peça Já seu Delivery!</title> 
-  
-  <meta http-equiv="Content-Security-Policy" content="
+  <title>Burger King Brasil - Peça Já seu Delivery!</title> <meta http-equiv="Content-Security-Policy" content="
     default-src 'self';
     script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com;
     style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
@@ -99,7 +97,7 @@
         opacity: 0.9;
     }
 
-    /* Estilos do Popup */
+    /* Estilos dos Popups */
     .modal-overlay {
         position: fixed;
         top: 0;
@@ -167,6 +165,48 @@
         font-size: 1.2rem;
     }
 
+    /* Contador Regressivo */
+    .countdown-container {
+        background-color: #000;
+        padding: 1.5rem;
+        border-radius: 10px;
+        margin-top: 2rem;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+        text-align: center;
+    }
+    .countdown-label {
+        font-size: 0.9rem;
+        color: #FF6347; /* Laranja/Vermelho para destaque */
+        text-transform: uppercase;
+        font-weight: bold;
+        letter-spacing: 0.1em;
+        margin-bottom: 0.5rem;
+    }
+    .countdown-timer {
+        font-size: 2.8rem;
+        font-weight: 800;
+        color: #FFC000; /* Amarelo BK para o tempo */
+        text-shadow: 2px 2px 5px rgba(0,0,0,0.8);
+        display: flex;
+        justify-content: center;
+        gap: 0.5rem;
+    }
+    .countdown-unit {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .countdown-value {
+        font-size: 2.8rem;
+        line-height: 1;
+    }
+    .countdown-label-small {
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        color: #AAA;
+        margin-top: 0.2rem;
+    }
+
     /* Custom scrollbar for menu categories */
     .scrollbar-hide::-webkit-scrollbar { display: none; }
     .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
@@ -223,17 +263,32 @@
     <div class="bk-red-main bg-opacity-90 pt-16 pb-24 px-4 shadow-bk">
       <div class="container mx-auto flex flex-col md:flex-row items-center">
         <div class="md:w-1/2 text-center md:text-left mb-8 md:mb-0">
-          <h2 class="text-4xl md:text-5xl font-extrabold text-white mb-4 uppercase tracking-wider">Seu Grelhado no Fogo, Entregue em Minutos!</h2>
-          <p class="text-xl text-gray-200 mb-6 font-light">Explore o cardápio mais saboroso e receba a brasa no conforto da sua casa.</p>
-          <div class="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4 justify-center md:justify-start">
+          <h2 class="text-4xl md:text-5xl font-extrabold text-white mb-4 uppercase tracking-wider">A ÚLTIMA CHANCE DA BRASA!</h2>
+          <p class="text-xl text-gray-200 mb-6 font-light">Essa oferta Black não volta. Garanta seu sabor antes que o fogo se apague.</p>
+          
+          <div class="countdown-container">
+              <p class="countdown-label">OFERTA EXPIRA EM:</p>
+              <div id="black-malandragem-countdown" class="countdown-timer">
+                  <div class="countdown-unit"><span id="countdown-days" class="countdown-value">00</span><span class="countdown-label-small">DIAS</span></div>
+                  <div class="countdown-unit"><span class="countdown-value">:</span></div>
+                  <div class="countdown-unit"><span id="countdown-hours" class="countdown-value">00</span><span class="countdown-label-small">HORAS</span></div>
+                  <div class="countdown-unit"><span class="countdown-value">:</span></div>
+                  <div class="countdown-unit"><span id="countdown-minutes" class="countdown-value">00</span><span class="countdown-label-small">MIN</span></div>
+                  <div class="countdown-unit"><span class="countdown-value">:</span></div>
+                  <div class="countdown-unit"><span id="countdown-seconds" class="countdown-value">00</span><span class="countdown-label-small">SEG</span></div>
+              </div>
+              <p class="text-xs text-gray-400 mt-2">Corra! Unidades Limitadíssimas!</p>
+          </div>
+
+          <div class="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4 justify-center md:justify-start mt-8">
             <a href="#cardapio" class="btn-bk-accent px-6 py-3 rounded-md font-medium transition duration-300 shadow-lg">
-              VER CARDÁPIO AGORA
+              PEGAR MINHA OFERTA AGORA!
             </a>
           </div>
         </div>
         <div class="md:w-1/2 flex justify-center">
           <img src="img/banner_grelhado.png" 
-               alt="Grelhado no Fogo" 
+               alt="Oferta Black" 
                class="h-64 md:h-80 lg:h-96 object-contain hover:scale-105 transition duration-300">
         </div>
       </div>
@@ -312,7 +367,10 @@
                    alt="Chicken Crisp" class="w-full h-full object-cover rounded-lg">
             </div>
             <div class="flex-grow">
-              <h4 class="font-bold text-bk-dark-text">Chicken Crisp</h4>
+              <div class="flex justify-between items-start">
+                <h4 class="font-bold text-bk-dark-text">Chicken Crisp</h4>
+                <span class="bg-red-100 text-red-800 text-xs px-2 py-1 rounded-full">Popular</span>
+              </div>
               <p class="text-gray-600 text-sm my-1">Filé de frango empanado e crocante, alface, tomate e maionese.</p>
               <div class="flex justify-between items-center mt-2">
                 <span class="bk-red-text font-bold">R$ 19,90</span>
@@ -330,7 +388,9 @@
                    alt="Mega Stacker" class="w-full h-full object-cover rounded-lg">
             </div>
             <div class="flex-grow">
-              <h4 class="font-bold text-bk-dark-text">Mega Stacker</h4>
+              <div class="flex justify-between items-start">
+                <h4 class="font-bold text-bk-dark-text">Mega Stacker</h4>
+                <span class="bg-red-100 text-red-800 text-xs px-2 py-1 rounded-full">Exclusivo!</span> </div>
               <p class="text-gray-600 text-sm my-1">Até 4 hambúrgueres grelhados, muito queijo e bacon, molho Stacker.</p>
               <div class="flex justify-between items-center mt-2">
                 <span class="bk-red-text font-bold">R$ 38,90</span>
@@ -882,10 +942,10 @@
           // AQUI ESTÁ A LINHA CRÍTICA COM AS CRASES CORRETAS
           itemElement.innerHTML = `
             <div>
-              <p class="font-medium text-bk-dark-text">${item.name} <span class="text-gray-500 text-sm">x${item.quantity}</span></p>
-              <p class="text-sm text-gray-500">R$ ${(item.price * item.quantity).toFixed(2).replace('.', ',')}</p>
-            </div>
-            <button class="remove-item text-red-500 p-1 rounded-full hover:bg-red-100" data-index="${index}" aria-label="Remover item">
+              <p class="font-medium text-bk-dark-text"><span class="math-inline">\{item\.name\} <span class\="text\-gray\-500 text\-sm"\>x</span>{item.quantity}</span></p>
+              <p class="text-sm text-gray-500">R$ <span class="math-inline">\{\(item\.price \* item\.quantity\)\.toFixed\(2\)\.replace\('\.', ','\)\}</p\>
+</div\>
+<button class\="remove\-item text\-red\-500 p\-1 rounded\-full hover\:bg\-red\-100" data\-index\="</span>{index}" aria-label="Remover item">
               <i class="fas fa-times"></i>
             </button>
           `; // FIM DA LINHA CRÍTICA
@@ -1008,6 +1068,89 @@
             cartDropdown.classList.add('hidden'); 
         });
     }
+
+    // --- LÓGICA DA OFERTA BLACK MALANDRAGEM (Contador Regressivo e Pop-up de Saída) ---
+    // JavaScript para o Contador Regressivo da Black Malandragem
+    function startBlackMalandragemCountdown() {
+        const countdownDays = document.getElementById('countdown-days');
+        const countdownHours = document.getElementById('countdown-hours');
+        const countdownMinutes = document.getElementById('countdown-minutes');
+        const countdownSeconds = document.getElementById('countdown-seconds');
+
+        if (!countdownDays || !countdownHours || !countdownMinutes || !countdownSeconds) return; // Garante que os elementos existam
+
+        // Defina a data e hora final da sua Oferta Black Malandragem (Exemplo: 10 dias a partir de 05/06/2025 18:01:02 -03)
+        // Isso fará o contador terminar em 15 de junho de 2025, 23:59:59
+        const blackMalandragemDate = new Date('June 15, 2025 23:59:59').getTime(); 
+
+        const countdownInterval = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = blackMalandragemDate - now;
+
+            if (distance < 0) {
+                clearInterval(countdownInterval);
+                countdownDays.textContent = '00';
+                countdownHours.textContent = '00';
+                countdownMinutes.textContent = '00';
+                countdownSeconds.textContent = '00';
+                const countdownContainer = document.getElementById('black-malandragem-countdown');
+                if (countdownContainer) {
+                    countdownContainer.innerHTML = "<span class='text-red-500 text-base'>OFERTA ENCERRADA. VOCÊ PERDEU.</span>";
+                }
+                return;
+            }
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            countdownDays.textContent = String(days).padStart(2, '0');
+            countdownHours.textContent = String(hours).padStart(2, '0');
+            countdownMinutes.textContent = String(minutes).padStart(2, '0');
+            countdownSeconds.textContent = String(seconds).padStart(2, '0');
+
+        }, 1000);
+    }
+
+    // JavaScript para Pop-up de Saída (Exit-Intent)
+    const exitIntentPopup = document.getElementById('exit-intent-popup');
+    const exitCloseBtn = exitIntentPopup ? exitIntentPopup.querySelector('.modal-close-btn') : null;
+
+    if (exitIntentPopup && exitCloseBtn) {
+        let mouseLeaveTriggered = false; 
+
+        document.addEventListener('mouseout', (e) => {
+            if (e.clientY < 10 && !mouseLeaveTriggered) { // Se o mouse sair pelo topo da janela
+                if (cart.length > 0) { // Só mostra se tiver itens no carrinho
+                    exitIntentPopup.classList.add('active');
+                    mouseLeaveTriggered = true;
+                }
+            }
+        });
+
+        exitCloseBtn.addEventListener('click', () => {
+            exitIntentPopup.classList.remove('active');
+        });
+        exitIntentPopup.addEventListener('click', (e) => {
+            if (e.target === exitIntentPopup) {
+                exitIntentPopup.classList.remove('active');
+            }
+        });
+        const exitCtaBtn = exitIntentPopup.querySelector('.btn-bk-primary');
+        if (exitCtaBtn) {
+            exitCtaBtn.addEventListener('click', () => {
+                exitIntentPopup.classList.remove('active');
+            });
+        }
+    }
+
+
+    // Chama as funções no carregamento da página
+    document.addEventListener('DOMContentLoaded', () => {
+        loadCart();
+        startBlackMalandragemCountdown(); // Inicia o contador
+    });
 
   </script>
 </body>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Burger King Brasil - Peça Já seu Delivery!</title> <meta http-equiv="Content-Security-Policy" content="
+  <title>BURGER KING - O FOGO NO SEU ESTILO</title> <meta http-equiv="Content-Security-Policy" content="
     default-src 'self';
     script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com;
     style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
@@ -18,73 +18,75 @@
   ">
   
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"> <link rel="stylesheet" href="assets/css/all.min.css">
   
   <style>
-    /* PALETA DE CORES: Burger King (Retorno) com Estilo Simplificado */
-    .bk-red-gradient {
-        background: linear-gradient(135deg, #BD0000 0%, #990000 100%); /* Vermelho BK */
+    /* NOVO CONCEITO VISUAL: URBAN GRUNGE / STREET STYLE */
+    .grunge-dark-bg { /* Fundo principal escuro */
+        background-color: #1A1A1A; /* Quase preto */
     }
-    .bk-yellow-gradient {
-        background: linear-gradient(135deg, #FFC000 0%, #E47911 100%); /* Amarelo/Laranja BK */
+    .grunge-medium-bg { /* Fundo de seção ligeiramente mais claro */
+        background-color: #2C2C2C; /* Cinza chumbo */
     }
-    .bk-red-text {
+    .grunge-text-light { /* Texto principal claro */
+        color: #E0E0E0; 
+    }
+    .grunge-text-accent { /* Texto de destaque */
+        color: #FFC000; /* Amarelo BK */
+    }
+    .grunge-primary-accent-bg { /* Accent de fundo (Botões, etc.) */
+        background-color: #BD0000; /* Vermelho BK */
+    }
+    .grunge-primary-accent-text {
         color: #BD0000; /* Texto Vermelho BK */
     }
-    .bk-yellow-text {
-        color: #FFC000; /* Texto Amarelo BK */
+    .grunge-secondary-accent-bg { /* Dourado/Amarelo BK */
+        background: linear-gradient(135deg, #FFC000 0%, #E47911 100%); 
     }
-    .bg-bk-light-gray { /* Fundo claro para seções */
-        background-color: #F8F8F8; 
-    }
-    .bg-bk-neutral-bg { /* Fundo geral do body */
-        background-color: #FDF5E6; /* Tom suave, quase branco */
-    }
-    .text-bk-dark { /* Texto principal mais escuro */
-        color: #333333; 
-    }
-    .shadow-refined { /* Sombra mais refinada para minimalismo */
-        box-shadow: 0 8px 20px rgba(0,0,0,0.12);
-        border-radius: 12px; 
+    .shadow-heavy { /* Sombra mais pesada e dramática */
+        box-shadow: 0 10px 30px rgba(0,0,0,0.5); /* Sombra mais escura */
+        border-radius: 6px; /* Bordas mais retas */
     }
     .card-hover:hover {
-      transform: translateY(-5px) scale(1.02); 
-      box-shadow: 0 15px 30px rgba(0,0,0,0.18);
+      transform: translateY(-8px) scale(1.03); /* Movimento mais agressivo */
+      box-shadow: 0 20px 40px rgba(0,0,0,0.6); /* Sombra ainda mais pesada no hover */
     }
     .menu-item {
-        border-radius: 10px; 
-        box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        border-radius: 6px; /* Bordas retas */
+        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
     }
     .menu-item:not(:last-child) {
       border-bottom: none; 
     }
     .category-btn {
-        border-radius: 20px; 
-        padding: 8px 18px;
-        transition: all 0.3s ease;
+        border-radius: 4px; /* Botões mais angulares */
+        padding: 10px 20px;
+        transition: all 0.2s ease;
+        font-weight: 700; /* Mais bold */
+        letter-spacing: 0.05em; /* Espaçamento de letra */
     }
     .category-btn.active {
-        background-color: #BD0000; /* Vermelho BK para ativo */
+        background-color: #BD0000; 
         color: white;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        box-shadow: 0 4px 10px rgba(0,0,0,0.3);
     }
     .navbar-shadow {
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05); 
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2); 
     }
-    .btn-bk-primary { /* Botão principal com cor BK */
+    .btn-action { /* Botões de ação mais impactantes */
         background-color: #BD0000;
         color: white;
+        border-radius: 4px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
     }
-    .btn-bk-primary:hover {
-        background-color: #990000;
+    .btn-action:hover {
+        background-color: #FFC000; /* Inverte cor no hover para amarelo */
+        color: #1A1A1A;
     }
-    .btn-bk-accent { /* Botão de destaque com cor BK */
-        background: linear-gradient(135deg, #FFC000 0%, #E47911 100%);
-        color: #333333; /* Texto escuro no amarelo/laranja */
-    }
-    .btn-bk-accent:hover {
-        opacity: 0.9;
+    .text-outline { /* Efeito de contorno para títulos */
+        text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
     }
 
 
@@ -93,15 +95,13 @@
     .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
   </style>
 </head>
-<body class="font-['Montserrat'] bg-bk-neutral-bg text-text-bk-dark">
-  <header class="bk-red-gradient py-4 shadow-refined">
-    <div class="container mx-auto px-4">
+<body class="font-['Montserrat'] grunge-dark-bg text-grunge-text-light"> <header class="grunge-medium-bg py-4 navbar-shadow"> <div class="container mx-auto px-4">
       <div class="flex justify-between items-center">
         <a href="#" class="flex items-center space-x-2">
           <img src="img/burger_king_logo.svg" alt="Burger King Logo Oficial" class="h-8 md:h-10">
-          <h1 class="text-white text-2xl font-bold">Burger King</h1> </a>
+          <h1 class="text-white text-2xl font-extrabold tracking-wide">BURGER KING</h1> </a>
         <div class="hidden md:flex space-x-2">
-          <a href="#" class="text-white hover:text-bk-yellow-text px-3 py-1 rounded-full" aria-label="Carrinho">
+          <a href="#" class="text-white hover:text-grunge-text-accent px-3 py-1 rounded-full" aria-label="Carrinho">
             <i class="fas fa-shopping-bag"></i>
           </a>
         </div>
@@ -109,31 +109,31 @@
     </div>
   </header>
 
-  <nav class="bg-white py-3 navbar-shadow sticky top-0 z-50 shadow-refined">
+  <nav class="grunge-medium-bg py-3 navbar-shadow sticky top-0 z-50">
     <div class="container mx-auto px-4">
       <div class="flex justify-between items-center">
-        <button id="mobile-menu-button" class="md:hidden text-text-bk-dark focus:outline-none" aria-label="Abrir menu mobile">
+        <button id="mobile-menu-button" class="md:hidden text-grunge-text-light focus:outline-none" aria-label="Abrir menu mobile">
           <i class="fas fa-bars text-xl"></i>
         </button>
 
         <div class="hidden md:flex space-x-1">
-          <a href="#cardapio" class="px-4 py-2 rounded-lg hover:bg-bk-light-gray font-medium transition duration-200 text-text-bk-dark">Cardápio</a>
-          <a href="#delivery" class="px-4 py-2 rounded-lg hover:bg-bk-light-gray font-medium transition duration-200 text-text-bk-dark">Delivery</a>
+          <a href="#cardapio" class="px-4 py-2 rounded-md hover:bg-grunge-dark-bg font-medium transition duration-200 text-grunge-text-light uppercase category-btn">Cardápio</a>
+          <a href="#delivery" class="px-4 py-2 rounded-md hover:bg-grunge-dark-bg font-medium transition duration-200 text-grunge-text-light uppercase category-btn">Delivery</a>
         </div>
 
         <div class="hidden md:flex space-x-2">
-          <a href="#cardapio" class="btn-bk-primary hover:btn-bk-primary text-white px-4 py-2 rounded-lg font-medium transition duration-200">
-            <i class="fas fa-plus mr-2"></i> Pedir Agora
+          <a href="#cardapio" class="btn-action px-4 py-2 rounded-md font-medium transition duration-200">
+            <i class="fas fa-plus mr-2"></i> PEDIR AGORA
           </a>
         </div>
       </div>
 
-      <div id="mobile-menu" class="hidden md:hidden py-2 space-y-2 bg-white rounded-lg shadow-refined">
-        <a href="#cardapio" class="block px-4 py-2 rounded-lg hover:bg-bk-light-gray font-medium text-text-bk-dark">Cardápio</a>
-        <a href="#delivery" class="block px-4 py-2 rounded-lg hover:bg-bk-light-gray font-medium text-text-bk-dark">Delivery</a>
+      <div id="mobile-menu" class="hidden md:hidden py-2 space-y-2 grunge-medium-bg rounded-lg shadow-heavy">
+        <a href="#cardapio" class="block px-4 py-2 rounded-md hover:bg-grunge-dark-bg font-medium text-grunge-text-light uppercase">Cardápio</a>
+        <a href="#delivery" class="block px-4 py-2 rounded-md hover:bg-grunge-dark-bg font-medium text-grunge-text-light uppercase">Delivery</a>
         <div class="pt-2 space-y-2">
-          <a href="#cardapio" class="block btn-bk-primary hover:btn-bk-primary text-white px-4 py-2 rounded-lg font-medium">
-            Pedir Agora
+          <a href="#cardapio" class="block btn-action px-4 py-2 rounded-md font-medium">
+            PEDIR AGORA
           </a>
         </div>
       </div>
@@ -141,14 +141,14 @@
   </nav>
 
   <section class="relative">
-    <div class="bk-red-gradient bg-opacity-90 pt-16 pb-24 px-4 shadow-refined">
+    <div class="grunge-dark-bg bg-opacity-90 pt-16 pb-24 px-4 shadow-heavy">
       <div class="container mx-auto flex flex-col md:flex-row items-center">
         <div class="md:w-1/2 text-center md:text-left mb-8 md:mb-0">
-          <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">Seu Grelhado no Fogo, Entregue em Minutos!</h2>
-          <p class="text-xl text-gray-200 mb-6">Explore o cardápio mais saboroso e receba a brasa no conforto da sua casa.</p>
+          <h2 class="text-4xl md:text-5xl font-extrabold text-white mb-4 uppercase tracking-wider text-outline">Seu Grelhado no Fogo. Agora.</h2>
+          <p class="text-xl text-gray-400 mb-6 font-light">O sabor mais intenso, entregue direto para você.</p>
           <div class="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4 justify-center md:justify-start">
-            <a href="#cardapio" class="btn-bk-accent hover:opacity-90 text-text-bk-dark font-bold py-3 px-6 rounded-full transition duration-300 shadow-lg">
-              Ver Cardápio Agora
+            <a href="#cardapio" class="btn-action btn-action-accent px-6 py-3 rounded-md font-medium transition duration-300 shadow-lg">
+              VER CARDÁPIO
             </a>
           </div>
         </div>
@@ -159,46 +159,46 @@
         </div>
       </div>
     </div>
-    <div class="absolute bottom-0 left-0 right-0 h-8 bg-white rounded-t-3xl"></div>
+    <div class="absolute bottom-0 left-0 right-0 h-8 grunge-medium-bg rounded-t-3xl"></div>
   </section>
 
-  <section id="cardapio" class="menu-section py-12 bg-bk-neutral-bg rounded-lg shadow-refined">
+  <section id="cardapio" class="menu-section py-12 grunge-medium-bg rounded-lg shadow-heavy">
     <div class="container mx-auto px-4">
-      <h2 class="text-3xl font-bold bk-red-text mb-2 text-center">Nosso Cardápio para Delivery</h2>
-      <div class="w-16 h-1 bk-yellow-gradient rounded-full mx-auto mb-8"></div>
+      <h2 class="text-3xl font-bold grunge-primary-accent-text mb-2 text-center uppercase tracking-wide">Nosso Cardápio Brutal</h2>
+      <div class="w-16 h-1 grunge-secondary-accent-bg rounded-full mx-auto mb-8"></div>
 
       <div class="flex overflow-x-auto pb-4 mb-6 scrollbar-hide">
         <div class="flex space-x-2">
-          <button class="category-btn btn-bk-primary text-white font-medium whitespace-nowrap" data-category="lanches">
+          <button class="category-btn grunge-primary-accent-bg text-white font-medium whitespace-nowrap" data-category="lanches">
             Lanches
           </button>
-          <button class="category-btn bg-gray-200 hover:bg-gray-300 font-medium whitespace-nowrap text-text-bk-dark">Acompanhamentos</button>
-          <button class="category-btn bg-gray-200 hover:bg-gray-300 font-medium whitespace-nowrap text-text-bk-dark">Sobremesas</button>
-          <button class="category-btn bg-gray-200 hover:bg-gray-300 font-medium whitespace-nowrap text-text-bk-dark">Bebidas</button>
-          <button class="category-btn bg-gray-200 hover:bg-gray-300 font-medium whitespace-nowrap text-text-bk-dark">Café da manhã</button>
+          <button class="category-btn bg-gray-700 hover:bg-gray-800 font-medium whitespace-nowrap text-grunge-text-light">Acompanhamentos</button>
+          <button class="category-btn bg-gray-700 hover:bg-gray-800 font-medium whitespace-nowrap text-grunge-text-light">Sobremesas</button>
+          <button class="category-btn bg-gray-700 hover:bg-gray-800 font-medium whitespace-nowrap text-grunge-text-light">Bebidas</button>
+          <button class="category-btn bg-gray-700 hover:bg-gray-800 font-medium whitespace-nowrap text-grunge-text-light">Café da manhã</button>
         </div>
       </div>
 
       <div id="lanches" class="menu-category">
-        <h3 class="text-2xl font-bold text-text-bk-dark mb-6 flex items-center">
-          <i class="fas fa-burger mr-3 bk-yellow-text"></i> Lanches
+        <h3 class="text-2xl font-bold text-grunge-text-light mb-6 flex items-center">
+          <i class="fas fa-burger mr-3 grunge-text-accent"></i> Lanches
         </h3>
         
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <div class="menu-item bg-white p-4 rounded-lg shadow-refined flex">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div class="menu-item bg-gray-800 p-4 rounded-lg shadow-heavy flex">
             <div class="w-24 h-24 flex-shrink-0 mr-4">
               <img src="img/whopper.png" 
                    alt="Whopper" class="w-full h-full object-cover rounded-lg">
             </div>
             <div class="flex-grow">
               <div class="flex justify-between items-start">
-                <h4 class="font-bold text-text-bk-dark">Whopper</h4>
-                <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full">O Original</span>
+                <h4 class="font-bold text-grunge-text-light">Whopper</h4>
+                <span class="bg-green-700 text-green-300 text-xs px-2 py-1 rounded-full">O Original</span>
               </div>
-              <p class="text-gray-600 text-sm my-1">O sabor inconfundível do hambúrguer grelhado no fogo, alface, tomate, picles e maionese.</p>
+              <p class="text-gray-400 text-sm my-1">O sabor inconfundível do hambúrguer grelhado no fogo, alface, tomate, picles e maionese.</p>
               <div class="flex justify-between items-center mt-2">
-                <span class="bk-red-text font-bold">R$ 22,90</span>
-                <button class="btn-bk-accent hover:opacity-90 text-text-bk-dark w-8 h-8 rounded-full flex items-center justify-center transition duration-200"
+                <span class="grunge-primary-accent-text font-bold">R$ 22,90</span>
+                <button class="btn-action w-8 h-8 rounded-full flex items-center justify-center transition duration-200"
                         data-name="Whopper" data-price="22.90">
                   <i class="fas fa-plus"></i>
                 </button>
@@ -206,20 +206,20 @@
             </div>
           </div>
 
-          <div class="menu-item bg-white p-4 rounded-lg shadow-refined flex">
+          <div class="menu-item bg-gray-800 p-4 rounded-lg shadow-heavy flex">
             <div class="w-24 h-24 flex-shrink-0 mr-4">
               <img src="img/stacker_duplo.png" 
                    alt="Stacker Duplo" class="w-full h-full object-cover rounded-lg">
             </div>
             <div class="flex-grow">
               <div class="flex justify-between items-start">
-                <h4 class="font-bold text-text-bk-dark">Stacker Duplo</h4>
-                <span class="bg-red-100 text-red-800 text-xs px-2 py-1 rounded-full">Favorito</span>
+                <h4 class="font-bold text-grunge-text-light">Stacker Duplo</h4>
+                <span class="bg-red-700 text-red-300 text-xs px-2 py-1 rounded-full">Favorito</span>
               </div>
-              <p class="text-gray-600 text-sm my-1">Dois hambúrgueres grelhados, queijo derretido e fatias de bacon crocante.</p>
+              <p class="text-gray-400 text-sm my-1">Dois hambúrgueres grelhados, queijo derretido e fatias de bacon crocante.</p>
               <div class="flex justify-between items-center mt-2">
-                <span class="bk-red-text font-bold">R$ 28,90</span>
-                <button class="btn-bk-accent hover:opacity-90 text-text-bk-dark w-8 h-8 rounded-full flex items-center justify-center transition duration-200"
+                <span class="grunge-primary-accent-text font-bold">R$ 28,90</span>
+                <button class="btn-action w-8 h-8 rounded-full flex items-center justify-center transition duration-200"
                         data-name="Stacker Duplo" data-price="28.90">
                   <i class="fas fa-plus"></i>
                 </button>
@@ -227,17 +227,17 @@
             </div>
           </div>
 
-          <div class="menu-item bg-white p-4 rounded-lg shadow-refined flex">
+          <div class="menu-item bg-gray-800 p-4 rounded-lg shadow-heavy flex">
             <div class="w-24 h-24 flex-shrink-0 mr-4">
               <img src="img/chicken_crisp.png" 
                    alt="Chicken Crisp" class="w-full h-full object-cover rounded-lg">
             </div>
             <div class="flex-grow">
-              <h4 class="font-bold text-text-bk-dark">Chicken Crisp</h4>
-              <p class="text-gray-600 text-sm my-1">Filé de frango empanado e crocante, alface, tomate e maionese.</p>
+              <h4 class="font-bold text-grunge-text-light">Chicken Crisp</h4>
+              <p class="text-gray-400 text-sm my-1">Filé de frango empanado e crocante, alface, tomate e maionese.</p>
               <div class="flex justify-between items-center mt-2">
-                <span class="bk-red-text font-bold">R$ 19,90</span>
-                <button class="btn-bk-accent hover:opacity-90 text-text-bk-dark w-8 h-8 rounded-full flex items-center justify-center transition duration-200"
+                <span class="grunge-primary-accent-text font-bold">R$ 19,90</span>
+                <button class="btn-action w-8 h-8 rounded-full flex items-center justify-center transition duration-200"
                         data-name="Chicken Crisp" data-price="19.90">
                   <i class="fas fa-plus"></i>
                 </button>
@@ -245,17 +245,17 @@
             </div>
           </div>
 
-          <div class="menu-item bg-white p-4 rounded-lg shadow-refined flex">
+          <div class="menu-item bg-gray-800 p-4 rounded-lg shadow-heavy flex">
             <div class="w-24 h-24 flex-shrink-0 mr-4">
               <img src="img/mega_stacker.png" 
                    alt="Mega Stacker" class="w-full h-full object-cover rounded-lg">
             </div>
             <div class="flex-grow">
-              <h4 class="font-bold text-text-bk-dark">Mega Stacker</h4>
-              <p class="text-gray-600 text-sm my-1">Até 4 hambúrgueres grelhados, muito queijo e bacon, molho Stacker.</p>
+              <h4 class="font-bold text-grunge-text-light">Mega Stacker</h4>
+              <p class="text-gray-400 text-sm my-1">Até 4 hambúrgueres grelhados, muito queijo e bacon, molho Stacker.</p>
               <div class="flex justify-between items-center mt-2">
-                <span class="bk-red-text font-bold">R$ 38,90</span>
-                <button class="btn-bk-accent hover:opacity-90 text-text-bk-dark w-8 h-8 rounded-full flex items-center justify-center transition duration-200"
+                <span class="grunge-primary-accent-text font-bold">R$ 38,90</span>
+                <button class="btn-action w-8 h-8 rounded-full flex items-center justify-center transition duration-200"
                         data-name="Mega Stacker" data-price="38.90">
                   <i class="fas fa-plus"></i>
                 </button>
@@ -266,38 +266,38 @@
       </div>
 
       <div id="acompanhamentos" class="menu-category hidden">
-        <h3 class="text-2xl font-bold text-text-bk-dark mb-6 flex items-center">
-          <i class="fas fa-fries mr-3 bk-yellow-text"></i> Acompanhamentos
+        <h3 class="text-2xl font-bold text-grunge-text-light mb-6 flex items-center">
+          <i class="fas fa-fries mr-3 grunge-text-accent"></i> Acompanhamentos
         </h3>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <div class="menu-item bg-white p-4 rounded-lg shadow-refined flex">
+          <div class="menu-item bg-gray-800 p-4 rounded-lg shadow-heavy flex">
             <div class="w-24 h-24 flex-shrink-0 mr-4">
               <img src="img/batata_king.png" 
                    alt="Batata King" class="w-full h-full object-cover rounded-lg">
             </div>
             <div class="flex-grow">
-              <h4 class="font-bold text-text-bk-dark">Batata King</h4>
-              <p class="text-gray-600 text-sm my-1">Nossas famosas batatas fritas crocantes e quentinhas.</p>
+              <h4 class="font-bold text-grunge-text-light">Batata King</h4>
+              <p class="text-gray-400 text-sm my-1">Nossas famosas batatas fritas crocantes e quentinhas.</p>
               <div class="flex justify-between items-center mt-2">
-                <span class="bk-red-text font-bold">R$ 11,90</span>
-                <button class="btn-bk-accent hover:opacity-90 text-text-bk-dark w-8 h-8 rounded-full flex items-center justify-center transition duration-200"
+                <span class="grunge-primary-accent-text font-bold">R$ 11,90</span>
+                <button class="btn-action w-8 h-8 rounded-full flex items-center justify-center transition duration-200"
                         data-name="Batata King" data-price="11.90">
                   <i class="fas fa-plus"></i>
                 </button>
               </div>
             </div>
           </div>
-          <div class="menu-item bg-white p-4 rounded-lg shadow-refined flex">
+          <div class="menu-item bg-gray-800 p-4 rounded-lg shadow-heavy flex">
             <div class="w-24 h-24 flex-shrink-0 mr-4">
               <img src="img/onion_rings.png" 
                    alt="Onion Rings" class="w-full h-full object-cover rounded-lg">
             </div>
             <div class="flex-grow">
-              <h4 class="font-bold text-text-bk-dark">Onion Rings</h4>
-              <p class="text-gray-600 text-sm my-1">Anéis de cebola crocantes por fora, macios por dentro.</p>
+              <h4 class="font-bold text-grunge-text-light">Onion Rings</h4>
+              <p class="text-gray-400 text-sm my-1">Anéis de cebola crocantes por fora, macios por dentro.</p>
               <div class="flex justify-between items-center mt-2">
-                <span class="bk-red-text font-bold">R$ 13,90</span>
-                <button class="btn-bk-accent hover:opacity-90 text-text-bk-dark w-8 h-8 rounded-full flex items-center justify-center transition duration-200"
+                <span class="grunge-primary-accent-text font-bold">R$ 13,90</span>
+                <button class="btn-action w-8 h-8 rounded-full flex items-center justify-center transition duration-200"
                         data-name="Onion Rings" data-price="13.90">
                   <i class="fas fa-plus"></i>
                 </button>
@@ -308,38 +308,38 @@
       </div>
 
       <div id="sobremesas" class="menu-category hidden">
-        <h3 class="text-2xl font-bold text-text-bk-dark mb-6 flex items-center">
-          <i class="fas fa-ice-cream mr-3 bk-yellow-text"></i> Sobremesas
+        <h3 class="text-2xl font-bold text-grunge-text-light mb-6 flex items-center">
+          <i class="fas fa-ice-cream mr-3 grunge-text-accent"></i> Sobremesas
         </h3>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <div class="menu-item bg-white p-4 rounded-lg shadow-refined flex">
+          <div class="menu-item bg-gray-800 p-4 rounded-lg shadow-heavy flex">
             <div class="w-24 h-24 flex-shrink-0 mr-4">
               <img src="img/sundae.png" 
                    alt="Sundae" class="w-full h-full object-cover rounded-lg">
             </div>
             <div class="flex-grow">
-              <h4 class="font-bold text-text-bk-dark">Sundae</h4>
-              <p class="text-gray-600 text-sm my-1">Sorvete de baunilha com calda de chocolate, morango ou caramelo.</p>
+              <h4 class="font-bold text-grunge-text-light">Sundae</h4>
+              <p class="text-gray-400 text-sm my-1">Sorvete de baunilha com calda de chocolate, morango ou caramelo.</p>
               <div class="flex justify-between items-center mt-2">
-                <span class="bk-red-text font-bold">R$ 9,90</span>
-                <button class="btn-bk-accent hover:opacity-90 text-text-bk-dark w-8 h-8 rounded-full flex items-center justify-center transition duration-200"
+                <span class="grunge-primary-accent-text font-bold">R$ 9,90</span>
+                <button class="btn-action w-8 h-8 rounded-full flex items-center justify-center transition duration-200"
                         data-name="Sundae" data-price="9.90">
                   <i class="fas fa-plus"></i>
                 </button>
               </div>
             </div>
           </div>
-          <div class="menu-item bg-white p-4 rounded-lg shadow-refined flex">
+          <div class="menu-item bg-gray-800 p-4 rounded-lg shadow-heavy flex">
             <div class="w-24 h-24 flex-shrink-0 mr-4">
               <img src="img/casquinha.png" 
                    alt="Casquinha" class="w-full h-full object-cover rounded-lg">
             </div>
             <div class="flex-grow">
-              <h4 class="font-bold text-text-bk-dark">Casquinha</h4>
-              <p class="text-gray-600 text-sm my-1">Nosso delicioso sorvete de baunilha na casquinha crocante.</p>
+              <h4 class="font-bold text-grunge-text-light">Casquinha</h4>
+              <p class="text-gray-400 text-sm my-1">Nosso delicioso sorvete de baunilha na casquinha crocante.</p>
               <div class="flex justify-between items-center mt-2">
-                <span class="bk-red-text font-bold">R$ 5,00</span>
-                <button class="btn-bk-accent hover:opacity-90 text-text-bk-dark w-8 h-8 rounded-full flex items-center justify-center transition duration-200"
+                <span class="grunge-primary-accent-text font-bold">R$ 5,00</span>
+                <button class="btn-action w-8 h-8 rounded-full flex items-center justify-center transition duration-200"
                         data-name="Casquinha" data-price="5.00">
                   <i class="fas fa-plus"></i>
                 </button>
@@ -350,41 +350,40 @@
       </div>
 
       <div id="bebidas" class="menu-category hidden">
-        <h3 class="text-2xl font-bold text-text-bk-dark mb-6 flex items-center">
-          <i class="fas fa-mug-hot mr-3 bk-yellow-text"></i> Bebidas
+        <h3 class="text-2xl font-bold text-grunge-text-light mb-6 flex items-center">
+          <i class="fas fa-mug-hot mr-3 grunge-text-accent"></i> Bebidas
         </h3>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <div class="menu-item bg-white p-4 rounded-lg shadow-refined flex">
+          <div class="menu-item bg-gray-800 p-4 rounded-lg shadow-heavy flex">
             <div class="w-24 h-24 flex-shrink-0 mr-4">
               <img src="img/refrigerante.png" 
                    alt="Refrigerante" class="w-full h-full object-cover rounded-lg">
             </div>
             <div class="flex-grow">
-              <h4 class="font-bold text-text-bk-dark">Refrigerante</h4>
-              <p class="text-gray-600 text-sm my-1">Diversos sabores de refrigerante para acompanhar seu pedido.</p>
+              <h4 class="font-bold text-grunge-text-light">Refrigerante</h4>
+              <p class="text-gray-400 text-sm my-1">Diversos sabores de refrigerante para acompanhar seu pedido.</p>
               <div class="flex justify-between items-center mt-2">
-                <span class="bk-red-text font-bold">R$ 9,00</span>
-                <button class="btn-bk-accent hover:opacity-90 text-text-bk-dark w-8 h-8 rounded-full flex items-center justify-center transition duration-200"
+                <span class="grunge-primary-accent-text font-bold">R$ 9,00</span>
+                <button class="btn-action w-8 h-8 rounded-full flex items-center justify-center transition duration-200"
                         data-name="Refrigerante" data-price="9.00">
                   <i class="fas fa-plus"></i>
                 </button>
               </div>
             </div>
           </div>
-          <div class="menu-item bg-white p-4 rounded-lg shadow-refined flex">
+          <div class="menu-item bg-gray-800 p-4 rounded-lg shadow-heavy flex">
             <div class="w-24 h-24 flex-shrink-0 mr-4">
               <img src="img/suco.png" 
                    alt="Suco" class="w-full h-full object-cover rounded-lg">
             </div>
             <div class="flex-grow">
-              <h4 class="font-bold text-text-bk-dark">Suco</h4>
-              <p class="text-gray-600 text-sm my-1">Sucos naturais e refrescantes de diversos sabores.</p>
+              <h4 class="font-bold text-grunge-text-light">Suco</h4>
+              <p class="text-gray-400 text-sm my-1">Sucos naturais e refrescantes de diversos sabores.</p>
               <div class="flex justify-between items-center mt-2">
-                <span class="bk-red-text font-bold">R$ 10,00</span>
-                <button class="btn-bk-accent hover:opacity-90 text-text-bk-dark w-8 h-8 rounded-full flex items-center justify-center transition duration-200"
+                <span class="grunge-primary-accent-text font-bold">R$ 10,00</span>
+                <button class="btn-action w-8 h-8 rounded-full flex items-center justify-center transition duration-200"
                         data-name="Suco" data-price="10.00">
                   <i class="fas fa-plus"></i>
-                </button>
                 </button>
               </div>
             </div>
@@ -393,38 +392,38 @@
       </div>
 
       <div id="cafe" class="menu-category hidden">
-        <h3 class="text-2xl font-bold text-text-bk-dark mb-6 flex items-center">
-          <i class="fas fa-coffee mr-3 bk-yellow-text"></i> Café da Manhã
+        <h3 class="text-2xl font-bold text-grunge-text-light mb-6 flex items-center">
+          <i class="fas fa-coffee mr-3 grunge-text-accent"></i> Café da Manhã
         </h3>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <div class="menu-item bg-white p-4 rounded-lg shadow-refined flex">
+          <div class="menu-item bg-gray-800 p-4 rounded-lg shadow-heavy flex">
             <div class="w-24 h-24 flex-shrink-0 mr-4">
               <img src="img/cafe.png" 
                    alt="Café" class="w-full h-full object-cover rounded-lg">
             </div>
             <div class="flex-grow">
-              <h4 class="font-bold text-text-bk-dark">Café</h4>
-              <p class="text-gray-600 text-sm my-1">Nosso café fresquinho e aromático para começar o dia.</p>
+              <h4 class="font-bold text-grunge-text-light">Café</h4>
+              <p class="text-gray-400 text-sm my-1">Nosso café fresquinho e aromático para começar o dia.</p>
               <div class="flex justify-between items-center mt-2">
-                <span class="bk-red-text font-bold">R$ 7,00</span>
-                <button class="btn-bk-accent hover:opacity-90 text-text-bk-dark w-8 h-8 rounded-full flex items-center justify-center transition duration-200"
+                <span class="grunge-primary-accent-text font-bold">R$ 7,00</span>
+                <button class="btn-action w-8 h-8 rounded-full flex items-center justify-center transition duration-200"
                         data-name="Café" data-price="7.00">
                   <i class="fas fa-plus"></i>
                 </button>
               </div>
             </div>
           </div>
-          <div class="menu-item bg-white p-4 rounded-lg shadow-refined flex">
+          <div class="menu-item bg-gray-800 p-4 rounded-lg shadow-heavy flex">
             <div class="w-24 h-24 flex-shrink-0 mr-4">
               <img src="img/pao_de_queijo.png" 
                    alt="Pão de Queijo" class="w-full h-full object-cover rounded-lg">
             </div>
             <div class="flex-grow">
-              <h4 class="font-bold text-text-bk-dark">Pão de Queijo</h4>
-              <p class="text-gray-600 text-sm my-1">O tradicional pão de queijo quentinho e delicioso.</p>
+              <h4 class="font-bold text-grunge-text-light">Pão de Queijo</h4>
+              <p class="text-gray-400 text-sm my-1">O tradicional pão de queijo quentinho e delicioso.</p>
               <div class="flex justify-between items-center mt-2">
-                <span class="bk-red-text font-bold">R$ 6,00</span>
-                <button class="btn-bk-accent hover:opacity-90 text-text-bk-dark w-8 h-8 rounded-full flex items-center justify-center transition duration-200"
+                <span class="grunge-primary-accent-text font-bold">R$ 6,00</span>
+                <button class="btn-action w-8 h-8 rounded-full flex items-center justify-center transition duration-200"
                         data-name="Pão de Queijo" data-price="6.00">
                   <i class="fas fa-plus"></i>
                 </button>
@@ -436,18 +435,18 @@
     </div>
   </section>
 
-  <section id="delivery" class="menu-section py-16 bk-red-gradient text-white shadow-refined">
+  <section id="delivery" class="menu-section py-16 grunge-primary-accent-bg text-white shadow-heavy">
     <div class="container mx-auto px-4">
       <div class="flex flex-col md:flex-row items-center">
         <div class="md:w-1/2 mb-8 md:mb-0 md:pr-8">
-          <h2 class="text-3xl font-bold mb-4">BK Delivery - Peça Online!</h2>
-          <p class="text-lg mb-6">Peça seus favoritos do Burger King e receba-os quentinhos, direto na sua porta!</p>
+          <h2 class="text-3xl font-bold mb-4 uppercase tracking-wide">BK DELIVERY - SEU PEDIDO NA RUA</h2>
+          <p class="text-lg text-gray-200 mb-6 font-light">Peça seus favoritos do Burger King e receba-os quentinhos, direto na sua porta!</p>
           <div class="grid grid-cols-2 gap-4">
-            <a href="#" class="bg-white hover:bg-gray-100 bk-red-text font-bold py-3 px-4 rounded-lg text-center transition duration-300 shadow-refined">
-              <img src="img/ifood_logo.png" alt="Logo iFood" class="h-6 mr-2"> iFood
+            <a href="#" class="bg-gray-800 hover:bg-gray-900 text-white font-bold py-3 px-4 rounded-md text-center transition duration-300 shadow-heavy">
+              <img src="img/ifood_logo.png" alt="Logo iFood" class="h-6 mr-2 invert"> iFood
             </a>
-            <a href="#" class="bg-white hover:bg-gray-100 bk-red-text font-bold py-3 px-4 rounded-lg text-center transition duration-300 shadow-refined">
-              <img src="img/rappi_logo.png" alt="Logo Rappi" class="h-6 mr-2"> Rappi
+            <a href="#" class="bg-gray-800 hover:bg-gray-900 text-white font-bold py-3 px-4 rounded-md text-center transition duration-300 shadow-heavy">
+              <img src="img/rappi_logo.png" alt="Logo Rappi" class="h-6 mr-2 invert"> Rappi
             </a>
           </div>
         </div>
@@ -460,18 +459,18 @@
     </div>
   </section>
 
-  <footer class="bg-text-bk-dark text-white pt-12 pb-6">
+  <footer class="grunge-medium-bg text-white pt-12 pb-6">
     <div class="container mx-auto px-4">
       <div class="flex flex-col md:flex-row justify-between items-center mb-4">
-        <h3 class="font-bold text-lg mb-2 md:mb-0">Burger King</h3>
+        <h3 class="font-extrabold text-lg mb-2 md:mb-0 uppercase tracking-wide">BURGER KING</h3>
         <div class="flex space-x-4">
-          <a href="#" class="bg-gray-700 hover:bk-red-gradient w-10 h-10 rounded-full flex items-center justify-center transition duration-300" aria-label="Facebook">
+          <a href="#" class="bg-gray-700 hover:bg-white hover:text-red-600 w-10 h-10 rounded-full flex items-center justify-center transition duration-300" aria-label="Facebook">
             <i class="fab fa-facebook-f"></i>
           </a>
-          <a href="#" class="bg-gray-700 hover:bk-red-gradient w-10 h-10 rounded-full flex items-center justify-center transition duration-300" aria-label="Instagram">
+          <a href="#" class="bg-gray-700 hover:bg-white hover:text-red-600 w-10 h-10 rounded-full flex items-center justify-center transition duration-300" aria-label="Instagram">
             <i class="fab fa-instagram"></i>
           </a>
-          <a href="#" class="bg-gray-700 hover:bk-red-gradient w-10 h-10 rounded-full flex items-center justify-center transition duration-300" aria-label="Twitter">
+          <a href="#" class="bg-gray-700 hover:bg-white hover:text-red-600 w-10 h-10 rounded-full flex items-center justify-center transition duration-300" aria-label="Twitter">
             <i class="fab fa-twitter"></i>
           </a>
         </div>
@@ -487,22 +486,22 @@
   </footer>
 
   <div class="fixed bottom-6 right-6 z-50">
-    <button id="cart-button" class="bk-yellow-gradient w-16 h-16 rounded-full shadow-lg flex items-center justify-center text-text-bk-dark relative hover:scale-110 transition duration-300">
+    <button id="cart-button" class="grunge-secondary-accent-bg w-16 h-16 rounded-full shadow-lg flex items-center justify-center text-grunge-dark-bg relative hover:scale-110 transition duration-300">
       <i class="fas fa-shopping-bag text-2xl"></i>
-      <span id="cart-count" class="absolute -top-1 -right-1 bk-red-gradient text-white text-xs font-bold w-5 h-5 flex items-center justify-center rounded-full">0</span>
+      <span id="cart-count" class="absolute -top-1 -right-1 grunge-primary-accent-bg text-white text-xs font-bold w-5 h-5 flex items-center justify-center rounded-full">0</span>
     </button>
     
-    <div id="cart-dropdown" class="hidden absolute bottom-16 right-0 w-72 bg-white rounded-lg shadow-refined border border-gray-200 p-4">
-      <h3 class="font-bold mb-3">Seu Pedido</h3>
+    <div id="cart-dropdown" class="hidden absolute bottom-16 right-0 w-72 bg-gray-900 rounded-lg shadow-heavy border border-gray-700 p-4">
+      <h3 class="font-bold mb-3 text-grunge-text-light">Seu Pedido</h3>
       <div id="cart-items" class="mb-4 max-h-60 overflow-y-auto">
         <p class="text-gray-500 text-sm py-4 text-center">Seu carrinho está vazio</p>
       </div>
-      <div class="border-t border-gray-200 pt-3">
-        <div class="flex justify-between font-bold mb-3">
+      <div class="border-t border-gray-700 pt-3">
+        <div class="flex justify-between font-bold mb-3 text-grunge-text-light">
           <span>Total:</span>
           <span id="cart-total">R$ 0,00</span>
         </div>
-        <a href="#" class="block btn-bk-primary hover:opacity-90 text-white text-center py-2 rounded-lg font-medium transition duration-300">
+        <a href="#" class="block btn-action hover:btn-action-accent text-white text-center py-2 rounded-md font-medium transition duration-300">
           Finalizar Pedido
         </a>
       </div>
@@ -531,13 +530,13 @@
       button.addEventListener('click', () => {
         // Remove active class from all buttons
         categoryButtons.forEach(btn => {
-          btn.classList.remove('btn-bk-primary', 'text-white'); 
-          btn.classList.add('bg-gray-200', 'hover:bg-gray-300', 'text-text-bk-dark'); 
+          btn.classList.remove('grunge-primary-accent-bg', 'text-white'); 
+          btn.classList.add('bg-gray-700', 'hover:bg-gray-800', 'text-grunge-text-light'); 
         });
         
         // Add active class to clicked button
-        button.classList.remove('bg-gray-200', 'hover:bg-gray-300', 'text-text-bk-dark'); 
-        button.classList.add('btn-bk-primary', 'text-white'); 
+        button.classList.remove('bg-gray-700', 'hover:bg-gray-800', 'text-grunge-text-light'); 
+        button.classList.add('grunge-primary-accent-bg', 'text-white'); 
         
         // Hide all menu categories
         menuCategories.forEach(category => {
@@ -562,12 +561,12 @@
     let cart = [];
     // Function to save cart to localStorage
     function saveCart() {
-        localStorage.setItem('bkDeliveryCart', JSON.stringify(cart)); // Nome do carrinho atualizado
+        localStorage.setItem('bkDeliveryCart', JSON.stringify(cart)); 
     }
 
     // Function to load cart from localStorage
     function loadCart() {
-        const storedCart = localStorage.getItem('bkDeliveryCart'); // Nome do carrinho atualizado
+        const storedCart = localStorage.getItem('bkDeliveryCart'); 
         if (storedCart) {
             cart = JSON.parse(storedCart);
             updateCartUI();

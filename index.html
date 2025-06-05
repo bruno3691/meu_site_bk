@@ -166,32 +166,6 @@
         border-radius: 4px;
         font-size: 1.2rem;
     }
-    /* Estilos para campos do checkout */
-    .checkout-form label {
-        display: block;
-        margin-bottom: 0.5rem;
-        font-weight: 500;
-    }
-    .checkout-form input[type="text"],
-    .checkout-form input[type="email"],
-    .checkout-form input[type="tel"] {
-        width: 100%;
-        padding: 0.75rem;
-        margin-bottom: 1rem;
-        border: 1px solid #CCC;
-        border-radius: 8px;
-        box-sizing: border-box; /* Garante padding incluso na largura total */
-    }
-    .checkout-form .grid {
-        display: grid;
-        gap: 1rem;
-    }
-    @media (min-width: 640px) { /* Tailwing 'sm' breakpoint */
-        .checkout-form .grid-cols-2 {
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-        }
-    }
-
 
     /* Custom scrollbar for menu categories */
     .scrollbar-hide::-webkit-scrollbar { display: none; }
@@ -636,6 +610,58 @@
     </div>
   </div>
 
+  <div id="checkout-modal-overlay" class="modal-overlay">
+    <div class="modal-content">
+      <button id="checkout-close-btn" class="modal-close-btn">&times;</button>
+      <h3 class="text-2xl font-bold text-bk-dark-text mb-4">Finalizar Pedido</h3>
+      <form id="checkout-form" class="checkout-form">
+        <label for="checkout-name">Nome Completo:</label>
+        <input type="text" id="checkout-name" required>
+
+        <label for="checkout-email">E-mail:</label>
+        <input type="email" id="checkout-email" required>
+
+        <label for="checkout-phone">Telefone:</label>
+        <input type="tel" id="checkout-phone" required>
+
+        <label for="checkout-street">Endereço:</label>
+        <input type="text" id="checkout-street" placeholder="Rua, Avenida" required>
+
+        <div class="grid grid-cols-2">
+            <div>
+                <label for="checkout-number">Número:</label>
+                <input type="text" id="checkout-number" required>
+            </div>
+            <div>
+                <label for="checkout-complement">Complemento (apto, bloco):</label>
+                <input type="text" id="checkout-complement">
+            </div>
+        </div>
+
+        <label for="checkout-neighborhood">Bairro:</label>
+        <input type="text" id="checkout-neighborhood" required>
+        
+        <div class="grid grid-cols-2">
+            <div>
+                <label for="checkout-city">Cidade:</label>
+                <input type="text" id="checkout-city" required>
+            </div>
+            <div>
+                <label for="checkout-state">Estado (UF):</label>
+                <input type="text" id="checkout-state" maxlength="2" required>
+            </div>
+        </div>
+
+        <label for="checkout-cep">CEP:</label>
+        <input type="text" id="checkout-cep" required>
+
+        <button type="submit" id="submit-order-btn" class="btn-bk-primary w-full py-3 mt-4">
+          Enviar Pedido
+        </button>
+      </form>
+    </div>
+  </div>
+
   <script>
     // Get current year for footer
     document.getElementById('current-year').textContent = new Date().getFullYear();
@@ -663,22 +689,19 @@
         categoryButtons.forEach(button => {
             if (button) { // Checa se o botão individual não é null
                 button.addEventListener('click', () => {
-                    // Remove destaque de todos os botões
                     categoryButtons.forEach(btn => {
                       btn.classList.remove('btn-bk-primary', 'text-white'); 
                       btn.classList.add('bg-gray-200', 'hover:bg-gray-300', 'text-bk-dark-text'); 
                     });
                     
-                    // Adiciona destaque ao botão clicado
                     button.classList.remove('bg-gray-200', 'hover:bg-gray-300', 'text-bk-dark-text'); 
                     button.classList.add('btn-bk-primary', 'text-white'); 
                     
-                    // Lógica de esconder/mostrar categorias removida para MOSTRAR TODAS POR PADRÃO.
+                    // LÓGICA DE ESCONDER/MOSTRAR CATEGORIAS REMOVIDA PARA MOSTRAR TODAS POR PADRÃO.
                     // A rolagem para a categoria clicada permanece.
                     const categoryId = button.getAttribute('data-category');
                     const targetCategory = document.getElementById(categoryId);
                     if (targetCategory) { 
-                        // APENAS ROLAR, NÃO ESCONDER/MOSTRAR VISIBILIDADE DE CATEGORIAS
                         document.getElementById('cardapio').scrollIntoView({ behavior: 'smooth' });
                     }
                 });
@@ -800,6 +823,7 @@
             }
         });
 
+        // Modifica o botão de Finalizar Pedido do modal do produto para abrir o checkout
         modalFinalizeOrderBtn.addEventListener('click', () => {
             if (currentProduct) {
                 const quantityToAdd = parseInt(quantityInput.value);
@@ -817,8 +841,8 @@
                 }
                 updateCartUI();
                 saveCart();
-                closeProductModal();
-                alert('Pedido finalizado com sucesso! (Funcionalidade de Checkout ainda não implementada)');
+                closeProductModal(); // Fecha o modal do produto
+                openCheckoutModal(); // Abre o modal de checkout
             }
         });
 
@@ -886,6 +910,97 @@
 
     // Load cart on page load
     document.addEventListener('DOMContentLoaded', loadCart);
+
+    // --- LÓGICA DO MODAL DE CHECKOUT ---
+    const checkoutModalOverlay = document.getElementById('checkout-modal-overlay');
+    const checkoutCloseBtn = document.getElementById('checkout-close-btn');
+    const checkoutForm = document.getElementById('checkout-form');
+    const submitOrderBtn = document.getElementById('submit-order-btn');
+
+    // Campos do formulário de checkout
+    const checkoutName = document.getElementById('checkout-name');
+    const checkoutEmail = document.getElementById('checkout-email');
+    const checkoutPhone = document.getElementById('checkout-phone');
+    const checkoutStreet = document.getElementById('checkout-street');
+    const checkoutNumber = document.getElementById('checkout-number');
+    const checkoutComplement = document.getElementById('checkout-complement');
+    const checkoutNeighborhood = document.getElementById('checkout-neighborhood');
+    const checkoutCity = document.getElementById('checkout-city');
+    const checkoutState = document.getElementById('checkout-state');
+    const checkoutCep = document.getElementById('checkout-cep');
+
+    if (checkoutModalOverlay && checkoutCloseBtn && checkoutForm && submitOrderBtn) {
+        function openCheckoutModal() {
+            checkoutModalOverlay.classList.add('active');
+            // Opcional: pré-preencher campos se o usuário já preencheu antes
+        }
+
+        function closeCheckoutModal() {
+            checkoutModalOverlay.classList.remove('active');
+            checkoutForm.reset(); // Limpa o formulário
+        }
+
+        checkoutCloseBtn.addEventListener('click', closeCheckoutModal);
+        checkoutModalOverlay.addEventListener('click', (event) => {
+            if (event.target === checkoutModalOverlay) {
+                closeCheckoutModal();
+            }
+        });
+
+        checkoutForm.addEventListener('submit', (event) => {
+            event.preventDefault(); // Impede o envio padrão do formulário
+
+            // Validação básica (campos obrigatórios)
+            if (!checkoutName.value || !checkoutEmail.value || !checkoutPhone.value || !checkoutStreet.value || !checkoutNumber.value || !checkoutNeighborhood.value || !checkoutCity.value || !checkoutState.value || !checkoutCep.value) {
+                alert('Por favor, preencha todos os campos obrigatórios para finalizar o pedido.');
+                return;
+            }
+
+            // Coleta dos dados do pedido
+            const orderDetails = {
+                customer: {
+                    name: checkoutName.value,
+                    email: checkoutEmail.value,
+                    phone: checkoutPhone.value
+                },
+                address: {
+                    street: checkoutStreet.value,
+                    number: checkoutNumber.value,
+                    complement: checkoutComplement.value,
+                    neighborhood: checkoutNeighborhood.value,
+                    city: checkoutCity.value,
+                    state: checkoutState.value,
+                    cep: checkoutCep.value
+                },
+                items: cart, // Itens do carrinho
+                total: cart.reduce((sum, item) => sum + (item.price * item.quantity), 0)
+            };
+
+            console.log('--- PEDIDO ENVIADO ---');
+            console.log(JSON.stringify(orderDetails, null, 2));
+            alert('Seu pedido foi enviado com sucesso! Acompanhe o status por e-mail ou telefone. Obrigado!');
+
+            // Limpar carrinho e fechar modal após envio
+            cart = [];
+            saveCart();
+            updateCartUI();
+            closeCheckoutModal();
+        });
+    }
+
+    // Adiciona listener para o botão "Finalizar Pedido" no DROPDOWN do carrinho
+    const finalizeOrderDropdownBtn = document.querySelector('#cart-dropdown .btn-bk-primary');
+    if (finalizeOrderDropdownBtn) {
+        finalizeOrderDropdownBtn.addEventListener('click', () => {
+            if (cart.length === 0) {
+                alert('Seu carrinho está vazio. Adicione produtos antes de finalizar!');
+                return;
+            }
+            openCheckoutModal(); // Abre o modal de checkout
+            cartDropdown.classList.add('hidden'); // Fecha o dropdown do carrinho
+        });
+    }
+
   </script>
 </body>
 </html>

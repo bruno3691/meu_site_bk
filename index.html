@@ -99,7 +99,7 @@
         opacity: 0.9;
     }
 
-    /* Estilos do Popup */
+    /* Estilos dos Popups */
     .modal-overlay {
         position: fixed;
         top: 0;
@@ -149,64 +149,18 @@
         justify-content: center;
         margin-top: 1rem;
     }
-    .quantity-selector button {
-        background-color: #EEE;
-        border: 1px solid #CCC;
-        padding: 0.5rem 1rem;
-        cursor: pointer;
-        border-radius: 4px;
-        font-size: 1.2rem;
+    .quantity-selector button { /* Botoes de quantidade removidos por CSS */
+        display: none; 
     }
     .quantity-selector input {
-        width: 60px;
+        width: 100px; /* Alargado para o input centralizado */
         text-align: center;
         border: 1px solid #CCC;
-        margin: 0 0.5rem;
+        margin: 0; /* Removido margin lateral */
         padding: 0.5rem 0;
         border-radius: 4px;
         font-size: 1.2rem;
-    }
-
-    /* Contador Regressivo */
-    .countdown-container {
-        background-color: #000;
-        padding: 1.5rem;
-        border-radius: 10px;
-        margin-top: 2rem;
-        box-shadow: 0 5px 15px rgba(0,0,0,0.5);
-        text-align: center;
-    }
-    .countdown-label {
-        font-size: 0.9rem;
-        color: #FF6347; /* Laranja/Vermelho para destaque */
-        text-transform: uppercase;
-        font-weight: bold;
-        letter-spacing: 0.1em;
-        margin-bottom: 0.5rem;
-    }
-    .countdown-timer {
-        font-size: 2.8rem;
-        font-weight: 800;
-        color: #FFC000; /* Amarelo BK para o tempo */
-        text-shadow: 2px 2px 5px rgba(0,0,0,0.8);
-        display: flex;
-        justify-content: center;
-        gap: 0.5rem;
-    }
-    .countdown-unit {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-    .countdown-value {
-        font-size: 2.8rem;
-        line-height: 1;
-    }
-    .countdown-label-small {
-        font-size: 0.8rem;
-        text-transform: uppercase;
-        color: #AAA;
-        margin-top: 0.2rem;
+        pointer-events: none; /* Impede edição manual */
     }
 
     /* Custom scrollbar for menu categories */
@@ -265,9 +219,12 @@
     <div class="bk-red-main bg-opacity-90 pt-16 pb-24 px-4 shadow-bk">
       <div class="container mx-auto flex flex-col md:flex-row items-center">
         <div class="md:w-1/2 text-center md:text-left mb-8 md:mb-0">
-          <h2 class="text-4xl md:text-5xl font-extrabold text-white mb-4 uppercase tracking-wider">Preço Baixo. "Economia" para quem só busca BK!</h2>
+          <h2 class="text-4xl md:text-5xl font-extrabold text-white mb-4 uppercase tracking-wider">BK NO LIMITE: O PREÇO ARROMBADO!</h2>
           <p class="text-xl text-gray-200 mb-6 font-light">
-            Essa oferta não volta. Garanta antes que acabe.
+            A brasa nunca foi tão acessível. Essa oferta **não volta**, e você sabe. Garanta o seu antes que o limite seja atingido... **PARA SEMPRE.**
+          </p>
+          <p class="text-lg text-gray-300 mb-6 font-light">
+            **A Economia que só a Brasa Oferece para Quem Conhece BK.**
           </p>
           
           <div class="countdown-container">
@@ -286,7 +243,7 @@
 
           <div class="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4 justify-center md:justify-start mt-8">
             <a href="#cardapio" class="btn-bk-accent px-6 py-3 rounded-md font-medium transition duration-300 shadow-lg">
-              VER CARDÁPIO AGORA
+              PEGAR MEU PREÇO NO LIMITE!
             </a>
           </div>
         </div>
@@ -335,10 +292,8 @@
               </div>
               <p class="text-gray-600 text-sm my-1">O sabor inconfundível do hambúrguer grelhado no fogo, alface, tomate, picles e maionese.</p>
               <div class="flex justify-between items-center mt-2">
-                <span class="bk-red-text font-bold">R$ 22,90</span>
-                <button class="add-to-cart btn-bk-accent hover:opacity-90 text-bk-dark-text w-8 h-8 rounded-full flex items-center justify-center transition duration-200"
-                        data-name="Whopper" data-price="22.90" data-description="O sabor inconfundível do hambúrguer grelhado no fogo, alface, tomate, picles e maionese." data-image="img/whopper.png">
-                  <i class="fas fa-plus"></i>
+                <span class="bk-red-text font-bold">R$ 5,00</span> <button class="add-to-cart btn-bk-accent hover:opacity-90 text-bk-dark-text w-8 h-8 rounded-full flex items-center justify-center transition duration-200"
+                        data-name="Whopper" data-price="5.00" data-description="O sabor inconfundível do hambúrguer grelhado no fogo, alface, tomate, picles e maionese." data-image="img/whopper.png" data-original-price="25.00"> <i class="fas fa-plus"></i>
                 </button>
               </div>
             </div>
@@ -356,10 +311,8 @@
               </div>
               <p class="text-gray-600 text-sm my-1">Dois hambúrgueres grelhados, queijo derretido e fatias de bacon crocante.</p>
               <div class="flex justify-between items-center mt-2">
-                <span class="bk-red-text font-bold">R$ 28,90</span>
-                <button class="add-to-cart btn-bk-accent hover:opacity-90 text-bk-dark-text w-8 h-8 rounded-full flex items-center justify-center transition duration-200"
-                        data-name="Stacker Duplo" data-price="28.90" data-description="Dois hambúrgueres grelhados, queijo derretido e fatias de bacon crocante." data-image="img/stacker_duplo.png">
-                  <i class="fas fa-plus"></i>
+                <span class="bk-red-text font-bold">R$ 5,00</span> <button class="add-to-cart btn-bk-accent hover:opacity-90 text-bk-dark-text w-8 h-8 rounded-full flex items-center justify-center transition duration-200"
+                        data-name="Stacker Duplo" data-price="5.00" data-description="Dois hambúrgueres grelhados, queijo derretido e fatias de bacon crocante." data-image="img/stacker_duplo.png" data-original-price="25.00"> <i class="fas fa-plus"></i>
                 </button>
               </div>
             </div>
@@ -377,10 +330,8 @@
               </div>
               <p class="text-gray-600 text-sm my-1">Filé de frango empanado e crocante, alface, tomate e maionese.</p>
               <div class="flex justify-between items-center mt-2">
-                <span class="bk-red-text font-bold">R$ 19,90</span>
-                <button class="add-to-cart btn-bk-accent hover:opacity-90 text-bk-dark-text w-8 h-8 rounded-full flex items-center justify-center transition duration-200"
-                        data-name="Chicken Crisp" data-price="19.90" data-description="Filé de frango empanado e crocante, alface, tomate e maionese." data-image="img/chicken_crisp.png">
-                  <i class="fas fa-plus"></i>
+                <span class="bk-red-text font-bold">R$ 5,00</span> <button class="add-to-cart btn-bk-accent hover:opacity-90 text-bk-dark-text w-8 h-8 rounded-full flex items-center justify-center transition duration-200"
+                        data-name="Chicken Crisp" data-price="5.00" data-description="Filé de frango empanado e crocante, alface, tomate e maionese." data-image="img/chicken_crisp.png" data-original-price="25.00"> <i class="fas fa-plus"></i>
                 </button>
               </div>
             </div>
@@ -397,10 +348,8 @@
                 <span class="bg-red-100 text-red-800 text-xs px-2 py-1 rounded-full">Exclusivo!</span> </div>
               <p class="text-gray-600 text-sm my-1">Até 4 hambúrgueres grelhados, muito queijo e bacon, molho Stacker.</p>
               <div class="flex justify-between items-center mt-2">
-                <span class="bk-red-text font-bold">R$ 38,90</span>
-                <button class="add-to-cart btn-bk-accent hover:opacity-90 text-bk-dark-text w-8 h-8 rounded-full flex items-center justify-center transition duration-200"
-                        data-name="Mega Stacker" data-price="38.90" data-description="Até 4 hambúrgueres grelhados, muito queijo e bacon, molho Stacker." data-image="img/mega_stacker.png">
-                  <i class="fas fa-plus"></i>
+                <span class="bk-red-text font-bold">R$ 5,00</span> <button class="add-to-cart btn-bk-accent hover:opacity-90 text-bk-dark-text w-8 h-8 rounded-full flex items-center justify-center transition duration-200"
+                        data-name="Mega Stacker" data-price="5.00" data-description="Até 4 hambúrgueres grelhados, muito queijo e bacon, molho Stacker." data-image="img/mega_stacker.png" data-original-price="25.00"> <i class="fas fa-plus"></i>
                 </button>
               </div>
             </div>
@@ -422,10 +371,8 @@
               <h4 class="font-bold text-bk-dark-text">Batata King</h4>
               <p class="text-gray-600 text-sm my-1">Nossas famosas batatas fritas crocantes e quentinhas.</p>
               <div class="flex justify-between items-center mt-2">
-                <span class="bk-red-text font-bold">R$ 11,90</span>
-                <button class="add-to-cart btn-bk-accent hover:opacity-90 text-bk-dark-text w-8 h-8 rounded-full flex items-center justify-center transition duration-200"
-                        data-name="Batata King" data-price="11.90" data-description="Nossas famosas batatas fritas crocantes e quentinhas." data-image="img/batata_king.png">
-                  <i class="fas fa-plus"></i>
+                <span class="bk-red-text font-bold">R$ 5,00</span> <button class="add-to-cart btn-bk-accent hover:opacity-90 text-bk-dark-text w-8 h-8 rounded-full flex items-center justify-center transition duration-200"
+                        data-name="Batata King" data-price="5.00" data-description="Nossas famosas batatas fritas crocantes e quentinhas." data-image="img/batata_king.png" data-original-price="25.00"> <i class="fas fa-plus"></i>
                 </button>
               </div>
             </div>
@@ -439,10 +386,8 @@
               <h4 class="font-bold text-bk-dark-text">Onion Rings</h4>
               <p class="text-gray-600 text-sm my-1">Anéis de cebola crocantes por fora, macios por dentro.</p>
               <div class="flex justify-between items-center mt-2">
-                <span class="bk-red-text font-bold">R$ 13,90</span>
-                <button class="add-to-cart btn-bk-accent hover:opacity-90 text-bk-dark-text w-8 h-8 rounded-full flex items-center justify-center transition duration-200"
-                        data-name="Onion Rings" data-price="13.90" data-description="Anéis de cebola crocantes por fora, macios por dentro." data-image="img/onion_rings.png">
-                  <i class="fas fa-plus"></i>
+                <span class="bk-red-text font-bold">R$ 5,00</span> <button class="add-to-cart btn-bk-accent hover:opacity-90 text-bk-dark-text w-8 h-8 rounded-full flex items-center justify-center transition duration-200"
+                        data-name="Onion Rings" data-price="5.00" data-description="Anéis de cebola crocantes por fora, macios por dentro." data-image="img/onion_rings.png" data-original-price="25.00"> <i class="fas fa-plus"></i>
                 </button>
               </div>
             </div>
@@ -464,10 +409,8 @@
               <h4 class="font-bold text-bk-dark-text">Sundae</h4>
               <p class="text-gray-600 text-sm my-1">Sorvete de baunilha com calda de chocolate, morango ou caramelo.</p>
               <div class="flex justify-between items-center mt-2">
-                <span class="bk-red-text font-bold">R$ 9,90</span>
-                <button class="add-to-cart btn-bk-accent hover:opacity-90 text-bk-dark-text w-8 h-8 rounded-full flex items-center justify-center transition duration-200"
-                        data-name="Sundae" data-price="9.90" data-description="Sorvete de baunilha com calda de chocolate, morango ou caramelo." data-image="img/sundae.png">
-                  <i class="fas fa-plus"></i>
+                <span class="bk-red-text font-bold">R$ 5,00</span> <button class="add-to-cart btn-bk-accent hover:opacity-90 text-bk-dark-text w-8 h-8 rounded-full flex items-center justify-center transition duration-200"
+                        data-name="Sundae" data-price="5.00" data-description="Sorvete de baunilha com calda de chocolate, morango ou caramelo." data-image="img/sundae.png" data-original-price="25.00"> <i class="fas fa-plus"></i>
                 </button>
               </div>
             </div>
@@ -481,10 +424,8 @@
               <h4 class="font-bold text-bk-dark-text">Casquinha</h4>
               <p class="text-gray-600 text-sm my-1">Nosso delicioso sorvete de baunilha na casquinha crocante.</p>
               <div class="flex justify-between items-center mt-2">
-                <span class="bk-red-text font-bold">R$ 5,00</span>
-                <button class="add-to-cart btn-bk-accent hover:opacity-90 text-bk-dark-text w-8 h-8 rounded-full flex items-center justify-center transition duration-200"
-                        data-name="Casquinha" data-price="5.00" data-description="Nosso delicioso sorvete de baunilha na casquinha crocante." data-image="img/casquinha.png">
-                  <i class="fas fa-plus"></i>
+                <span class="bk-red-text font-bold">R$ 5,00</span> <button class="add-to-cart btn-bk-accent hover:opacity-90 text-bk-dark-text w-8 h-8 rounded-full flex items-center justify-center transition duration-200"
+                        data-name="Casquinha" data-price="5.00" data-description="Nosso delicioso sorvete de baunilha na casquinha crocante." data-image="img/casquinha.png" data-original-price="25.00"> <i class="fas fa-plus"></i>
                 </button>
               </div>
             </div>
@@ -506,10 +447,8 @@
               <h4 class="font-bold text-bk-dark-text">Refrigerante</h4>
               <p class="text-gray-600 text-sm my-1">Diversos sabores de refrigerante para acompanhar seu pedido.</p>
               <div class="flex justify-between items-center mt-2">
-                <span class="bk-red-text font-bold">R$ 9,00</span>
-                <button class="add-to-cart btn-bk-accent hover:opacity-90 text-bk-dark-text w-8 h-8 rounded-full flex items-center justify-center transition duration-200"
-                        data-name="Refrigerante" data-price="9.00" data-description="Diversos sabores de refrigerante para acompanhar seu pedido." data-image="img/refrigerante.png">
-                  <i class="fas fa-plus"></i>
+                <span class="bk-red-text font-bold">R$ 5,00</span> <button class="add-to-cart btn-bk-accent hover:opacity-90 text-bk-dark-text w-8 h-8 rounded-full flex items-center justify-center transition duration-200"
+                        data-name="Refrigerante" data-price="5.00" data-description="Diversos sabores de refrigerante para acompanhar seu pedido." data-image="img/refrigerante.png" data-original-price="25.00"> <i class="fas fa-plus"></i>
                 </button>
               </div>
             </div>
@@ -523,10 +462,8 @@
               <h4 class="font-bold text-bk-dark-text">Suco</h4>
               <p class="text-gray-600 text-sm my-1">Sucos naturais e refrescantes de diversos sabores.</p>
               <div class="flex justify-between items-center mt-2">
-                <span class="bk-red-text font-bold">R$ 10,00</span>
-                <button class="add-to-cart btn-bk-accent hover:opacity-90 text-bk-dark-text w-8 h-8 rounded-full flex items-center justify-center transition duration-200"
-                        data-name="Suco" data-price="10.00" data-description="Sucos naturais e refrescantes de diversos sabores." data-image="img/suco.png">
-                  <i class="fas fa-plus"></i>
+                <span class="bk-red-text font-bold">R$ 5,00</span> <button class="add-to-cart btn-bk-accent hover:opacity-90 text-bk-dark-text w-8 h-8 rounded-full flex items-center justify-center transition duration-200"
+                        data-name="Suco" data-price="5.00" data-description="Sucos naturais e refrescantes de diversos sabores." data-image="img/suco.png" data-original-price="25.00"> <i class="fas fa-plus"></i>
                 </button>
               </div>
             </div>
@@ -548,10 +485,8 @@
               <h4 class="font-bold text-bk-dark-text">Café</h4>
               <p class="text-gray-600 text-sm my-1">Nosso café fresquinho e aromático para começar o dia.</p>
               <div class="flex justify-between items-center mt-2">
-                <span class="bk-red-text font-bold">R$ 7,00</span>
-                <button class="add-to-cart btn-bk-accent hover:opacity-90 text-bk-dark-text w-8 h-8 rounded-full flex items-center justify-center transition duration-200"
-                        data-name="Café" data-price="7.00" data-description="Nosso café fresquinho e aromático para começar o dia." data-image="img/cafe.png">
-                  <i class="fas fa-plus"></i>
+                <span class="bk-red-text font-bold">R$ 5,00</span> <button class="add-to-cart btn-bk-accent hover:opacity-90 text-bk-dark-text w-8 h-8 rounded-full flex items-center justify-center transition duration-200"
+                        data-name="Café" data-price="5.00" data-description="Nosso café fresquinho e aromático para começar o dia." data-image="img/cafe.png" data-original-price="25.00"> <i class="fas fa-plus"></i>
                 </button>
               </div>
             </div>
@@ -565,10 +500,8 @@
               <h4 class="font-bold text-bk-dark-text">Pão de Queijo</h4>
               <p class="text-gray-600 text-sm my-1">O tradicional pão de queijo quentinho e delicioso.</p>
               <div class="flex justify-between items-center mt-2">
-                <span class="bk-red-text font-bold">R$ 6,00</span>
-                <button class="add-to-cart btn-bk-accent hover:opacity-90 text-bk-dark-text w-8 h-8 rounded-full flex items-center justify-center transition duration-200"
-                        data-name="Pão de Queijo" data-price="6.00" data-description="O tradicional pão de queijo quentinho e delicioso." data-image="img/pao_de_queijo.png">
-                  <i class="fas fa-plus"></i>
+                <span class="bk-red-text font-bold">R$ 5,00</span> <button class="add-to-cart btn-bk-accent hover:opacity-90 text-bk-dark-text w-8 h-8 rounded-full flex items-center justify-center transition duration-200"
+                        data-name="Pão de Queijo" data-price="5.00" data-description="O tradicional pão de queijo quentinho e delicioso." data-image="img/pao_de_queijo.png" data-original-price="25.00"> <i class="fas fa-plus"></i>
                 </button>
               </div>
             </div>
@@ -658,12 +591,9 @@
       <h3 id="modal-name" class="text-2xl font-bold text-bk-dark-text mb-2"></h3>
       <p id="modal-description" class="text-gray-600 text-sm mb-4"></p>
       <div class="flex justify-between items-center mb-4">
-        <span class="text-3xl font-bold bk-red-text" id="modal-price-display">R$ 0,00</span>
-        <div class="quantity-selector">
-          <button id="decrease-quantity">-</button>
-          <input type="number" id="quantity-input" value="1" min="1" readonly>
-          <button id="increase-quantity">+</button>
-        </div>
+        <span class="text-lg text-gray-500 line-through mr-2" id="modal-original-price-display"></span> <span class="text-3xl font-bold bk-red-text" id="modal-price-display">R$ 0,00</span> <div class="quantity-selector">
+          <button id="decrease-quantity">-</button> <input type="number" id="quantity-input" value="1" min="1" readonly>
+          <button id="increase-quantity">+</button> </div>
       </div>
       <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-2">
         <button id="modal-add-to-cart-btn" class="btn-bk-accent hover:opacity-90 text-bk-dark-text py-3 rounded-lg font-bold flex-grow">
@@ -815,6 +745,7 @@
     const modalName = document.getElementById('modal-name');
     const modalDescription = document.getElementById('modal-description');
     const modalPriceDisplay = document.getElementById('modal-price-display');
+    const modalOriginalPriceDisplay = document.getElementById('modal-original-price-display'); // Pega o span do preço original
     const quantityInput = document.getElementById('quantity-input');
     const decreaseQuantityBtn = document.getElementById('decrease-quantity');
     const increaseQuantityBtn = document.getElementById('increase-quantity');
@@ -823,14 +754,22 @@
 
     let currentProduct = null;
 
-    if (productModalOverlay && modalCloseBtn && modalImage && modalName && modalDescription && modalPriceDisplay && quantityInput && decreaseQuantityBtn && increaseQuantityBtn && modalAddToCartBtn && modalFinalizeOrderBtn) {
-        function openProductModal(name, price, description, image_src) {
-            currentProduct = { name, price, description, image_src };
+    if (productModalOverlay && modalCloseBtn && modalImage && modalName && modalDescription && modalPriceDisplay && modalOriginalPriceDisplay && quantityInput && decreaseQuantityBtn && increaseQuantityBtn && modalAddToCartBtn && modalFinalizeOrderBtn) {
+        function openProductModal(name, price, description, image_src, original_price) {
+            currentProduct = { name, price, description, image_src, original_price };
             modalImage.src = image_src;
             modalName.textContent = name;
             modalDescription.textContent = description;
             quantityInput.value = 1; 
             updateModalPrice();
+
+            // Exibe o preço original riscado se ele existir
+            if (modalOriginalPriceDisplay && original_price) {
+                modalOriginalPriceDisplay.textContent = `R$ ${parseFloat(original_price).toFixed(2).replace('.', ',')}`;
+                modalOriginalPriceDisplay.style.display = 'inline'; // Mostra o span
+            } else {
+                modalOriginalPriceDisplay.style.display = 'none'; // Esconde se não houver original_price
+            }
             productModalOverlay.classList.add('active');
         }
 
@@ -844,22 +783,18 @@
                 const quantity = parseInt(quantityInput.value);
                 const total = currentProduct.price * quantity;
                 modalPriceDisplay.textContent = `R$ ${total.toFixed(2).replace('.', ',')}`;
+                
+                // Atualiza o preço original riscado com base na quantidade também
+                if (modalOriginalPriceDisplay && currentProduct.original_price) {
+                    const originalTotal = parseFloat(currentProduct.original_price) * quantity;
+                    modalOriginalPriceDisplay.textContent = `R$ ${originalTotal.toFixed(2).replace('.', ',')}`;
+                }
             }
         }
 
-        decreaseQuantityBtn.addEventListener('click', () => {
-            let quantity = parseInt(quantityInput.value);
-            if (quantity > 1) {
-                quantityInput.value = quantity - 1;
-                updateModalPrice();
-            }
-        });
-
-        increaseQuantityBtn.addEventListener('click', () => {
-            let quantity = parseInt(quantityInput.value);
-            quantityInput.value = quantity + 1;
-            updateModalPrice();
-        });
+        // BOTOES DE AUMENTAR/DIMINUIR QUANTIDADE REMOVIDOS PARA APENAS 1 ITEM POR OPÇÃO
+        // decreaseQuantityBtn.addEventListener('click', () => { ... });
+        // increaseQuantityBtn.addEventListener('click', () => { ... });
 
         modalCloseBtn.addEventListener('click', closeProductModal);
         productModalOverlay.addEventListener('click', (event) => {
@@ -870,7 +805,7 @@
 
         modalAddToCartBtn.addEventListener('click', () => {
             if (currentProduct) {
-                const quantityToAdd = parseInt(quantityInput.value);
+                const quantityToAdd = parseInt(quantityInput.value); // Será sempre 1 aqui
                 const existingItemIndex = cart.findIndex(item => item.name === currentProduct.name);
 
                 if (existingItemIndex > -1) {
@@ -892,7 +827,7 @@
         // Modifica o botão de Finalizar Pedido do modal do produto para abrir o checkout
         modalFinalizeOrderBtn.addEventListener('click', () => {
             if (currentProduct) {
-                const quantityToAdd = parseInt(quantityInput.value);
+                const quantityToAdd = parseInt(quantityInput.value); // Será sempre 1 aqui
                 const existingItemIndex = cart.findIndex(item => item.name === currentProduct.name);
 
                 if (existingItemIndex > -1) {
@@ -924,7 +859,8 @@
                 const itemPrice = parseFloat(button.dataset.price);
                 const itemDescription = button.dataset.description;
                 const itemImage = button.dataset.image;
-                openProductModal(itemName, itemPrice, itemDescription, itemImage);
+                const itemOriginalPrice = button.dataset.originalPrice; // Pega o preço original
+                openProductModal(itemName, itemPrice, itemDescription, itemImage, itemOriginalPrice); // Passa o preço original
               });
             });
         }
@@ -943,7 +879,7 @@
         cart.forEach((item, index) => {
           const itemElement = document.createElement('div');
           itemElement.className = 'flex justify-between items-center py-2 border-b border-gray-100 last:border-b-0';
-          // AQUI ESTÁ A LINHA CRÍTICA COM AS CRASES CORRETAS
+          // GARANTIDO COM CRASES CORRETAS
           itemElement.innerHTML = `
             <div>
               <p class="font-medium text-bk-dark-text">${item.name} <span class="text-gray-500 text-sm">x${item.quantity}</span></p>
@@ -952,11 +888,11 @@
             <button class="remove-item text-red-500 p-1 rounded-full hover:bg-red-100" data-index="${index}" aria-label="Remover item">
               <i class="fas fa-times"></i>
             </button>
-          `; // FIM DA LINHA CRÍTICA
+          `; 
           cartItemsContainer.appendChild(itemElement);
         });
 
-        // Event delegation para botões de remover itens no carrinho (Substitui o loop antigo)
+        // Event delegation para botões de remover itens no carrinho 
         if (!cartItemsContainer.dataset.hasRemoveListener) { 
             cartItemsContainer.dataset.hasRemoveListener = true; 
             cartItemsContainer.addEventListener('click', (e) => {
@@ -982,6 +918,18 @@
       
       const currentTotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
       cartTotal.textContent = `R$ ${currentTotal.toFixed(2).replace('.', ',')}`;
+
+      // Validação de Pedido Mínimo no JS (NOVO)
+      const finalizeOrderDropdownBtn = document.querySelector('#cart-dropdown .btn-bk-primary');
+      if (finalizeOrderDropdownBtn) {
+          if (currentTotal < 20.00) { // Pedido mínimo de R$ 20,00
+              finalizeOrderDropdownBtn.classList.add('opacity-50', 'pointer-events-none'); // Desabilita visualmente e impede clique
+              finalizeOrderDropdownBtn.textContent = `Total Mínimo R$ 20,00`; // Mensagem no botão
+          } else {
+              finalizeOrderDropdownBtn.classList.remove('opacity-50', 'pointer-events-none');
+              finalizeOrderDropdownBtn.innerHTML = `Finalizar Pedido`; // Restaura texto
+          }
+      }
     }
 
     // Load cart on page load
@@ -1007,6 +955,12 @@
 
     if (checkoutModalOverlay && checkoutCloseBtn && checkoutForm && submitOrderBtn) {
         function openCheckoutModal() {
+            // Verifica o total do carrinho antes de abrir o checkout
+            const currentTotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            if (currentTotal < 20.00) { // Pedido mínimo de R$ 20,00
+                alert('O valor mínimo para finalizar o pedido é de R$ 20,00. Adicione mais itens!');
+                return; // Impede a abertura do modal
+            }
             checkoutModalOverlay.classList.add('active');
         }
 
@@ -1083,7 +1037,8 @@
 
         if (!countdownDays || !countdownHours || !countdownMinutes || !countdownSeconds) return; 
 
-        // Defina a data e hora final da sua Oferta Black Malandragem 
+        // Defina a data e hora final da sua Oferta Black Malandragem (Exemplo: 10 dias a partir de 05/06/2025 18:01:02 -03)
+        // Isso fará o contador terminar em 15 de junho de 2025, 23:59:59
         const blackMalandragemDate = new Date('June 15, 2025 23:59:59').getTime(); 
 
         const countdownInterval = setInterval(function() {

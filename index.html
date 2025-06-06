@@ -24,39 +24,42 @@
   <link rel="stylesheet" href="assets/css/all.min.css">
   
   <style>
-    /* PALETA DE CORES: Nubank (Roxo e Branco) */
-    .nu-purple-main { 
-        background-color: #8A05BE; /* Roxo Nubank */
+    /* PALETA DE CORES: Burger King com Estilo Simplificado */
+    .bk-red-main { 
+        background-color: #BD0000;
     }
-    .nu-purple-dark { 
-        background-color: #6A0499; /* Roxo mais escuro para hover */
+    .bk-red-dark { 
+        background-color: #990000;
     }
-    .nu-white-main { 
-        background-color: #FFFFFF; /* Branco principal */
+    .bk-yellow-main { 
+        background-color: #FFC000;
     }
-    .nu-light-gray { 
-        background-color: #F5F5F5; /* Cinza claro suave */
+    .bk-orange-accent { 
+        background-color: #E47911;
     }
-    .nu-text-dark { 
-        color: #4A4A4A; /* Cinza escuro para texto */
+    .bk-dark-text { 
+        color: #333333;
     }
-    .nu-text-purple { 
-        color: #8A05BE; /* Roxo Nubank para texto */
+    .bk-light-text { 
+        color: #E0E0E0;
     }
-    .nu-text-light { 
-        color: #F8F8F8; /* Branco para texto em fundos escuros */
+    .bk-bg-neutral { 
+        background-color: #F8F8F8; 
     }
-    .nu-shadow-light { /* Sombra mais sutil */
-        box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    .bk-bg-section { 
+        background-color: #EEEEEE; 
+    }
+    .shadow-bk { 
+        box-shadow: 0 10px 30px rgba(0,0,0,0.25);
         border-radius: 8px; 
     }
     .card-hover:hover {
-      transform: translateY(-5px); 
-      box-shadow: 0 10px 20px rgba(0,0,0,0.12);
+      transform: translateY(-8px) scale(1.03);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.35);
     }
     .menu-item {
         border-radius: 8px; 
-        box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     }
     .menu-item:not(:last-child) {
       border-bottom: none; 
@@ -69,32 +72,31 @@
         transition: all 0.2s ease;
     }
     .category-btn.active {
-        background-color: #8A05BE; 
+        background-color: #BD0000; 
         color: white;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        box-shadow: 0 4px 10px rgba(0,0,0,0.2);
     }
     .navbar-shadow {
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05); 
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1); 
     }
-    .btn-nu-primary { /* Botão principal roxo */
-        background-color: #8A05BE;
+    .btn-bk-primary { 
+        background-color: #BD0000;
         color: white;
         border-radius: 8px;
         font-weight: 700;
         text-transform: uppercase;
         letter-spacing: 0.05em;
     }
-    .btn-nu-primary:hover {
-        background-color: #6A0499;
+    .btn-bk-primary:hover {
+        background-color: #990000;
     }
-    .btn-nu-accent { /* Botão de destaque branco/claro */
-        background-color: #FFFFFF;
-        color: #8A05BE; 
+    .btn-bk-accent { 
+        background: linear-gradient(135deg, #FFC000 0%, #E47911 100%);
+        color: #333333; 
         border-radius: 8px;
-        border: 1px solid #8A05BE; /* Borda roxa */
     }
-    .btn-nu-accent:hover {
-        background-color: #F5F5F5;
+    .btn-bk-accent:hover {
+        opacity: 0.9;
     }
 
     /* Estilos dos Popups */
@@ -189,16 +191,16 @@
 
     /* Contador Regressivo */
     .countdown-container {
-        background-color: #4A4A4A; /* Cinza escuro para fundo do contador */
+        background-color: #000;
         padding: 1.5rem;
         border-radius: 10px;
         margin-top: 2rem;
-        box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.5);
         text-align: center;
     }
     .countdown-label {
         font-size: 0.9rem;
-        color: #BD0000; /* Vermelho forte para destaque */
+        color: #FF6347; /* Laranja/Vermelho para destaque */
         text-transform: uppercase;
         font-weight: bold;
         letter-spacing: 0.1em;
@@ -234,15 +236,17 @@
     .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
   </style>
 </head>
-<body class="font-['Montserrat'] bg-nu-light-gray text-nu-text-dark">
-  <header class="nu-purple-main py-4 navbar-shadow">
+<body class="font-['Montserrat'] bg-bk-neutral-bg text-bk-dark-text">
+  <img src="img/banner2_grelhado.png" alt="Oferta Especial no Topo" class="w-full h-auto object-cover max-h-48 md:max-h-64 lg:max-h-80">
+
+  <header class="bk-red-main py-4 navbar-shadow">
     <div class="container mx-auto px-4">
       <div class="flex justify-center items-center">
         <a href="#" class="flex items-center">
           <img src="img/burger_king_logo.svg" alt="Burger King Logo Oficial" class="h-10 md:h-12 mx-auto">
         </a>
         <div class="absolute right-4 hidden md:flex space-x-2">
-          <a href="#" class="text-white hover:text-nu-light-gray px-3 py-1 rounded-full" aria-label="Carrinho">
+          <a href="#" class="text-white hover:text-bk-yellow-main px-3 py-1 rounded-full" aria-label="Carrinho">
             <i class="fas fa-shopping-bag"></i>
           </a>
         </div>
@@ -253,27 +257,27 @@
   <nav class="bg-white py-3 navbar-shadow sticky top-0 z-50">
     <div class="container mx-auto px-4">
       <div class="flex justify-between items-center">
-        <button id="mobile-menu-button" class="md:hidden text-nu-text-dark focus:outline-none" aria-label="Abrir menu mobile">
+        <button id="mobile-menu-button" class="md:hidden text-bk-dark-text focus:outline-none" aria-label="Abrir menu mobile">
           <i class="fas fa-bars text-xl"></i>
         </button>
 
         <div class="hidden md:flex space-x-1">
-          <a href="#cardapio" class="px-4 py-2 rounded-md hover:bg-nu-light-gray font-medium transition duration-200 text-nu-text-dark uppercase category-btn">Cardápio</a>
-          <a href="#delivery" class="px-4 py-2 rounded-md hover:bg-nu-light-gray font-medium transition duration-200 text-nu-text-dark uppercase category-btn">Delivery</a>
+          <a href="#cardapio" class="px-4 py-2 rounded-md hover:bg-bk-light-gray font-medium transition duration-200 text-bk-dark-text uppercase category-btn">Cardápio</a>
+          <a href="#delivery" class="px-4 py-2 rounded-md hover:bg-bk-light-gray font-medium transition duration-200 text-bk-dark-text uppercase category-btn">Delivery</a>
         </div>
 
         <div class="hidden md:flex space-x-2">
-          <a href="#cardapio" class="btn-nu-primary px-4 py-2 rounded-md font-medium transition duration-200">
+          <a href="#cardapio" class="btn-bk-primary px-4 py-2 rounded-md font-medium transition duration-200">
             <i class="fas fa-plus mr-2"></i> PEDIR AGORA
           </a>
         </div>
       </div>
 
-      <div id="mobile-menu" class="hidden md:hidden py-2 space-y-2 bg-white rounded-lg shadow-nu-light">
-        <a href="#cardapio" class="block px-4 py-2 rounded-md hover:bg-nu-light-gray font-medium text-nu-text-dark uppercase">Cardápio</a>
-        <a href="#delivery" class="block px-4 py-2 rounded-md hover:bg-nu-light-gray font-medium text-nu-text-dark uppercase">Delivery</a>
+      <div id="mobile-menu" class="hidden md:hidden py-2 space-y-2 bg-white rounded-lg shadow-bk">
+        <a href="#cardapio" class="block px-4 py-2 rounded-md hover:bg-bk-light-gray font-medium text-bk-dark-text uppercase">Cardápio</a>
+        <a href="#delivery" class="block px-4 py-2 rounded-md hover:bg-bk-light-gray font-medium text-bk-dark-text uppercase">Delivery</a>
         <div class="pt-2 space-y-2">
-          <a href="#cardapio" class="block btn-nu-primary px-4 py-2 rounded-md font-medium">
+          <a href="#cardapio" class="block btn-bk-primary px-4 py-2 rounded-md font-medium">
             PEDIR AGORA
           </a>
         </div>
@@ -282,12 +286,12 @@
   </nav>
 
   <section class="relative">
-    <div class="nu-purple-main bg-opacity-90 pt-16 pb-24 px-4 shadow-bk">
+    <div class="bk-red-main bg-opacity-90 pt-16 pb-24 px-4 shadow-bk">
       <div class="container mx-auto flex flex-col md:flex-row items-center">
         <div class="md:w-1/2 text-center md:text-left mb-8 md:mb-0">
-          <h2 class="text-4xl md:text-5xl font-extrabold text-white mb-4 uppercase tracking-wider">QUEM TEM NUBANK BRILHA NO BK! 💜!</h2>
-          <p class="text-xl text-nu-light-text mb-6 font-light">
-            É isso mesmo! Pagou com o cartão Nubank, saiu no lucro: leva 3 itens a partir de R$25,90, por tempo limitado!
+          <h2 class="text-4xl md:text-5xl font-extrabold text-white mb-4 uppercase tracking-wider">Preço Baixo. "Economia" para quem só busca BK!</h2>
+          <p class="text-xl text-gray-200 mb-6 font-light">
+            Essa oferta não volta. Garanta antes que acabe.
           </p>
           
           <div class="countdown-container">
@@ -305,113 +309,113 @@
           </div>
 
           <div class="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4 justify-center md:justify-start mt-8">
-            <a href="#cardapio" class="btn-nu-accent px-6 py-3 rounded-md font-medium transition duration-300 shadow-lg">
+            <a href="#cardapio" class="btn-bk-accent px-6 py-3 rounded-md font-medium transition duration-300 shadow-lg">
               VER CARDÁPIO AGORA
             </a>
           </div>
         </div>
         <div class="md:w-1/2 flex justify-center">
           <img src="img/banner_grelhado.png" 
-               alt="Oferta" 
+               alt="Oferta Black" 
                class="h-64 md:h-80 lg:h-96 object-contain hover:scale-105 transition duration-300">
         </div>
       </div>
     </div>
-    <div class="absolute bottom-0 left-0 right-0 h-8 nu-light-gray rounded-t-3xl"></div>
+    <div class="absolute bottom-0 left-0 right-0 h-8 bg-white rounded-t-3xl"></div>
   </section>
 
-  <section id="cardapio" class="menu-section py-12 bg-nu-bg-section rounded-lg shadow-nu-light">
+  <section id="cardapio" class="menu-section py-12 bg-bk-bg-section rounded-lg shadow-bk">
     <div class="container mx-auto px-4">
-      <h2 class="text-3xl font-bold nu-text-purple mb-2 text-center uppercase tracking-wide">Nosso Cardápio para Delivery</h2>
-      <div class="w-16 h-1 nu-purple-main rounded-full mx-auto mb-8"></div>
+      <h2 class="text-3xl font-bold bk-red-text mb-2 text-center uppercase tracking-wide">Nosso Cardápio para Delivery</h2>
+      <div class="w-16 h-1 bk-yellow-gradient rounded-full mx-auto mb-8"></div>
 
       <div class="flex overflow-x-auto pb-4 mb-6 scrollbar-hide">
         <div class="flex space-x-2">
-          <button class="category-btn btn-nu-primary text-white font-medium whitespace-nowrap" data-category="lanches">
+          <button class="category-btn btn-bk-primary text-white font-medium whitespace-nowrap" data-category="lanches">
             Lanches
           </button>
-          <button class="category-btn bg-nu-light-gray hover:bg-white font-medium whitespace-nowrap text-nu-text-dark">Acompanhamentos</button>
-          <button class="category-btn bg-nu-light-gray hover:bg-white font-medium whitespace-nowrap text-nu-text-dark">Sobremesas</button>
-          <button class="category-btn bg-nu-light-gray hover:bg-white font-medium whitespace-nowrap text-nu-text-dark">Bebidas</button>
-          <button class="category-btn bg-nu-light-gray hover:bg-white font-medium whitespace-nowrap text-nu-text-dark">Café da manhã</button>
+          <button class="category-btn bg-gray-200 hover:bg-gray-300 font-medium whitespace-nowrap text-bk-dark-text">Acompanhamentos</button>
+          <button class="category-btn bg-gray-200 hover:bg-gray-300 font-medium whitespace-nowrap text-bk-dark-text">Sobremesas</button>
+          <button class="category-btn bg-gray-200 hover:bg-gray-300 font-medium whitespace-nowrap text-bk-dark-text">Bebidas</button>
+          <button class="category-btn bg-gray-200 hover:bg-gray-300 font-medium whitespace-nowrap text-bk-dark-text">Café da manhã</button>
         </div>
       </div>
 
       <div id="lanches" class="menu-category"> 
-        <h3 class="text-2xl font-bold text-nu-text-dark mb-6 flex items-center">
-          <i class="fas fa-burger mr-3 nu-text-purple"></i> Lanches
+        <h3 class="text-2xl font-bold text-bk-dark-text mb-6 flex items-center">
+          <i class="fas fa-burger mr-3 bk-yellow-text"></i> Lanches
         </h3>
         
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          <div class="menu-item bg-white p-4 rounded-lg shadow-nu-light flex">
+          <div class="menu-item bg-white p-4 rounded-lg shadow-bk flex">
             <div class="w-24 h-24 flex-shrink-0 mr-4">
               <img src="img/whopper.png" 
                    alt="Whopper" class="w-full h-full object-cover rounded-lg">
             </div>
             <div class="flex-grow">
               <div class="flex justify-between items-start">
-                <h4 class="font-bold text-nu-text-dark">Whopper</h4>
+                <h4 class="font-bold text-bk-dark-text">Whopper</h4>
                 <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full">O Original</span>
               </div>
               <p class="text-gray-600 text-sm my-1">O sabor inconfundível do hambúrguer grelhado no fogo, alface, tomate, picles e maionese.</p>
               <div class="flex justify-between items-center mt-2">
-                <span class="nu-text-purple font-bold">R$ 5,00</span> <button class="add-to-cart btn-nu-accent hover:bg-nu-light-gray text-nu-text-purple w-8 h-8 rounded-full flex items-center justify-center transition duration-200"
+                <span class="bk-red-text font-bold">R$ 5,00</span> <button class="add-to-cart btn-bk-accent hover:opacity-90 text-bk-dark-text w-8 h-8 rounded-full flex items-center justify-center transition duration-200"
                         data-name="Whopper" data-price="5.00" data-description="O sabor inconfundível do hambúrguer grelhado no fogo, alface, tomate, picles e maionese." data-image="img/whopper.png" data-original-price="25.00"> <i class="fas fa-plus"></i>
                 </button>
               </div>
             </div>
           </div>
 
-          <div class="menu-item bg-white p-4 rounded-lg shadow-nu-light flex">
+          <div class="menu-item bg-white p-4 rounded-lg shadow-bk flex">
             <div class="w-24 h-24 flex-shrink-0 mr-4">
               <img src="img/stacker_duplo.png" 
                    alt="Stacker Duplo" class="w-full h-full object-cover rounded-lg">
             </div>
             <div class="flex-grow">
               <div class="flex justify-between items-start">
-                <h4 class="font-bold text-nu-text-dark">Stacker Duplo</h4>
+                <h4 class="font-bold text-bk-dark-text">Stacker Duplo</h4>
                 <span class="bg-red-100 text-red-800 text-xs px-2 py-1 rounded-full">Favorito</span>
               </div>
               <p class="text-gray-600 text-sm my-1">Dois hambúrgueres grelhados, queijo derretido e fatias de bacon crocante.</p>
               <div class="flex justify-between items-center mt-2">
-                <span class="nu-text-purple font-bold">R$ 5,00</span> <button class="add-to-cart btn-nu-accent hover:bg-nu-light-gray text-nu-text-purple w-8 h-8 rounded-full flex items-center justify-center transition duration-200"
+                <span class="bk-red-text font-bold">R$ 5,00</span> <button class="add-to-cart btn-bk-accent hover:opacity-90 text-bk-dark-text w-8 h-8 rounded-full flex items-center justify-center transition duration-200"
                         data-name="Stacker Duplo" data-price="5.00" data-description="Dois hambúrgueres grelhados, queijo derretido e fatias de bacon crocante." data-image="img/stacker_duplo.png" data-original-price="25.00"> <i class="fas fa-plus"></i>
                 </button>
               </div>
             </div>
           </div>
 
-          <div class="menu-item bg-white p-4 rounded-lg shadow-nu-light flex">
+          <div class="menu-item bg-white p-4 rounded-lg shadow-bk flex">
             <div class="w-24 h-24 flex-shrink-0 mr-4">
               <img src="img/chicken_crisp.png" 
                    alt="Chicken Crisp" class="w-full h-full object-cover rounded-lg">
             </div>
             <div class="flex-grow">
               <div class="flex justify-between items-start">
-                <h4 class="font-bold text-nu-text-dark">Chicken Crisp</h4>
+                <h4 class="font-bold text-bk-dark-text">Chicken Crisp</h4>
                 <span class="bg-red-100 text-red-800 text-xs px-2 py-1 rounded-full">Popular</span>
               </div>
               <p class="text-gray-600 text-sm my-1">Filé de frango empanado e crocante, alface, tomate e maionese.</p>
               <div class="flex justify-between items-center mt-2">
-                <span class="nu-text-purple font-bold">R$ 5,00</span> <button class="add-to-cart btn-nu-accent hover:bg-nu-light-gray text-nu-text-purple w-8 h-8 rounded-full flex items-center justify-center transition duration-200"
+                <span class="bk-red-text font-bold">R$ 5,00</span> <button class="add-to-cart btn-bk-accent hover:opacity-90 text-bk-dark-text w-8 h-8 rounded-full flex items-center justify-center transition duration-200"
                         data-name="Chicken Crisp" data-price="5.00" data-description="Filé de frango empanado e crocante, alface, tomate e maionese." data-image="img/chicken_crisp.png" data-original-price="25.00"> <i class="fas fa-plus"></i>
                 </button>
               </div>
             </div>
           </div>
 
-          <div class="menu-item bg-white p-4 rounded-lg shadow-nu-light flex">
+          <div class="menu-item bg-white p-4 rounded-lg shadow-bk flex">
             <div class="w-24 h-24 flex-shrink-0 mr-4">
               <img src="img/mega_stacker.png" 
                    alt="Mega Stacker" class="w-full h-full object-cover rounded-lg">
             </div>
             <div class="flex-grow">
               <div class="flex justify-between items-start">
-                <h4 class="font-bold text-nu-text-dark">Mega Stacker</h4>
+                <h4 class="font-bold text-bk-dark-text">Mega Stacker</h4>
                 <span class="bg-red-100 text-red-800 text-xs px-2 py-1 rounded-full">Exclusivo!</span> </div>
               <p class="text-gray-600 text-sm my-1">Até 4 hambúrgueres grelhados, muito queijo e bacon, molho Stacker.</p>
               <div class="flex justify-between items-center mt-2">
-                <span class="nu-text-purple font-bold">R$ 5,00</span> <button class="add-to-cart btn-nu-accent hover:bg-nu-light-gray text-nu-text-purple w-8 h-8 rounded-full flex items-center justify-center transition duration-200"
+                <span class="bk-red-text font-bold">R$ 5,00</span> <button class="add-to-cart btn-bk-accent hover:opacity-90 text-bk-dark-text w-8 h-8 rounded-full flex items-center justify-center transition duration-200"
                         data-name="Mega Stacker" data-price="5.00" data-description="Até 4 hambúrgueres grelhados, muito queijo e bacon, molho Stacker." data-image="img/mega_stacker.png" data-original-price="25.00"> <i class="fas fa-plus"></i>
                 </button>
               </div>
@@ -421,35 +425,35 @@
       </div>
 
       <div id="acompanhamentos" class="menu-category"> 
-        <h3 class="text-2xl font-bold text-nu-text-dark mb-6 flex items-center">
-          <i class="fas fa-fries mr-3 nu-text-purple"></i> Acompanhamentos
+        <h3 class="text-2xl font-bold text-bk-dark-text mb-6 flex items-center">
+          <i class="fas fa-fries mr-3 bk-yellow-text"></i> Acompanhamentos
         </h3>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          <div class="menu-item bg-white p-4 rounded-lg shadow-nu-light flex">
+          <div class="menu-item bg-white p-4 rounded-lg shadow-bk flex">
             <div class="w-24 h-24 flex-shrink-0 mr-4">
               <img src="img/batata_king.png" 
                    alt="Batata King" class="w-full h-full object-cover rounded-lg">
             </div>
             <div class="flex-grow">
-              <h4 class="font-bold text-nu-text-dark">Batata King</h4>
+              <h4 class="font-bold text-bk-dark-text">Batata King</h4>
               <p class="text-gray-600 text-sm my-1">Nossas famosas batatas fritas crocantes e quentinhas.</p>
               <div class="flex justify-between items-center mt-2">
-                <span class="nu-text-purple font-bold">R$ 5,00</span> <button class="add-to-cart btn-nu-accent hover:bg-nu-light-gray text-nu-text-purple w-8 h-8 rounded-full flex items-center justify-center transition duration-200"
+                <span class="bk-red-text font-bold">R$ 5,00</span> <button class="add-to-cart btn-bk-accent hover:opacity-90 text-bk-dark-text w-8 h-8 rounded-full flex items-center justify-center transition duration-200"
                         data-name="Batata King" data-price="5.00" data-description="Nossas famosas batatas fritas crocantes e quentinhas." data-image="img/batata_king.png" data-original-price="25.00"> <i class="fas fa-plus"></i>
                 </button>
               </div>
             </div>
           </div>
-          <div class="menu-item bg-white p-4 rounded-lg shadow-nu-light flex">
+          <div class="menu-item bg-white p-4 rounded-lg shadow-bk flex">
             <div class="w-24 h-24 flex-shrink-0 mr-4">
               <img src="img/onion_rings.png" 
                    alt="Onion Rings" class="w-full h-full object-cover rounded-lg">
             </div>
             <div class="flex-grow">
-              <h4 class="font-bold text-nu-text-dark">Onion Rings</h4>
+              <h4 class="font-bold text-bk-dark-text">Onion Rings</h4>
               <p class="text-gray-600 text-sm my-1">Anéis de cebola crocantes por fora, macios por dentro.</p>
               <div class="flex justify-between items-center mt-2">
-                <span class="nu-text-purple font-bold">R$ 5,00</span> <button class="add-to-cart btn-nu-accent hover:bg-nu-light-gray text-nu-text-purple w-8 h-8 rounded-full flex items-center justify-center transition duration-200"
+                <span class="bk-red-text font-bold">R$ 5,00</span> <button class="add-to-cart btn-bk-accent hover:opacity-90 text-bk-dark-text w-8 h-8 rounded-full flex items-center justify-center transition duration-200"
                         data-name="Onion Rings" data-price="5.00" data-description="Anéis de cebola crocantes por fora, macios por dentro." data-image="img/onion_rings.png" data-original-price="25.00"> <i class="fas fa-plus"></i>
                 </button>
               </div>
@@ -459,35 +463,35 @@
       </div>
 
       <div id="sobremesas" class="menu-category"> 
-        <h3 class="text-2xl font-bold text-nu-text-dark mb-6 flex items-center">
-          <i class="fas fa-ice-cream mr-3 nu-text-purple"></i> Sobremesas
+        <h3 class="text-2xl font-bold text-bk-dark-text mb-6 flex items-center">
+          <i class="fas fa-ice-cream mr-3 bk-yellow-text"></i> Sobremesas
         </h3>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          <div class="menu-item bg-white p-4 rounded-lg shadow-nu-light flex">
+          <div class="menu-item bg-white p-4 rounded-lg shadow-bk flex">
             <div class="w-24 h-24 flex-shrink-0 mr-4">
               <img src="img/sundae.png" 
                    alt="Sundae" class="w-full h-full object-cover rounded-lg">
             </div>
             <div class="flex-grow">
-              <h4 class="font-bold text-nu-text-dark">Sundae</h4>
+              <h4 class="font-bold text-bk-dark-text">Sundae</h4>
               <p class="text-gray-600 text-sm my-1">Sorvete de baunilha com calda de chocolate, morango ou caramelo.</p>
               <div class="flex justify-between items-center mt-2">
-                <span class="nu-text-purple font-bold">R$ 5,00</span> <button class="add-to-cart btn-nu-accent hover:bg-nu-light-gray text-nu-text-purple w-8 h-8 rounded-full flex items-center justify-center transition duration-200"
+                <span class="bk-red-text font-bold">R$ 5,00</span> <button class="add-to-cart btn-bk-accent hover:opacity-90 text-bk-dark-text w-8 h-8 rounded-full flex items-center justify-center transition duration-200"
                         data-name="Sundae" data-price="5.00" data-description="Sorvete de baunilha com calda de chocolate, morango ou caramelo." data-image="img/sundae.png" data-original-price="25.00"> <i class="fas fa-plus"></i>
                 </button>
               </div>
             </div>
           </div>
-          <div class="menu-item bg-white p-4 rounded-lg shadow-nu-light flex">
+          <div class="menu-item bg-white p-4 rounded-lg shadow-bk flex">
             <div class="w-24 h-24 flex-shrink-0 mr-4">
               <img src="img/casquinha.png" 
                    alt="Casquinha" class="w-full h-full object-cover rounded-lg">
             </div>
             <div class="flex-grow">
-              <h4 class="font-bold text-nu-text-dark">Casquinha</h4>
+              <h4 class="font-bold text-bk-dark-text">Casquinha</h4>
               <p class="text-gray-600 text-sm my-1">Nosso delicioso sorvete de baunilha na casquinha crocante.</p>
               <div class="flex justify-between items-center mt-2">
-                <span class="nu-text-purple font-bold">R$ 5,00</span> <button class="add-to-cart btn-nu-accent hover:bg-nu-light-gray text-nu-text-purple w-8 h-8 rounded-full flex items-center justify-center transition duration-200"
+                <span class="bk-red-text font-bold">R$ 5,00</span> <button class="add-to-cart btn-bk-accent hover:opacity-90 text-bk-dark-text w-8 h-8 rounded-full flex items-center justify-center transition duration-200"
                         data-name="Casquinha" data-price="5.00" data-description="Nosso delicioso sorvete de baunilha na casquinha crocante." data-image="img/casquinha.png" data-original-price="25.00"> <i class="fas fa-plus"></i>
                 </button>
               </div>
@@ -497,35 +501,35 @@
       </div>
 
       <div id="bebidas" class="menu-category"> 
-        <h3 class="text-2xl font-bold text-nu-text-dark mb-6 flex items-center">
-          <i class="fas fa-mug-hot mr-3 nu-text-purple"></i> Bebidas
+        <h3 class="text-2xl font-bold text-bk-dark-text mb-6 flex items-center">
+          <i class="fas fa-mug-hot mr-3 bk-yellow-text"></i> Bebidas
         </h3>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          <div class="menu-item bg-white p-4 rounded-lg shadow-nu-light flex">
+          <div class="menu-item bg-white p-4 rounded-lg shadow-bk flex">
             <div class="w-24 h-24 flex-shrink-0 mr-4">
               <img src="img/refrigerante.png" 
                    alt="Refrigerante" class="w-full h-full object-cover rounded-lg">
             </div>
             <div class="flex-grow">
-              <h4 class="font-bold text-nu-text-dark">Refrigerante</h4>
+              <h4 class="font-bold text-bk-dark-text">Refrigerante</h4>
               <p class="text-gray-600 text-sm my-1">Diversos sabores de refrigerante para acompanhar seu pedido.</p>
               <div class="flex justify-between items-center mt-2">
-                <span class="nu-text-purple font-bold">R$ 5,00</span> <button class="add-to-cart btn-nu-accent hover:bg-nu-light-gray text-nu-text-purple w-8 h-8 rounded-full flex items-center justify-center transition duration-200"
+                <span class="bk-red-text font-bold">R$ 5,00</span> <button class="add-to-cart btn-bk-accent hover:opacity-90 text-bk-dark-text w-8 h-8 rounded-full flex items-center justify-center transition duration-200"
                         data-name="Refrigerante" data-price="5.00" data-description="Diversos sabores de refrigerante para acompanhar seu pedido." data-image="img/refrigerante.png" data-original-price="25.00"> <i class="fas fa-plus"></i>
                 </button>
               </div>
             </div>
           </div>
-          <div class="menu-item bg-white p-4 rounded-lg shadow-nu-light flex">
+          <div class="menu-item bg-white p-4 rounded-lg shadow-bk flex">
             <div class="w-24 h-24 flex-shrink-0 mr-4">
               <img src="img/suco.png" 
                    alt="Suco" class="w-full h-full object-cover rounded-lg">
             </div>
             <div class="flex-grow">
-              <h4 class="font-bold text-nu-text-dark">Suco</h4>
+              <h4 class="font-bold text-bk-dark-text">Suco</h4>
               <p class="text-gray-600 text-sm my-1">Sucos naturais e refrescantes de diversos sabores.</p>
               <div class="flex justify-between items-center mt-2">
-                <span class="nu-text-purple font-bold">R$ 5,00</span> <button class="add-to-cart btn-nu-accent hover:bg-nu-light-gray text-nu-text-purple w-8 h-8 rounded-full flex items-center justify-center transition duration-200"
+                <span class="bk-red-text font-bold">R$ 5,00</span> <button class="add-to-cart btn-bk-accent hover:opacity-90 text-bk-dark-text w-8 h-8 rounded-full flex items-center justify-center transition duration-200"
                         data-name="Suco" data-price="5.00" data-description="Sucos naturais e refrescantes de diversos sabores." data-image="img/suco.png" data-original-price="25.00"> <i class="fas fa-plus"></i>
                 </button>
               </div>
@@ -535,35 +539,35 @@
       </div>
 
       <div id="cafe" class="menu-category"> 
-        <h3 class="text-2xl font-bold text-nu-text-dark mb-6 flex items-center">
-          <i class="fas fa-coffee mr-3 nu-text-purple"></i> Café da Manhã
+        <h3 class="text-2xl font-bold text-bk-dark-text mb-6 flex items-center">
+          <i class="fas fa-coffee mr-3 bk-yellow-text"></i> Café da Manhã
         </h3>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <div class="menu-item bg-white p-4 rounded-lg shadow-nu-light flex">
+          <div class="menu-item bg-white p-4 rounded-lg shadow-bk flex">
             <div class="w-24 h-24 flex-shrink-0 mr-4">
               <img src="img/cafe.png" 
                    alt="Café" class="w-full h-full object-cover rounded-lg">
             </div>
             <div class="flex-grow">
-              <h4 class="font-bold text-nu-text-dark">Café</h4>
+              <h4 class="font-bold text-bk-dark-text">Café</h4>
               <p class="text-gray-600 text-sm my-1">Nosso café fresquinho e aromático para começar o dia.</p>
               <div class="flex justify-between items-center mt-2">
-                <span class="nu-text-purple font-bold">R$ 5,00</span> <button class="add-to-cart btn-nu-accent hover:bg-nu-light-gray text-nu-text-purple w-8 h-8 rounded-full flex items-center justify-center transition duration-200"
+                <span class="bk-red-text font-bold">R$ 5,00</span> <button class="add-to-cart btn-bk-accent hover:opacity-90 text-bk-dark-text w-8 h-8 rounded-full flex items-center justify-center transition duration-200"
                         data-name="Café" data-price="5.00" data-description="Nosso café fresquinho e aromático para começar o dia." data-image="img/cafe.png" data-original-price="25.00"> <i class="fas fa-plus"></i>
                 </button>
               </div>
             </div>
           </div>
-          <div class="menu-item bg-white p-4 rounded-lg shadow-nu-light flex">
+          <div class="menu-item bg-white p-4 rounded-lg shadow-bk flex">
             <div class="w-24 h-24 flex-shrink-0 mr-4">
               <img src="img/pao_de_queijo.png" 
                    alt="Pão de Queijo" class="w-full h-full object-cover rounded-lg">
             </div>
             <div class="flex-grow">
-              <h4 class="font-bold text-nu-text-dark">Pão de Queijo</h4>
+              <h4 class="font-bold text-bk-dark-text">Pão de Queijo</h4>
               <p class="text-gray-600 text-sm my-1">O tradicional pão de queijo quentinho e delicioso.</p>
               <div class="flex justify-between items-center mt-2">
-                <span class="nu-text-purple font-bold">R$ 5,00</span> <button class="add-to-cart btn-nu-accent hover:bg-nu-light-gray text-nu-text-purple w-8 h-8 rounded-full flex items-center justify-center transition duration-200"
+                <span class="bk-red-text font-bold">R$ 5,00</span> <button class="add-to-cart btn-bk-accent hover:opacity-90 text-bk-dark-text w-8 h-8 rounded-full flex items-center justify-center transition duration-200"
                         data-name="Pão de Queijo" data-price="5.00" data-description="O tradicional pão de queijo quentinho e delicioso." data-image="img/pao_de_queijo.png" data-original-price="25.00"> <i class="fas fa-plus"></i>
                 </button>
               </div>
@@ -574,73 +578,73 @@
     </div>
   </section>
 
-  <section id="delivery" class="menu-section py-16 nu-purple-main text-white shadow-bk">
+  <section id="delivery" class="menu-section py-16 bk-red-main text-white shadow-bk">
     <div class="container mx-auto px-4">
       <div class="flex flex-col md:flex-row items-center">
         <div class="md:w-1/2 mb-8 md:mb-0 md:pr-8">
-          <h2 class="text-3xl font-bold mb-4 uppercase tracking-wide">ENTREGA NU - RÁPIDA E TRANSPARENTE!</h2>
-          <p class="text-lg text-nu-text-light mb-6 font-light">Peça seus favoritos e receba-os com a conveniência que só o Nubank oferece!</p>
+          <h2 class="text-3xl font-bold mb-4 uppercase tracking-wide">BK DELIVERY - PEÇA ONLINE!</h2>
+          <p class="text-lg text-gray-200 mb-6 font-light">Peça seus favoritos do Burger King e receba-os quentinhos, direto na sua porta!</p>
           <div class="grid grid-cols-2 gap-4">
-            <a href="#" class="bg-white hover:bg-nu-light-gray nu-text-purple font-bold py-3 px-4 rounded-md text-center transition duration-300 shadow-nu-light flex justify-center items-center">
+            <a href="#" class="bg-gray-800 hover:bg-gray-900 text-white font-bold py-3 px-4 rounded-md text-center transition duration-300 shadow-bk flex justify-center items-center">
               <img src="img/ifood_logo.png" alt="Logo iFood" class="h-6 mr-2"> iFood
             </a>
-            <a href="#" class="bg-white hover:bg-nu-light-gray nu-text-purple font-bold py-3 px-4 rounded-md text-center transition duration-300 shadow-nu-light flex justify-center items-center">
+            <a href="#" class="bg-gray-800 hover:bg-gray-900 text-white font-bold py-3 px-4 rounded-md text-center transition duration-300 shadow-bk flex justify-center items-center">
               <img src="img/rappi_logo.png" alt="Logo Rappi" class="h-6 mr-2"> Rappi
             </a>
           </div>
         </div>
         <div class="md:w-1/2 flex justify-center">
           <img src="img/bk_delivery_banner.png" 
-               alt="Entrega Nubank" 
+               alt="BK Delivery" 
                class="w-full max-w-md hover:scale-105 transition duration-300">
         </div>
       </div>
     </div>
   </section>
 
-  <footer class="bg-nu-text-dark text-white pt-12 pb-6">
+  <footer class="bg-bk-dark-text text-white pt-12 pb-6">
     <div class="container mx-auto px-4">
       <div class="flex flex-col md:flex-row justify-between items-center mb-4">
-        <h3 class="font-extrabold text-lg mb-2 md:mb-0 uppercase tracking-wide">NUBANK DELIVERY</h3>
+        <h3 class="font-extrabold text-lg mb-2 md:mb-0 uppercase tracking-wide">BURGER KING</h3>
         <div class="flex space-x-4">
-          <a href="#" class="bg-gray-700 hover:bg-white hover:text-nu-purple-main w-10 h-10 rounded-full flex items-center justify-center transition duration-300" aria-label="Facebook">
+          <a href="#" class="bg-gray-700 hover:bg-white hover:text-bk-red-main w-10 h-10 rounded-full flex items-center justify-center transition duration-300" aria-label="Facebook">
             <i class="fab fa-facebook-f"></i>
           </a>
-          <a href="#" class="bg-gray-700 hover:bg-white hover:text-nu-purple-main w-10 h-10 rounded-full flex items-center justify-center transition duration-300" aria-label="Instagram">
+          <a href="#" class="bg-gray-700 hover:bg-white hover:text-bk-red-main w-10 h-10 rounded-full flex items-center justify-center transition duration-300" aria-label="Instagram">
             <i class="fab fa-instagram"></i>
           </a>
-          <a href="#" class="bg-gray-700 hover:bg-white hover:text-nu-purple-main w-10 h-10 rounded-full flex items-center justify-center transition duration-300" aria-label="Twitter">
+          <a href="#" class="bg-gray-700 hover:bg-white hover:text-bk-red-main w-10 h-10 rounded-full flex items-center justify-center transition duration-300" aria-label="Twitter">
             <i class="fab fa-twitter"></i>
           </a>
         </div>
       </div>
       <div class="pt-6 border-t border-gray-700 text-center">
         <p class="text-gray-400 text-sm">
-          © <span id="current-year"></span> Nubank Delivery. Todos os direitos reservados.
+          © <span id="current-year"></span> Burger King Brasil. Todos os direitos reservados.
           <br class="md:hidden">
-          Sua comida, do seu jeito.
+          TM & © 2025 Burger King Corporation. Todos os direitos reservados.
         </p>
       </div>
     </div>
   </footer>
 
   <div class="fixed bottom-6 right-6 z-50">
-    <button id="cart-button" class="bg-white w-16 h-16 rounded-full shadow-lg flex items-center justify-center text-nu-text-dark relative hover:scale-110 transition duration-300">
+    <button id="cart-button" class="bg-white w-16 h-16 rounded-full shadow-lg flex items-center justify-center text-bk-dark-text relative hover:scale-110 transition duration-300">
       <i class="fas fa-shopping-bag text-2xl"></i>
-      <span id="cart-count" class="absolute -top-1 -right-1 nu-purple-main text-white text-xs font-bold w-5 h-5 flex items-center justify-center rounded-full">0</span>
+      <span id="cart-count" class="absolute -top-1 -right-1 bk-red-main text-white text-xs font-bold w-5 h-5 flex items-center justify-center rounded-full">0</span>
     </button>
     
-    <div id="cart-dropdown" class="hidden absolute bottom-16 right-0 w-72 bg-white rounded-lg shadow-nu-light border border-gray-700 p-4">
-      <h3 class="font-bold mb-3 text-nu-text-dark">Seu Pedido</h3>
+    <div id="cart-dropdown" class="hidden absolute bottom-16 right-0 w-72 bg-white rounded-lg shadow-bk border border-gray-700 p-4">
+      <h3 class="font-bold mb-3 text-bk-dark-text">Seu Pedido</h3>
       <div id="cart-items" class="mb-4 max-h-60 overflow-y-auto">
         <p class="text-gray-500 text-sm py-4 text-center">Seu carrinho está vazio</p>
       </div>
-      <div class="border-t border-gray-200 pt-3">
-        <div class="flex justify-between font-bold mb-3 text-nu-text-dark">
+      <div class="border-t border-gray-700 pt-3">
+        <div class="flex justify-between font-bold mb-3 text-bk-dark-text">
           <span>Total:</span>
           <span id="cart-total">R$ 0,00</span>
         </div>
-        <a href="#" class="block btn-nu-primary hover:opacity-90 text-white text-center py-2 rounded-lg font-medium transition duration-300">
+        <a href="#" class="block btn-bk-primary hover:opacity-90 text-white text-center py-2 rounded-lg font-medium transition duration-300">
           Finalizar Pedido
         </a>
       </div>
@@ -651,18 +655,18 @@
     <div class="modal-content">
       <button id="modal-close-btn" class="modal-close-btn">&times;</button>
       <img id="modal-image" src="" alt="Imagem do Produto" class="w-full h-48 object-contain mb-4 rounded-lg">
-      <h3 id="modal-name" class="text-2xl font-bold text-nu-text-dark mb-2"></h3>
+      <h3 id="modal-name" class="text-2xl font-bold text-bk-dark-text mb-2"></h3>
       <p id="modal-description" class="text-gray-600 text-sm mb-4"></p>
       <div class="flex justify-between items-center mb-4">
-        <span class="text-lg text-gray-500 line-through mr-2" id="modal-original-price-display"></span> <span class="text-3xl font-bold nu-text-purple" id="modal-price-display">R$ 0,00</span> <div class="quantity-selector">
+        <span class="text-lg text-gray-500 line-through mr-2" id="modal-original-price-display"></span> <span class="text-3xl font-bold bk-red-text" id="modal-price-display">R$ 0,00</span> <div class="quantity-selector">
           <button id="decrease-quantity" style="display: none;">-</button> <input type="number" id="quantity-input" value="1" min="1" readonly>
           <button id="increase-quantity" style="display: none;">+</button> </div>
       </div>
       <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-2">
-        <button id="modal-add-to-cart-btn" class="btn-nu-accent hover:bg-nu-light-gray text-nu-text-purple py-3 rounded-lg font-bold flex-grow">
+        <button id="modal-add-to-cart-btn" class="btn-bk-accent hover:opacity-90 text-bk-dark-text py-3 rounded-lg font-bold flex-grow">
           <i class="fas fa-cart-plus mr-2"></i> Adicionar ao Carrinho
         </button>
-        <button id="modal-finalize-order-btn" class="btn-nu-primary hover:opacity-90 text-white py-3 rounded-lg font-bold flex-grow">
+        <button id="modal-finalize-order-btn" class="btn-bk-primary hover:opacity-90 text-white py-3 rounded-lg font-bold flex-grow">
           <i class="fas fa-check-circle mr-2"></i> Finalizar Pedido
         </button>
       </div>
@@ -672,7 +676,7 @@
   <div id="checkout-modal-overlay" class="modal-overlay">
     <div class="modal-content">
       <button id="checkout-close-btn" class="modal-close-btn">&times;</button>
-      <h3 class="text-2xl font-bold text-nu-text-dark mb-4">Finalizar Pedido</h3>
+      <h3 class="text-2xl font-bold text-bk-dark-text mb-4">Finalizar Pedido</h3>
       <form id="checkout-form" class="checkout-form">
         <label for="checkout-name">Nome Completo:</label>
         <input type="text" id="checkout-name" required>
@@ -714,7 +718,7 @@
         <label for="checkout-cep">CEP:</label>
         <input type="text" id="checkout-cep" required>
 
-        <button type="submit" id="submit-order-btn" class="btn-nu-primary w-full py-3 mt-4">
+        <button type="submit" id="submit-order-btn" class="btn-bk-primary w-full py-3 mt-4">
           Enviar Pedido
         </button>
       </form>
@@ -749,12 +753,12 @@
             if (button) { 
                 button.addEventListener('click', () => {
                     categoryButtons.forEach(btn => {
-                      btn.classList.remove('btn-nu-primary', 'text-white'); 
-                      btn.classList.add('bg-gray-200', 'hover:bg-gray-300', 'text-nu-text-dark'); 
+                      btn.classList.remove('btn-bk-primary', 'text-white'); 
+                      btn.classList.add('bg-gray-200', 'hover:bg-gray-300', 'text-bk-dark-text'); 
                     });
                     
-                    button.classList.remove('bg-gray-200', 'hover:bg-gray-300', 'text-nu-text-dark'); 
-                    button.classList.add('btn-nu-primary', 'text-white'); 
+                    button.classList.remove('bg-gray-200', 'hover:bg-gray-300', 'text-bk-dark-text'); 
+                    button.classList.add('btn-bk-primary', 'text-white'); 
                     
                     // LÓGICA DE ESCONDER/MOSTRAR CATEGORIAS REMOVIDA PARA MOSTRAR TODAS POR PADRÃO.
                     // A rolagem para a categoria clicada permanece.
@@ -983,14 +987,14 @@
       cartTotal.textContent = `R$ ${currentTotal.toFixed(2).replace('.', ',')}`;
 
       // Validação de Pedido Mínimo no JS (NOVO)
-      const finalizeOrderDropdownBtn = document.querySelector('#cart-dropdown .btn-nu-primary'); // Ajustado para btn-nu-primary
+      const finalizeOrderDropdownBtn = document.querySelector('#cart-dropdown .btn-nu-primary'); 
       if (finalizeOrderDropdownBtn) {
           if (currentTotal < 20.00) { // Pedido mínimo de R$ 20,00
-              finalizeOrderDropdownBtn.classList.add('opacity-50', 'pointer-events-none'); // Desabilita visualmente e impede clique
-              finalizeOrderDropdownBtn.textContent = `Total Mínimo R$ 20,00`; // Mensagem no botão
+              finalizeOrderDropdownBtn.classList.add('opacity-50', 'pointer-events-none'); 
+              finalizeOrderDropdownBtn.textContent = `Total Mínimo R$ 20,00`; 
           } else {
               finalizeOrderDropdownBtn.classList.remove('opacity-50', 'pointer-events-none');
-              finalizeOrderDropdownBtn.innerHTML = `Finalizar Pedido`; // Restaura texto
+              finalizeOrderDropdownBtn.innerHTML = `Finalizar Pedido`; 
           }
       }
     }
@@ -1078,7 +1082,7 @@
     }
 
     // Adiciona listener para o botão "Finalizar Pedido" no DROPDOWN do carrinho
-    const finalizeOrderDropdownBtn = document.querySelector('#cart-dropdown .btn-nu-primary'); // Ajustado para btn-nu-primary
+    const finalizeOrderDropdownBtn = document.querySelector('#cart-dropdown .btn-nu-primary'); 
     if (finalizeOrderDropdownBtn) {
         finalizeOrderDropdownBtn.addEventListener('click', () => {
             if (cart.length === 0) {

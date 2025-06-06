@@ -69,7 +69,7 @@
         transition: all 0.2s ease;
     }
     .category-btn.active {
-        background-color: #8A05BE; /* Roxo Nubank para ativo */
+        background-color: #8A05BE; 
         color: white;
         box-shadow: 0 4px 10px rgba(0,0,0,0.15);
     }
@@ -582,10 +582,10 @@
           <p class="text-lg text-nu-text-light mb-6 font-light">Peça seus favoritos e receba-os com a conveniência que só o Nubank oferece!</p>
           <div class="grid grid-cols-2 gap-4">
             <a href="#" class="bg-white hover:bg-nu-light-gray nu-text-purple font-bold py-3 px-4 rounded-md text-center transition duration-300 shadow-nu-light flex justify-center items-center">
-              <img src="img/ifood_logo.png" alt="Logo iFood" class="h-6 mr-2" style="filter: hue-rotate(240deg) saturate(1.5) brightness(0.8);"> iFood
+              <img src="img/ifood_logo.png" alt="Logo iFood" class="h-6 mr-2"> iFood
             </a>
             <a href="#" class="bg-white hover:bg-nu-light-gray nu-text-purple font-bold py-3 px-4 rounded-md text-center transition duration-300 shadow-nu-light flex justify-center items-center">
-              <img src="img/rappi_logo.png" alt="Logo Rappi" class="h-6 mr-2" style="filter: hue-rotate(240deg) saturate(1.5) brightness(0.8);"> Rappi
+              <img src="img/rappi_logo.png" alt="Logo Rappi" class="h-6 mr-2"> Rappi
             </a>
           </div>
         </div>
@@ -630,7 +630,7 @@
       <span id="cart-count" class="absolute -top-1 -right-1 nu-purple-main text-white text-xs font-bold w-5 h-5 flex items-center justify-center rounded-full">0</span>
     </button>
     
-    <div id="cart-dropdown" class="hidden absolute bottom-16 right-0 w-72 bg-white rounded-lg shadow-nu-light border border-gray-200 p-4">
+    <div id="cart-dropdown" class="hidden absolute bottom-16 right-0 w-72 bg-white rounded-lg shadow-nu-light border border-gray-700 p-4">
       <h3 class="font-bold mb-3 text-nu-text-dark">Seu Pedido</h3>
       <div id="cart-items" class="mb-4 max-h-60 overflow-y-auto">
         <p class="text-gray-500 text-sm py-4 text-center">Seu carrinho está vazio</p>
@@ -945,10 +945,10 @@
           // GARANTIDO COM CRASES CORRETAS
           itemElement.innerHTML = `
             <div>
-              <p class="font-medium text-nu-text-dark">${item.name} <span class="text-gray-500 text-sm">x${item.quantity}</span></p>
-              <p class="text-sm text-gray-500">R$ ${(item.price * item.quantity).toFixed(2).replace('.', ',')}</p>
-            </div>
-            <button class="remove-item text-red-500 p-1 rounded-full hover:bg-red-100" data-index="${index}" aria-label="Remover item">
+              <p class="font-medium text-nu-text-dark"><span class="math-inline">\{item\.name\} <span class\="text\-gray\-500 text\-sm"\>x</span>{item.quantity}</span></p>
+              <p class="text-sm text-gray-500">R$ <span class="math-inline">\{\(item\.price \* item\.quantity\)\.toFixed\(2\)\.replace\('\.', ','\)\}</p\>
+</div\>
+<button class\="remove\-item text\-red\-500 p\-1 rounded\-full hover\:bg\-red\-100" data\-index\="</span>{index}" aria-label="Remover item">
               <i class="fas fa-times"></i>
             </button>
           `; 
@@ -1107,7 +1107,7 @@
         if (!countdownDays || !countdownHours || !countdownMinutes || !countdownSeconds) return; 
 
         // Defina a data e hora final da sua Oferta (Exemplo: daqui a 10 dias)
-        const offerEndDate = new Date('June 16, 2025 23:59:59').getTime(); // Data atualizada para o contexto
+        const offerEndDate = new Date('June 16, 2025 23:59:59').getTime(); 
 
         const countdownInterval = setInterval(function() {
             const now = new Date().getTime();

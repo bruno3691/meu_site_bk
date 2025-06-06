@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nubank Delivery - Sua Experiência no Roxo!</title> 
+  <title>Burger King Brasil - Peça Já seu Delivery!</title> 
   
   <meta http-equiv="Content-Security-Policy" content="
     default-src 'self';
@@ -24,39 +24,42 @@
   <link rel="stylesheet" href="assets/css/all.min.css">
   
   <style>
-    /* NOVA PALETA DE CORES: NUBANK (Roxo e Branco) */
-    .nu-purple-main { 
-        background-color: #8A05BE; /* Roxo Nubank */
+    /* PALETA DE CORES: Burger King com Estilo Simplificado */
+    .bk-red-main { 
+        background-color: #BD0000;
     }
-    .nu-purple-dark { 
-        background-color: #6A0499; /* Roxo mais escuro para hover */
+    .bk-red-dark { 
+        background-color: #990000;
     }
-    .nu-white-main { 
-        background-color: #FFFFFF; /* Branco principal */
+    .bk-yellow-main { 
+        background-color: #FFC000;
     }
-    .nu-light-gray { 
-        background-color: #F5F5F5; /* Cinza claro suave */
+    .bk-orange-accent { 
+        background-color: #E47911;
     }
-    .nu-text-dark { 
-        color: #4A4A4A; /* Cinza escuro para texto */
+    .bk-dark-text { 
+        color: #333333;
     }
-    .nu-text-purple { 
-        color: #8A05BE; /* Roxo Nubank para texto */
+    .bk-light-text { 
+        color: #E0E0E0;
     }
-    .nu-text-light { 
-        color: #F8F8F8; /* Branco para texto em fundos escuros */
+    .bk-bg-neutral { 
+        background-color: #F8F8F8; 
     }
-    .nu-shadow-light { /* Sombra mais sutil */
-        box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    .bk-bg-section { 
+        background-color: #EEEEEE; 
+    }
+    .shadow-bk { 
+        box-shadow: 0 10px 30px rgba(0,0,0,0.25);
         border-radius: 8px; 
     }
     .card-hover:hover {
-      transform: translateY(-5px); 
-      box-shadow: 0 10px 20px rgba(0,0,0,0.12);
+      transform: translateY(-8px) scale(1.03);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.35);
     }
     .menu-item {
         border-radius: 8px; 
-        box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     }
     .menu-item:not(:last-child) {
       border-bottom: none; 
@@ -69,32 +72,31 @@
         transition: all 0.2s ease;
     }
     .category-btn.active {
-        background-color: #8A05BE; /* Roxo Nubank para ativo */
+        background-color: #BD0000; 
         color: white;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        box-shadow: 0 4px 10px rgba(0,0,0,0.2);
     }
     .navbar-shadow {
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05); 
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1); 
     }
-    .btn-nu-primary { /* Botão principal roxo */
-        background-color: #8A05BE;
+    .btn-bk-primary { 
+        background-color: #BD0000;
         color: white;
         border-radius: 8px;
         font-weight: 700;
         text-transform: uppercase;
         letter-spacing: 0.05em;
     }
-    .btn-nu-primary:hover {
-        background-color: #6A0499;
+    .btn-bk-primary:hover {
+        background-color: #990000;
     }
-    .btn-nu-accent { /* Botão de destaque branco/claro */
-        background-color: #FFFFFF;
-        color: #8A05BE; 
+    .btn-bk-accent { 
+        background: linear-gradient(135deg, #FFC000 0%, #E47911 100%);
+        color: #333333; 
         border-radius: 8px;
-        border: 1px solid #8A05BE; /* Borda roxa */
     }
-    .btn-nu-accent:hover {
-        background-color: #F5F5F5;
+    .btn-bk-accent:hover {
+        opacity: 0.9;
     }
 
     /* Estilos dos Popups */
@@ -189,16 +191,16 @@
 
     /* Contador Regressivo */
     .countdown-container {
-        background-color: #4A4A4A; /* Cinza escuro para fundo do contador */
+        background-color: #000;
         padding: 1.5rem;
         border-radius: 10px;
         margin-top: 2rem;
-        box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.5);
         text-align: center;
     }
     .countdown-label {
         font-size: 0.9rem;
-        color: #BD0000; /* Vermelho forte para destaque */
+        color: #FF6347; /* Laranja/Vermelho para destaque */
         text-transform: uppercase;
         font-weight: bold;
         letter-spacing: 0.1em;
@@ -540,7 +542,7 @@
         <h3 class="text-2xl font-bold text-nu-text-dark mb-6 flex items-center">
           <i class="fas fa-coffee mr-3 nu-text-purple"></i> Café da Manhã
         </h3>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           <div class="menu-item bg-white p-4 rounded-lg shadow-nu-light flex">
             <div class="w-24 h-24 flex-shrink-0 mr-4">
               <img src="img/cafe.png" 

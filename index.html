@@ -3,7 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Burger King Brasil - Peça Já seu Delivery!</title> <meta http-equiv="Content-Security-Policy" content="
+  <title>Burger King Brasil - Peça Já seu Delivery!</title> 
+  
+  <meta http-equiv="Content-Security-Policy" content="
     default-src 'self';
     script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com;
     style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
@@ -97,7 +99,7 @@
         opacity: 0.9;
     }
 
-    /* Estilos dos Popups */
+    /* Estilos do Popup */
     .modal-overlay {
         position: fixed;
         top: 0;
@@ -263,10 +265,10 @@
     <div class="bk-red-main bg-opacity-90 pt-16 pb-24 px-4 shadow-bk">
       <div class="container mx-auto flex flex-col md:flex-row items-center">
         <div class="md:w-1/2 text-center md:text-left mb-8 md:mb-0">
-          <h2 class="text-4xl md:text-5xl font-extrabold text-white mb-4 uppercase tracking-wider"> Preço Baixo.
-
-"Economia" para quem só busca BK!</h2>
-          <p class="text-xl text-gray-200 mb-6 font-light">Essa oferta não volta. Garanta antes que acabe.</p>
+          <h2 class="text-4xl md:text-5xl font-extrabold text-white mb-4 uppercase tracking-wider">Preço Baixo. "Economia" para quem só busca BK!</h2>
+          <p class="text-xl text-gray-200 mb-6 font-light">
+            Essa oferta não volta. Garanta antes que acabe.
+          </p>
           
           <div class="countdown-container">
               <p class="countdown-label">OFERTA EXPIRA EM:</p>
@@ -284,7 +286,7 @@
 
           <div class="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4 justify-center md:justify-start mt-8">
             <a href="#cardapio" class="btn-bk-accent px-6 py-3 rounded-md font-medium transition duration-300 shadow-lg">
-              PEGAR MINHA OFERTA AGORA!
+              VER CARDÁPIO AGORA
             </a>
           </div>
         </div>
@@ -944,10 +946,10 @@
           // AQUI ESTÁ A LINHA CRÍTICA COM AS CRASES CORRETAS
           itemElement.innerHTML = `
             <div>
-              <p class="font-medium text-bk-dark-text"><span class="math-inline">\{item\.name\} <span class\="text\-gray\-500 text\-sm"\>x</span>{item.quantity}</span></p>
-              <p class="text-sm text-gray-500">R$ <span class="math-inline">\{\(item\.price \* item\.quantity\)\.toFixed\(2\)\.replace\('\.', ','\)\}</p\>
-</div\>
-<button class\="remove\-item text\-red\-500 p\-1 rounded\-full hover\:bg\-red\-100" data\-index\="</span>{index}" aria-label="Remover item">
+              <p class="font-medium text-bk-dark-text">${item.name} <span class="text-gray-500 text-sm">x${item.quantity}</span></p>
+              <p class="text-sm text-gray-500">R$ ${(item.price * item.quantity).toFixed(2).replace('.', ',')}</p>
+            </div>
+            <button class="remove-item text-red-500 p-1 rounded-full hover:bg-red-100" data-index="${index}" aria-label="Remover item">
               <i class="fas fa-times"></i>
             </button>
           `; // FIM DA LINHA CRÍTICA
@@ -1079,10 +1081,9 @@
         const countdownMinutes = document.getElementById('countdown-minutes');
         const countdownSeconds = document.getElementById('countdown-seconds');
 
-        if (!countdownDays || !countdownHours || !countdownMinutes || !countdownSeconds) return; // Garante que os elementos existam
+        if (!countdownDays || !countdownHours || !countdownMinutes || !countdownSeconds) return; 
 
-        // Defina a data e hora final da sua Oferta Black Malandragem (Exemplo: 10 dias a partir de 05/06/2025 18:01:02 -03)
-        // Isso fará o contador terminar em 15 de junho de 2025, 23:59:59
+        // Defina a data e hora final da sua Oferta Black Malandragem 
         const blackMalandragemDate = new Date('June 15, 2025 23:59:59').getTime(); 
 
         const countdownInterval = setInterval(function() {
@@ -1123,8 +1124,8 @@
         let mouseLeaveTriggered = false; 
 
         document.addEventListener('mouseout', (e) => {
-            if (e.clientY < 10 && !mouseLeaveTriggered) { // Se o mouse sair pelo topo da janela
-                if (cart.length > 0) { // Só mostra se tiver itens no carrinho
+            if (e.clientY < 10 && !mouseLeaveTriggered) { 
+                if (cart.length > 0) { 
                     exitIntentPopup.classList.add('active');
                     mouseLeaveTriggered = true;
                 }
@@ -1151,7 +1152,7 @@
     // Chama as funções no carregamento da página
     document.addEventListener('DOMContentLoaded', () => {
         loadCart();
-        startBlackMalandragemCountdown(); // Inicia o contador
+        startBlackMalandragemCountdown(); 
     });
 
   </script>

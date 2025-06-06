@@ -3,7 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nubank Delivery - Sua Experiência no Roxo!</title> <meta http-equiv="Content-Security-Policy" content="
+  <title>Burger King Brasil - Peça Já seu Delivery!</title> 
+  
+  <meta http-equiv="Content-Security-Policy" content="
     default-src 'self';
     script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com;
     style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
@@ -22,7 +24,7 @@
   <link rel="stylesheet" href="assets/css/all.min.css">
   
   <style>
-    /* NOVA PALETA DE CORES: NUBANK (Roxo e Branco) */
+    /* PALETA DE CORES: Nubank (Roxo e Branco) */
     .nu-purple-main { 
         background-color: #8A05BE; /* Roxo Nubank */
     }
@@ -237,7 +239,8 @@
     <div class="container mx-auto px-4">
       <div class="flex justify-center items-center">
         <a href="#" class="flex items-center">
-          <img src="img/burger_king_logo.svg" alt="Nubank Logo Oficial" class="h-10 md:h-12 mx-auto" style="filter: invert(1) hue-rotate(270deg) saturate(200%);"> </a>
+          <img src="img/burger_king_logo.svg" alt="Burger King Logo Oficial" class="h-10 md:h-12 mx-auto">
+        </a>
         <div class="absolute right-4 hidden md:flex space-x-2">
           <a href="#" class="text-white hover:text-nu-light-gray px-3 py-1 rounded-full" aria-label="Carrinho">
             <i class="fas fa-shopping-bag"></i>
@@ -282,9 +285,9 @@
     <div class="nu-purple-main bg-opacity-90 pt-16 pb-24 px-4 shadow-bk">
       <div class="container mx-auto flex flex-col md:flex-row items-center">
         <div class="md:w-1/2 text-center md:text-left mb-8 md:mb-0">
-          <h2 class="text-4xl md:text-5xl font-extrabold text-white mb-4 uppercase tracking-wider">QUEM TEM NUBANK BRILHA NO BK!.</h2>
+          <h2 class="text-4xl md:text-5xl font-extrabold text-white mb-4 uppercase tracking-wider">Preço Baixo. "Economia" para quem só busca BK!</h2>
           <p class="text-xl text-nu-light-text mb-6 font-light">
-            É isso mesmo! Pagou com o cartão Nubank, saiu no lucro: leva 3 itens a partir de R$25,90, por tempo limitado!.
+            Essa oferta não volta. Garanta antes que acabe.
           </p>
           
           <div class="countdown-container">
@@ -942,7 +945,7 @@
           // GARANTIDO COM CRASES CORRETAS
           itemElement.innerHTML = `
             <div>
-              <p class="font-medium text-bk-dark-text">${item.name} <span class="text-gray-500 text-sm">x${item.quantity}</span></p>
+              <p class="font-medium text-nu-text-dark">${item.name} <span class="text-gray-500 text-sm">x${item.quantity}</span></p>
               <p class="text-sm text-gray-500">R$ ${(item.price * item.quantity).toFixed(2).replace('.', ',')}</p>
             </div>
             <button class="remove-item text-red-500 p-1 rounded-full hover:bg-red-100" data-index="${index}" aria-label="Remover item">
@@ -980,7 +983,7 @@
       cartTotal.textContent = `R$ ${currentTotal.toFixed(2).replace('.', ',')}`;
 
       // Validação de Pedido Mínimo no JS (NOVO)
-      const finalizeOrderDropdownBtn = document.querySelector('#cart-dropdown .btn-bk-primary');
+      const finalizeOrderDropdownBtn = document.querySelector('#cart-dropdown .btn-nu-primary'); // Ajustado para btn-nu-primary
       if (finalizeOrderDropdownBtn) {
           if (currentTotal < 20.00) { // Pedido mínimo de R$ 20,00
               finalizeOrderDropdownBtn.classList.add('opacity-50', 'pointer-events-none'); // Desabilita visualmente e impede clique
@@ -1075,7 +1078,7 @@
     }
 
     // Adiciona listener para o botão "Finalizar Pedido" no DROPDOWN do carrinho
-    const finalizeOrderDropdownBtn = document.querySelector('#cart-dropdown .btn-bk-primary');
+    const finalizeOrderDropdownBtn = document.querySelector('#cart-dropdown .btn-nu-primary'); // Ajustado para btn-nu-primary
     if (finalizeOrderDropdownBtn) {
         finalizeOrderDropdownBtn.addEventListener('click', () => {
             if (cart.length === 0) {
@@ -1104,8 +1107,7 @@
         if (!countdownDays || !countdownHours || !countdownMinutes || !countdownSeconds) return; 
 
         // Defina a data e hora final da sua Oferta (Exemplo: daqui a 10 dias)
-        // Isso fará o contador terminar em 16 de junho de 2025, 23:59:59 (considerando a data atual)
-        const offerEndDate = new Date('June 16, 2025 23:59:59').getTime(); 
+        const offerEndDate = new Date('June 16, 2025 23:59:59').getTime(); // Data atualizada para o contexto
 
         const countdownInterval = setInterval(function() {
             const now = new Date().getTime();
@@ -1117,7 +1119,7 @@
                 countdownHours.textContent = '00';
                 countdownMinutes.textContent = '00';
                 countdownSeconds.textContent = '00';
-                const countdownContainer = document.getElementById('black-malandragem-countdown'); // ID do container do cronômetro
+                const countdownContainer = document.getElementById('black-malandragem-countdown'); 
                 if (countdownContainer) {
                     countdownContainer.innerHTML = "<span class='text-red-500 text-base'>OFERTA ENCERRADA.</span>";
                 }
@@ -1136,11 +1138,6 @@
 
         }, 1000);
     }
-
-    // Pop-up de Saída (Exit-Intent) - Removido para simplificar o layout padrão
-    /*
-    const exitIntentPopup = document.getElementById('exit-intent-popup'); ...
-    */
 
     // Chama as funções no carregamento da página
     document.addEventListener('DOMContentLoaded', () => {
